@@ -1,6 +1,6 @@
 <?php
 
-namespace {{ namespace }};
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Spatie\Activitylog\LogOptions;
@@ -10,12 +10,20 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 
 
-class {{ class }} extends Model
+class Members extends Model
 {
     use HasFactory;
     use LogsActivity;
 
-    public $fillable = [];
+    public $fillable = [
+        'name',
+        'email',
+        'phone',
+        'department',
+        'designation',
+        'workplace',
+        'photo',
+    ];
 
     protected static $logAttributes = ['*'];
 
@@ -32,6 +40,6 @@ class {{ class }} extends Model
     {
         return LogOptions::defaults()
             ->logOnly(['*'])
-            ->useLogName("{{ class }}");
+            ->useLogName("Members");
     }
 }
