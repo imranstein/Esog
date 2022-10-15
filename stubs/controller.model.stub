@@ -1,0 +1,62 @@
+<?php
+
+namespace {{ namespace }};
+
+use {{ namespacedModel }};
+use Illuminate\Http\Request;
+use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\Auth;
+
+
+class {{ class }}
+{
+    public function index()
+    {
+    }
+
+    public function create()
+    {
+    }
+
+    public function store(Request $request)
+    {
+        $validated = $request->validate([
+
+        ]);
+
+        ${{ modelVariable }} = {{ model }}::create($validated);
+
+        return redirect()->route('{{ route }}.show', ${{ modelVariable }})->with('success', 'Created successfully.');
+    }
+
+    public function show($id)
+    {
+        ${{ modelVariable }} = {{ model }}::findOrFail($id);
+    }
+
+    public function edit($id)
+    {
+        ${{ modelVariable }} = {{ model }}::findOrFail($id);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $validated = $request->validate([
+
+        ]);
+
+        ${{ modelVariable }} = {{ model }}::findOrFail($id);
+
+        ${{ modelVariable }}->update($validated);
+
+        return redirect()->route('{{ route }}.show', ${{ modelVariable }})->with('success', 'Updated successfully.');
+    }
+
+    public function destroy($id)
+    {
+        ${{ modelVariable }} = {{ model }}::findOrFail($id);
+        ${{ modelVariable }}->delete();
+        return redirect()->route('{{ route }}.show', ${{ modelVariable }})->with('success', 'Created successfully.');
+
+    }
+}
