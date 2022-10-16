@@ -44,10 +44,10 @@ final class MemberTable extends PowerGridComponent
     */
 
     /**
-    * PowerGrid datasource.
-    *
-    * @return Builder<\App\Models\Members>
-    */
+     * PowerGrid datasource.
+     *
+     * @return Builder<\App\Models\Members>
+     */
     public function datasource(): Builder
     {
         return Members::query();
@@ -88,7 +88,7 @@ final class MemberTable extends PowerGridComponent
             ->addColumn('id')
             ->addColumn('name')
 
-           /** Example of custom column using a closure **/
+            /** Example of custom column using a closure **/
             ->addColumn('name_lower', function (Members $model) {
                 return strtolower(e($model->name));
             })
@@ -98,9 +98,11 @@ final class MemberTable extends PowerGridComponent
             ->addColumn('department')
             ->addColumn('designation')
             ->addColumn('workplace')
-            ->addColumn('photo')
-            ->addColumn('created_at_formatted', fn (Members $model) => Carbon::parse($model->created_at)->format('d/m/Y H:i:s'))
-            ->addColumn('updated_at_formatted', fn (Members $model) => Carbon::parse($model->updated_at)->format('d/m/Y H:i:s'));
+            ->addColumn('photo', function (Members $model) {
+                return '<a href="' . e($model->photo) . '" target="blank"><img src="' . e($model->photo) . '" width="70" height="50" /></a>';
+            })
+            ->addColumn('created_at_formatted', fn (Members $model) => Carbon::parse($model->created_at)->format('d/m/Y H:i:s'));
+        // ->addColumn('updated_at_formatted', fn (Members $model) => Carbon::parse($model->updated_at)->format('d/m/Y H:i:s'));
     }
 
     /*
@@ -112,7 +114,7 @@ final class MemberTable extends PowerGridComponent
     |
     */
 
-     /**
+    /**
      * PowerGrid Columns.
      *
      * @return array<int, Column>
@@ -120,56 +122,44 @@ final class MemberTable extends PowerGridComponent
     public function columns(): array
     {
         return [
-            Column::make('ID', 'id')
-                ->makeInputRange(),
+            Column::make('ID', 'id'),
 
             Column::make('NAME', 'name')
                 ->sortable()
-                ->searchable()
-                ->makeInputText(),
+                ->searchable(),
 
             Column::make('EMAIL', 'email')
                 ->sortable()
-                ->searchable()
-                ->makeInputText(),
+                ->searchable(),
 
             Column::make('PHONE', 'phone')
                 ->sortable()
-                ->searchable()
-                ->makeInputText(),
+                ->searchable(),
 
             Column::make('DEPARTMENT', 'department')
                 ->sortable()
-                ->searchable()
-                ->makeInputText(),
+                ->searchable(),
 
             Column::make('DESIGNATION', 'designation')
                 ->sortable()
-                ->searchable()
-                ->makeInputText(),
+                ->searchable(),
 
             Column::make('WORKPLACE', 'workplace')
                 ->sortable()
-                ->searchable()
-                ->makeInputText(),
+                ->searchable(),
 
-            Column::make('PHOTO', 'photo')
-                ->sortable()
-                ->searchable()
-                ->makeInputText(),
+            Column::make('PHOTO', 'photo'),
 
-            Column::make('CREATED AT', 'created_at_formatted', 'created_at')
-                ->searchable()
-                ->sortable()
-                ->makeInputDatePicker(),
+            // Column::make('CREATED AT', 'created_at_formatted', 'created_at')
+            //     ->searchable()
+            //     ->sortable(),
 
-            Column::make('UPDATED AT', 'updated_at_formatted', 'updated_at')
-                ->searchable()
-                ->sortable()
-                ->makeInputDatePicker(),
+            // Column::make('UPDATED AT', 'updated_at_formatted', 'updated_at')
+            //     ->searchable()
+            //     ->sortable()
+            //     ->makeInputDatePicker(),
 
-        ]
-;
+        ];
     }
 
     /*
@@ -180,27 +170,29 @@ final class MemberTable extends PowerGridComponent
     |
     */
 
-     /**
+    /**
      * PowerGrid Members Action Buttons.
      *
      * @return array<int, Button>
      */
 
-    /*
+
     public function actions(): array
     {
-       return [
-           Button::make('edit', 'Edit')
-               ->class('bg-indigo-500 cursor-pointer text-white px-3 py-2.5 m-1 rounded text-sm')
-               ->route('members.edit', ['members' => 'id']),
+        return [
+            Button::make('edit', 'Edit')
+                ->class('btn btn-primary')
+                ->target('_self')
+                ->route('member.edit', ['member' => 'id']),
 
-           Button::make('destroy', 'Delete')
-               ->class('bg-red-500 cursor-pointer text-white px-3 py-2 m-1 rounded text-sm')
-               ->route('members.destroy', ['members' => 'id'])
-               ->method('delete')
+            Button::make('destroy', 'Delete')
+                ->route('member.destroy', ['member' => 'id'])
+                ->class('btn btn-danger')
+                ->target('_self')
+                ->method('delete')
         ];
     }
-    */
+
 
     /*
     |--------------------------------------------------------------------------
@@ -210,7 +202,7 @@ final class MemberTable extends PowerGridComponent
     |
     */
 
-     /**
+    /**
      * PowerGrid Members Action Rules.
      *
      * @return array<int, RuleActions>

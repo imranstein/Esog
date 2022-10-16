@@ -415,7 +415,7 @@
 
             <li class="nav-item {{ Request::is('member') ? 'active' :'' }}">
 
-                <a class="nav-link" href="member">
+                <a class="nav-link" href="/member">
 
 
                     <i style="color:black;" class="material-icons">groups</i>

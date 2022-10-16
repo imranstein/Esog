@@ -13,7 +13,7 @@
 
                             <div class="pull-left">
 
-                                <h2>Create @yield('title')</h2>
+                                <h2>@yield('type') @yield('title')</h2>
 
                             </div>
 
@@ -48,8 +48,16 @@
 
                     @endif
 
+                    <div class="card col-sm-8">
 
-                    @yield('form')
+                        <div class="card-body ">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    @yield('form')
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
                 </div>
             </div>
