@@ -11,6 +11,7 @@ class {{ class }}
 {
     public function index()
     {
+        $count = {{ model }}::count();
     }
 
     public function create()

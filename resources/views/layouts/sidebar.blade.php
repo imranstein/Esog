@@ -413,14 +413,14 @@
                 </a>
             </li>
 
-            <li class="nav-item {{ Request::is('students') ? 'active' :'' }}">
+            <li class="nav-item {{ Request::is('member') ? 'active' :'' }}">
 
-                <a class="nav-link" href="students">
+                <a class="nav-link" href="member">
 
 
                     <i style="color:black;" class="material-icons">groups</i>
 
-                    <p style="color:black;">Students</p>
+                    <p style="color:black;">Member</p>
                 </a>
             </li>
             {{-- <li class="nav-item">
