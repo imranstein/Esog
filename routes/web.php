@@ -18,7 +18,11 @@ use App\Http\Controllers\ProfileController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+// Front
+Route::get('/', function () {
+    return view('front.index');
+});
+//EndFront
 // Route::get('/', function () {
 //     return view('welcome');
 // });
@@ -32,7 +36,7 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
-    Route::get('/', function () {
+    Route::get('/home', function () {
         return view('dashboard');
     })->name('dashboard');
     Route::get('students', Students::class)->name('students');
