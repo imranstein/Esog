@@ -26,7 +26,7 @@
         <div class="row g-3">
             @foreach ($publications as $publication)
             <div class="profile-card-2">
-                <a href="/front-detail/{{ $publication->id }}/publication">
+                <a href="/front-detail/{{ $publication->id }}/Publication">
 
                     <img src="{{ $publication->image }}" class="img img-responsive">
                     <div class="profile-name">{{ $publication->author }}</div>

@@ -40,7 +40,7 @@
 
                             </small>
                         </div>
-                        <a class="h4 m-0 text-truncate me-4" href="">{{ $latest->title }}</a>
+                        <a class="h4 m-0 text-truncate me-4" href="/front-detail/{{ $latest->id }}/News">{{ $latest->title }}</a>
                     </div>
                     <div class="d-flex justify-content-between border-top border-secondary p-4">
                         <div class="d-flex align-items-center">
