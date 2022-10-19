@@ -1,37 +1,69 @@
 <?php
-
-namespace {{ namespace }};
+namespace App\Http\Controllers;
 
 use {{ namespacedModel }};
 use Illuminate\Http\Request;
+use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\Auth;
 
 class {{ class }}
 {
     public function index()
     {
+        $count = {{ model }}::count();
+
+        return view('{{ modelVariable }}.index', compact('count'));
     }
 
     public function create()
     {
+        return view('{{ modelVariable }}.create');
     }
 
     public function store(Request $request)
     {
+        $validated = $request->validate([
+
+        ]);
+
+        ${{ modelVariable }} = {{ model }}::create($validated);
+
+        return redirect()->route('{{ modelVariable }}.index')->with('success', '{{ model }} Created successfully');
+
     }
 
-    public function show({{ model }} ${{ modelVariable }})
+    public function show($id)
     {
+        ${{ modelVariable }} = {{ model }}::findOrFail($id);
     }
 
-    public function edit({{ model }} ${{ modelVariable }})
+    public function edit($id)
     {
+        ${{ modelVariable }} = {{ model }}::findOrFail($id);
+
+        return view('{{ modelVariable }}.edit', compact('{{ modelVariable }}'));
     }
 
-    public function update(Request $request, {{ model }} ${{ modelVariable }})
+    public function update(Request $request, $id)
     {
+        ${{ modelVariable }} = {{ model }}::findOrFail($id);
+
+        $validated = $request->validate([
+
+        ]);
+
+
+        ${{ modelVariable }}->update($validated);
+
+        return redirect()->route('{{ modelVariable }}.index')->with('update', '{{ model }} Updated successfully');
+
     }
 
-    public function destroy({{ model }} ${{ modelVariable }})
+    public function destroy($id)
     {
+        ${{ modelVariable }} = {{ model }}::findOrFail($id);
+        ${{ modelVariable }}->delete();
+
+        return redirect()->route('{{ modelVariable }}.index')->with('delete', '{{ model }} Deleted successfully');
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace {{ namespace }};
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Spatie\Activitylog\LogOptions;
@@ -10,12 +10,18 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 
 
-class {{ class }} extends Model
+class News extends Model
 {
     use HasFactory;
     use LogsActivity;
 
-    public $fillable = [];
+    public $fillable = [
+        'title',
+        'description',
+        'image',
+        'caption',
+        'created_by',
+    ];
 
     protected static $logAttributes = ['*'];
 
@@ -32,6 +38,6 @@ class {{ class }} extends Model
     {
         return LogOptions::defaults()
             ->logOnly(['*'])
-            ->useLogName("{{ class }}");
+            ->useLogName("News");
     }
 }
