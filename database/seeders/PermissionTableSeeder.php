@@ -34,13 +34,53 @@ class PermissionTableSeeder extends Seeder
 
             'user-delete',
 
-            'student-list',
+            'member-list',
 
-            'student-create',
+            'member-create',
 
-            'student-edit',
+            'member-edit',
 
-            'student-delete',
+            'member-delete',
+
+            'news-list',
+
+            'news-create',
+
+            'news-edit',
+
+            'news-delete',
+
+            'publication-list',
+
+            'publication-create',
+
+            'publication-edit',
+
+            'publication-delete',
+
+            'team-list',
+
+            'team-create',
+
+            'team-edit',
+
+            'team-delete',
+
+            'message-list',
+
+            'message-create',
+
+            'message-edit',
+
+            'message-delete',
+
+            'about-list',
+
+            'about-create',
+
+            'about-edit',
+
+            'about-delete',
 
         ];
 
