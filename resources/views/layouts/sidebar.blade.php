@@ -84,6 +84,17 @@
                     <p style="color:black;">Publication</p>
                 </a>
             </li>
+            <li class="nav-item {{ Request::is('guidelines') ? 'active' :'' }}">
+
+                <a class="nav-link" href="/guidelines">
+
+
+                    <i style="color:black;" class="material-icons">groups</i>
+
+                    <p style="color:black;">Guidelines</p>
+                </a>
+            </li>
+
 
 
 

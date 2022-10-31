@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Front;
 
 use App\Models\News;
+use App\Models\Guidelines;
 use App\Models\Publication;
 use Illuminate\Http\Request;
 
@@ -16,6 +17,9 @@ class DetailController
         } elseif ($model == 'Publication') {
             $result = Publication::findOrFail($id);
             $latests = Publication::where('id', '!=', $id)->latest()->take(6)->get();
+        } elseif ($model == 'Guidelines') {
+            $result = Guidelines::findOrFail($id);
+            $latests = Guidelines::where('id', '!=', $id)->latest()->take(6)->get();
         }
 
         return view('Front.detail', compact('result', 'latests', 'model'));

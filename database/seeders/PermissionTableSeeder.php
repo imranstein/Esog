@@ -74,14 +74,13 @@ class PermissionTableSeeder extends Seeder
 
             'message-delete',
 
-            'about-list',
+            'guidelines-list',
 
-            'about-create',
+            'guidelines-create',
 
-            'about-edit',
+            'guidelines-edit',
 
-            'about-delete',
-
+            'guidelines-delete',
         ];
 
         foreach ($permissions as $permission) {

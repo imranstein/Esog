@@ -22,6 +22,8 @@
 
             <a href="{{ route('front.news') }}" class="nav-item nav-link">News</a>
             <a href="{{ route('front.publication') }}" class="nav-item nav-link">Publication</a>
+            <a href="{{ route('front.guidelines') }}" class="nav-item nav-link">Guidelines</a>
+
 
             {{-- <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
@@ -34,12 +36,11 @@
             </div> --}}
             <a href="{{ route('front.contact') }}" class="nav-item nav-link">Contact</a>
         </div>
-        {{-- <div class="d-none d-lg-flex align-items-center ps-4">
-            <i class="fa fa-2x fa-mobile-alt text-secondary me-3"></i>
+        <div class="d-none d-lg-flex align-items-center ps-4">
+            <i class="fa fa-2x fa-user-alt text-secondary me-3"></i>
             <div>
-                <h5 class="text-primary mb-1"><small>Call Now</small></h5>
-                <h6 class="text-light m-0">+012 345 6789</h6>
+                <a href="{{ route('dashboard') }}" class="btn btn-primary rounded-pill py-2 px-4">Login</a>
             </div>
-        </div> --}}
+        </div>
     </div>
 </nav>
