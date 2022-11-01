@@ -14,7 +14,7 @@
                         <div class="card card-stats">
                             <div class="card-header card-header-success card-header-icon">
                                 <div class="card-icon">
-                                    <i class="material-icons">people</i>
+                                    <i class="material-icons">@yield('icons')</i>
                                 </div>
                                 <p class="card-category">@yield('title')</p>
                                 <h3 class="card-title">{{ $count }}</h3>
