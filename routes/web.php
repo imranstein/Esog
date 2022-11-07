@@ -1,7 +1,5 @@
 <?php
 
-use App\Http\Controllers\AdvocacyController;
-use App\Http\Controllers\Front\AdvocacyController as FrontAdvocacyController;
 use App\Http\Livewire\Profile;
 use App\Http\Livewire\Students;
 use Illuminate\Support\Facades\Route;
@@ -10,19 +8,22 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Front\ContactUs;
 use App\Http\Controllers\TeamsController;
+use App\Http\Controllers\SliderController;
 use App\Http\Controllers\MembersController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\AdvocacyController;
 use App\Http\Controllers\GuidelinesController;
 use App\Http\Controllers\Front\IndexController;
 use App\Http\Controllers\PublicationController;
 use App\Http\Controllers\Front\DetailController;
+use App\Http\Controllers\Front\MemberController;
 use App\Http\Controllers\Front\FrontNewsController;
 use App\Http\Controllers\Front\FrontTeamController;
 use App\Http\Controllers\Front\FrontAboutController;
 use App\Http\Controllers\Front\FrontPublicationController;
 use App\Http\Controllers\Front\FrontTestimonialController;
+use App\Http\Controllers\Front\AdvocacyController as FrontAdvocacyController;
 use App\Http\Controllers\Front\GuidelinesController as FrontGuidelinesController;
-use App\Http\Controllers\Front\MemberController;
 
 /*
 |--------------------------------------------------------------------------
@@ -74,6 +75,7 @@ Route::middleware([
     Route::resource('publication', PublicationController::class);
     Route::resource('guidelines', GuidelinesController::class);
     Route::resource('advocacy', AdvocacyController::class);
+    Route::resource('slider', SliderController::class);
     // Route::get('/profile/change_password', [ProfileController::class, 'changePass'])->name('change.password');
     Route::post('/profile/update_password', [ProfileController::class, 'passwordUpdate'])->name('password.update');
 });

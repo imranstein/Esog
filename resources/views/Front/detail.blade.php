@@ -24,7 +24,11 @@
                 <div class="mb-5">
                     <img class="img-fluid w-75 mb-5" src="{{ asset($result->image) }}" alt="">
                     <h1 class="mb-4">{{ $result->title }}</h1>
+                    @if($result->description)
                     <p>{!! $result->description !!}</p>
+                    @elseif ($result->content)
+                    <p>{!! $result->content !!}</p>
+                    @endif
                     @if($result->document)
                     <a class="btn btn-sm btn-forth rounded-pill px-3" href="{{ asset('Document/'.$result->document) }}" target="blank">Download</a>
                     @endif

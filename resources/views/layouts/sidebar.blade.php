@@ -43,6 +43,16 @@
                     <p style="color:black;">Roles</p>
                 </a>
             </li>
+            <li class="nav-item {{ Request::is('slider') ? 'active' :'' }}">
+
+                <a class="nav-link" href="/slider">
+
+
+                    <i style="color:black;" class="material-icons">groups</i>
+
+                    <p style="color:black;">Slider</p>
+                </a>
+            </li>
 
             <li class="nav-item {{ Request::is('member') ? 'active' :'' }}">
 
@@ -94,6 +104,18 @@
                     <p style="color:black;">Guidelines</p>
                 </a>
             </li>
+            <li class="nav-item {{ Request::is('advocacy') ? 'active' :'' }}">
+
+                <a class="nav-link" href="/advocacy">
+
+
+                    <i style="color:black;" class="material-icons">groups</i>
+
+                    <p style="color:black;">Advocacy</p>
+                </a>
+            </li>
+
+
 
 
 

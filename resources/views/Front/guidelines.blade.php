@@ -23,22 +23,43 @@
             <h1 class="display-5">Latest Guidelines</h1>
             <hr class="w-25 mx-auto text-primary" style="opacity: 1" />
         </div>
-        <div class="row g-3">
-            @foreach ($guidelines as $guideline)
-            <div class="profile-card-2">
-                <a href="/front-detail/{{ $guideline->id }}/Guidelines">
+        <div class="container">
+            <div class="row">
+                @foreach ($guidelines as $guideline)
+                <div class="col-lg-4">
+                    <div class="card card-margin" id="cards">
+                        <div class="card-header no-border">
+                            <h5 class="card-title">{{ $guideline->title }}</h5>
+                        </div>
+                        <div class="card-body pt-0">
+                            <div class="widget-49">
+                                <div class="widget-49-title-wrapper">
+                                    <div class="widget-49-date-primary">
+                                        <span class="widget-49-date-day">{{ $guideline->created_at->format('d') }}</span>
+                                        <span class="widget-49-date-month">{{ $guideline->created_at->format('M') }}</span>
+                                    </div>
+                                    <div class="widget-49-meeting-info">
+                                        <span class="widget-49-pro-title">{{ $guideline->author }}</span>
+                                    </div>
 
-                    <img src="{{ $guideline->image }}" class="img img-responsive">
-                    <div class="profile-name">{{ $guideline->author }}</div>
-                    <div class="profile-username">{{ $guideline->title }}</div>
-                    {{-- created at with diffforhumans form --}}
-                    <div class="profile-icons">{{ $guideline->created_at->diffForHumans() }}</div>
-                </a>
+                                </div>
+
+                                <ul class="widget-49-meeting-points">
+                                    {{-- guideline content only 100 charachters --}}
+                                    <li class="widget-49-meeting-item">{!! Str::limit($guideline->description, 150) !!}</li>
+                                </ul>
+                                <div class="widget-49-meeting-action">
+                                    <a href="/front-detail/{{ $guideline->id }}/Guidelines" class="btn btn-sm btn-flash-border-primary">View All</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
             </div>
-
-            @endforeach
-
         </div>
+
+
     </div>
     {{ $guidelines->links() }}
 </div>

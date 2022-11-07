@@ -23,21 +23,40 @@
             <h1 class="display-5">Advocacy</h1>
             <hr class="w-25 mx-auto text-primary" style="opacity: 1" />
         </div>
-        <div class="row g-3">
-            @foreach ($advocacies as $advocacy)
-            <div class="profile-card-2">
-                <a href="/front-detail/{{ $advocacy->id }}/advocacys">
+        <div class="container">
+            <div class="row">
+                @foreach ($advocacies as $advocacy)
+                <div class="col-lg-4">
+                    <div class="card card-margin" id="cards">
+                        <div class="card-header no-border">
+                            <h5 class="card-title">{{ $advocacy->title }}</h5>
+                        </div>
+                        <div class="card-body pt-0">
+                            <div class="widget-49">
+                                <div class="widget-49-title-wrapper">
+                                    <div class="widget-49-date-primary">
+                                        <span class="widget-49-date-day">{{ $advocacy->created_at->format('d') }}</span>
+                                        <span class="widget-49-date-month">{{ $advocacy->created_at->format('M') }}</span>
+                                    </div>
+                                    <div class="widget-49-meeting-info">
+                                        <span class="widget-49-pro-title">{{ $advocacy->author }}</span>
+                                    </div>
 
-                    <img src="{{ $advocacy->image }}" class="img img-responsive">
-                    <div class="profile-name">{{ $advocacy->author }}</div>
-                    <div class="profile-username">{{ $advocacy->title }}</div>
-                    {{-- created at with diffforhumans form --}}
-                    <div class="profile-icons">{{ $advocacy->created_at->diffForHumans() }}</div>
-                </a>
+                                </div>
+
+                                <ul class="widget-49-meeting-points">
+                                    {{-- advocacy content only 100 charachters --}}
+                                    <li class="widget-49-meeting-item">{!! Str::limit($advocacy->content, 150) !!}</li>
+                                </ul>
+                                <div class="widget-49-meeting-action">
+                                    <a href="/front-detail/{{ $advocacy->id }}/Advocacy" class="btn btn-sm btn-flash-border-primary">View All</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
             </div>
-
-            @endforeach
-
         </div>
     </div>
     {{ $advocacies->links() }}
