@@ -16,7 +16,10 @@ class GuidelinesFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'title' => $this->faker->sentence,
+            'description' => $this->faker->paragraph,
+            'author' => $this->faker->name,
+            'document' => $this->faker->url(),
         ];
     }
 }
