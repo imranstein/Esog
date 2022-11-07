@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AdvocacyController;
+use App\Http\Controllers\Front\AdvocacyController as FrontAdvocacyController;
 use App\Http\Livewire\Profile;
 use App\Http\Livewire\Students;
 use Illuminate\Support\Facades\Route;
@@ -20,6 +22,7 @@ use App\Http\Controllers\Front\FrontAboutController;
 use App\Http\Controllers\Front\FrontPublicationController;
 use App\Http\Controllers\Front\FrontTestimonialController;
 use App\Http\Controllers\Front\GuidelinesController as FrontGuidelinesController;
+use App\Http\Controllers\Front\MemberController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,8 +43,10 @@ Route::get('front-team', FrontTeamController::class)->name('front.team');
 Route::get('front-news', FrontNewsController::class)->name('front.news');
 Route::get('front-publication', FrontPublicationController::class)->name('front.publication');
 Route::get('front-guidelines', FrontGuidelinesController::class)->name('front.guidelines');
+Route::get('front-advocacy', FrontAdvocacyController::class)->name('front.advocacy');
 Route::get('front-testimonial', FrontTestimonialController::class)->name('front.testimonial');
 Route::get('front-detail/{id}/{model}', DetailController::class)->name('front.detail');
+Route::get('front-member', MemberController::class)->name('front.member');
 //EndFront
 // Route::get('/', function () {
 //     return view('welcome');
@@ -68,6 +73,7 @@ Route::middleware([
     Route::resource('news', NewsController::class);
     Route::resource('publication', PublicationController::class);
     Route::resource('guidelines', GuidelinesController::class);
+    Route::resource('advocacy', AdvocacyController::class);
     // Route::get('/profile/change_password', [ProfileController::class, 'changePass'])->name('change.password');
     Route::post('/profile/update_password', [ProfileController::class, 'passwordUpdate'])->name('password.update');
 });

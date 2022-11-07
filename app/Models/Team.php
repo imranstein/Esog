@@ -15,7 +15,7 @@ class Team extends Model
     use HasFactory;
     use LogsActivity;
 
-    public $fillable = [
+    protected $fillable = [
         'type',
         'designation',
         'name',

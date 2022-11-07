@@ -7,11 +7,12 @@
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
         <li data-target="#myCarousel" data-slide-to="1"></li>
         <li data-target="#myCarousel" data-slide-to="2"></li>
+        <li data-target="#myCarousel" data-slide-to="3"></li>
     </ol>
     <!-- Wrapper for carousel items -->
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <img src="{{ asset('Front/img/microscope.jpg')}}" class="image" alt="microscope" />
+            <img src="{{ asset('Front/img/2.jpg')}}" class="image" alt="Team" />
             <div class="carousel-caption">
                 <h3>Award Winning Support</h3>
                 <p>
@@ -25,7 +26,7 @@
             </div>
         </div>
         <div class="carousel-item">
-            <img src="{{ asset('Front/img/production.jpg')}}" class="image" alt="production" />
+            <img src="{{ asset('Front/img/5.jpg')}}" class="image" alt="Team" />
             <div class="carousel-caption">
                 <h3>Amazing Digital Experience</h3>
                 <p>
@@ -39,7 +40,7 @@
             </div>
         </div>
         <div class="carousel-item">
-            <img src="{{ asset('Front/img/id.jpg')}}" class="image" alt="id" />
+            <img src="{{ asset('Front/img/6.jpg')}}" class="image" alt="id" />
             <div class="carousel-caption">
                 <h3>Live Monitoring Tools</h3>
                 <p>

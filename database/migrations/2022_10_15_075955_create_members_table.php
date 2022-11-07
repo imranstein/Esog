@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('designation')->nullable();
             $table->string('workplace')->nullable();
             $table->string('photo')->nullable();
+            $table->boolean('is_active')->default(0);
             $table->timestamps();
         });
     }

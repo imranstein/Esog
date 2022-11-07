@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Members;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
+use Spatie\Permission\Models\Role;
 use Termwind\Components\Dd;
 
 class MembersController
@@ -62,6 +64,16 @@ class MembersController
             'workplace' => $validated['workplace'],
             'photo' => $last_thumb ?? null,
         ]);
+
+        $user = User::create([
+            'name' => $validated['name'],
+            'email' => $validated['email'],
+            'password' => bcrypt($validated['phone']),
+
+        ]);
+        $memberId = Role::where('name', 'Member')->first();
+        $user->assignRole($memberId);
+
 
         return redirect()->route('member.index')->with('success', 'Member Added Successfully');
     }

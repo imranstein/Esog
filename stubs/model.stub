@@ -15,7 +15,7 @@ class {{ class }} extends Model
     use HasFactory;
     use LogsActivity;
 
-    public $fillable = [];
+    protected $fillable = [];
 
     protected static $logAttributes = ['*'];
 

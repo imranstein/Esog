@@ -15,7 +15,7 @@ class Message extends Model
     use HasFactory;
     use LogsActivity;
 
-    public $fillable = [
+    protected $fillable = [
         'name',
         'email',
         'subject',

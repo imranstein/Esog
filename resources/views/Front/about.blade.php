@@ -20,7 +20,7 @@
 <section id="about" class="about">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-xl-5 col-lg-6 video-box d-flex justify-content-center align-items-stretch position-relative" style="background-image: url({{ asset('Front/assets/img/about.jpg')}}); background-size: cover; background-position: center center;">
+            <div class="col-xl-5 col-lg-6 video-box d-flex justify-content-center align-items-stretch position-relative" style="background-image: url({{ asset('Front/img/3.jpg')}}); background-size: cover; background-position: center center;">
 
                 <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="glightbox play-btn mb-4"></a>
             </div>

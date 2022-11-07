@@ -15,7 +15,7 @@ class Guidelines extends Model
     use HasFactory;
     use LogsActivity;
 
-    public $fillable = [
+    protected $fillable = [
         'title',
         'description',
         'author',

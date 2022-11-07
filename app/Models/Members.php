@@ -15,7 +15,7 @@ class Members extends Model
     use HasFactory;
     use LogsActivity;
 
-    public $fillable = [
+    protected $fillable = [
         'name',
         'email',
         'phone',
@@ -23,6 +23,7 @@ class Members extends Model
         'designation',
         'workplace',
         'photo',
+        'is_active',
     ];
 
     protected static $logAttributes = ['*'];

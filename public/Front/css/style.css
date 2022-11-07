@@ -83,7 +83,7 @@
 
 img.image {
     max-width: 100%;
-    height: 33em;
+    height: 40em;
     width: 100%;
     margin: 0 auto; /* Align slide image horizontally center in Bootstrap v3 */
 }
@@ -376,8 +376,7 @@ img.image {
 }
 
 .about .video-box {
-    background-image: url() center center
-        no-repeat;
+    background-image: url() center center no-repeat;
     background-size: cover;
     min-height: 500px;
 }
@@ -501,7 +500,7 @@ img.image {
 }
 
 .bg-hero {
-    background: url(../img/hero.jpg) top right no-repeat;
+    background: url(../img/9.jpg) top right no-repeat;
     background-size: contain;
 }
 
@@ -686,7 +685,7 @@ img.image {
 }
 
 .bg-call-to-action {
-    background: url(../img/call-to-action.jpg) top right no-repeat;
+    background: url(../img/10.jpg) top right no-repeat;
     background-size: contain;
 }
 
