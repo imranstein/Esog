@@ -5,8 +5,8 @@
  */
 
 :root {
-    --primary: #b1e9f7;
-    --secondary: #8cc641;
+    --primary: #5c818b;
+    --secondary: #83adb8;
     --third: #666666;
     --light: #f2f2f2;
     --dark: #272630;
@@ -1000,6 +1000,9 @@ div#cards:hover {
 @media (max-width: 991.98px) {
     .bg-testimonial {
         background-size: cover;
+    }
+    div#myCarousel {
+        display: none;
     }
 }
 

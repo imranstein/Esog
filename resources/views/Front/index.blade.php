@@ -108,10 +108,10 @@
 </div>
 <!-- Blog End -->
 <!-- Small Introduction -->
-<div class="container-fluid bg-primary bg-call-to-action py-5" style="margin-top: 90px">
+<div class="container-fluid bg-primary py-5" style="margin-top: 90px">
     <div class="container py-5">
-        <div class="row g-0 justify-content-start">
-            <div class="col-lg-6">
+        <div class="row justify-content-start">
+            <div class="col-md-6">
                 <h1 class="display-5 mb-4">Introduction</h1>
                 <p class="fs-4 fw-normal">
                     Dolores sed duo clita tempor justo dolor et stet lorem kasd labore
@@ -120,6 +120,10 @@
                 </p>
                 <a href="" class="btn btn-forth rounded-pill py-md-3 px-md-5 mt-4">ReadMore</a>
             </div>
+            <div class="col-md-6">
+                <img class="img-fluid w-100" src="{{ asset('Front/img/10.jpg')}}" alt="" />
+            </div>
+
         </div>
     </div>
 </div>
