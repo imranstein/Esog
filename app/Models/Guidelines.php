@@ -20,6 +20,7 @@ class Guidelines extends Model
         'description',
         'author',
         'document',
+        'is_paid',
     ];
 
     protected static $logAttributes = ['*'];

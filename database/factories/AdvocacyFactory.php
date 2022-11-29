@@ -20,6 +20,7 @@ class AdvocacyFactory extends Factory
             'content' => $this->faker->paragraph,
             'photo' => $this->faker->imageUrl(640, 480, 'people', true, 'Faker'),
             'document' => $this->faker->url(),
+            'is_paid' => $this->faker->boolean,
         ];
     }
 }

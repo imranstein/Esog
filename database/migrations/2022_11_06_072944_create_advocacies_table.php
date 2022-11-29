@@ -14,6 +14,7 @@ return new class extends Migration
             $table->text('content')->nullable();
             $table->string('photo')->nullable();
             $table->string('document')->nullable();
+            $table->boolean('is_paid')->default(false);
             $table->timestamps();
         });
     }

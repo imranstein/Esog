@@ -62,6 +62,13 @@
             <input type="file" name="document" class="form-control">
         </div>
     </div>
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group">
+            <strong>Is Paid</strong>
+            <input type="checkbox" class="form-control" id="is_paid" name="is_paid" placeholder="Enter is_paid">
+        </div>
+    </div>
+
 
     <div class="col-xs-12 col-sm-12 col-md-12 text-center">
         <button type="submit" class="btn btn-primary">Submit</button>

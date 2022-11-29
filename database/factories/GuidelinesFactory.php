@@ -20,6 +20,7 @@ class GuidelinesFactory extends Factory
             'description' => $this->faker->paragraph,
             'author' => $this->faker->name,
             'document' => $this->faker->url(),
+            'is_paid' => $this->faker->boolean,
         ];
     }
 }

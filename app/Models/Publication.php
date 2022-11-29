@@ -22,6 +22,7 @@ class Publication extends Model
         'image',
         'author',
         'document',
+        'is_paid',
     ];
 
     protected static $logAttributes = ['*'];

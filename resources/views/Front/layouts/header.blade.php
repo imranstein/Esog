@@ -21,6 +21,8 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="{{ asset('Front/css/bootstrap.min.css')}}" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ asset('Front/css/newStyle.css')}}">
+
 
     <!-- Template Stylesheet -->
     <link href="{{ asset('Front/css/style.css')}}" rel="stylesheet" />
@@ -45,4 +47,16 @@
 
     <!-- Template Main CSS File -->
     {{-- <link href="{{ asset('Front/assets/css/style.css')}}" rel="stylesheet" /> --}}
+    {{-- new css --}}
+    <link href="https://fonts.googleapis.com/css?family=B612+Mono|Cabin:400,700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ asset('Front/fonts/icomoon/style.css')}}">
+
+    <link rel="stylesheet" href="{{ asset('Front/fonts/flaticon/font/flaticon.css')}}">
+
+    <link rel="stylesheet" href="{{ asset('Front/css/owl.carousel.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('Front/css/owl.theme.default.min.css')}}">
+
+
+
 </head>

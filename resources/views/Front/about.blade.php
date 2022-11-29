@@ -1,7 +1,7 @@
 @extends('Front.layouts.app')
 @section('title','About Us')
 @section('content')
-<div class="container-fluid bg-primary py-5 bg-hero" style="margin-bottom: 90px">
+{{-- <div class="container-fluid bg-primary py-5 bg-hero" style="margin-bottom: 90px">
     <div class="container py-5">
         <div class="row justify-content-start">
             <div class="col-lg-8 text-center text-lg-start">
@@ -13,11 +13,11 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 <!-- Hero End -->
 
 <!-- About Start -->
-<section id="about" class="about">
+<section id="about" class="about" style="margin: 180px 0;">
     <div class="container-fluid">
         <div class="row">
             <div class="col-xl-5 col-lg-6 video-box d-flex justify-content-center align-items-stretch position-relative" style="background-image: url({{ asset('Front/img/3.jpg')}}); background-size: cover; background-position: center center;">
@@ -150,8 +150,8 @@
 <div class="container-fluid py-5">
     <div class="container py-5">
         <div class="text-center mx-auto mb-5" style="max-width: 500px">
-            <h1 class="display-5">Some Of Our Executive</h1>
-            <hr class="w-25 mx-auto text-primary" style="opacity: 1" />
+            <h4 class="display-6">Some Of Our Executive</h1>
+                <hr class="w-25 mx-auto text-primary" style="opacity: 1" />
         </div>
         <div class="row g-3">
             @foreach ($teams as $team)

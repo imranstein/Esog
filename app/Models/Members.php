@@ -43,4 +43,9 @@ class Members extends Model
             ->logOnly(['*'])
             ->useLogName("Members");
     }
+
+    public function memberCourse()
+    {
+        return $this->hasMany(MemberCourse::class, 'member_id', 'id');
+    }
 }

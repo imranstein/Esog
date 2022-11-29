@@ -6,11 +6,11 @@
 
 <body>
     <!-- Topbar Start -->
-    @include('Front.layouts.top')
+    {{-- @include('Front.layouts.top') --}}
     <!-- Topbar End -->
 
     <!-- Navbar Start -->
-    @include('Front.layouts.nav')
+    @include('Front.layouts.newnav')
     <!-- Navbar End -->
 
     @yield('content')

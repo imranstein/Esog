@@ -22,6 +22,7 @@ class PublicationFactory extends Factory
             'image' => $this->faker->imageUrl(350, 500, 'books', false, null, false),
             'author' => $this->faker->name(),
             'document' => $this->faker->url(),
+            'is_paid' => $this->faker->boolean,
         ];
     }
 }

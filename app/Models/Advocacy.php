@@ -20,6 +20,7 @@ class Advocacy extends Model
         'content',
         'photo',
         'document',
+        'is_paid',
     ];
 
     protected static $logAttributes = ['*'];
