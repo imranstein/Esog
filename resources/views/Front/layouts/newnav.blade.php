@@ -3,7 +3,7 @@
         <div class="row align-items-center">
             <div class="col-12 col-lg-6 d-flex">
                 <a href="index.html" class="site-logo">
-                    Meranda
+                    ESOG
                 </a>
 
                 <a href="#" class="ml-auto d-inline-block d-lg-none site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a>
