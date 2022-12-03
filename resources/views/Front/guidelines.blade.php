@@ -56,12 +56,13 @@
                     </div>
                 </div>
                 @endforeach
+    {{ $guidelines->links() }}
+
             </div>
         </div>
 
 
     </div>
-    {{ $guidelines->links() }}
 </div>
 
 {{-- Service Section --}}

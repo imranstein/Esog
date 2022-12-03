@@ -56,10 +56,11 @@
                     </div>
                 </div>
                 @endforeach
+    {{ $advocacies->links() }}
+
             </div>
         </div>
     </div>
-    {{ $advocacies->links() }}
 
 </div>
 

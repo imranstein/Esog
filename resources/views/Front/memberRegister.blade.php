@@ -22,7 +22,7 @@
     <div class="container py-5">
         <div class="row justify-content-center position-relative">
             <div class="col-lg-8">
-                <div class="bg-primary p-5 m-5 mb-0">
+                <div class="p-5 m-5 mb-0" style="background-color: rgb(223, 223, 223);">
                     <form method="POST" action="{{ route('member.create') }}">
                         @csrf
                         <div class="row g-3">
@@ -56,34 +56,30 @@
                     </form>
                 </div>
             </div>
-            <div class="col-lg-4">
-                <div class="bg-primary p-5 m-5 mb-0">
-                    <h3>Search for Members</h3>
+            {{-- <div class="col-lg-4">
+                <div class="p-5 m-5 mb-0" style="background-color: rgb(223, 223, 223);">
+                    <h4>Search For Members</h4>
 
                     <form method="POST" action="{{ route('member.create') }}">
                         @csrf
                         <div class="row g-3">
 
                             <div class="col-12">
-                                <label>Name</label>
+
                                 <input type="text" class="form-control bg-light border-0" placeholder="Your Name" style="height: 55px;" name="name">
                             </div>
-                            <div class="col-12">
-                                <label>Email</label>
+                            {{-- <div class="col-12">
                                 <input type="email" class="form-control bg-light border-0" placeholder="Your Email" style="height: 55px;" name="email">
                             </div>
                             <div class="col-12">
-                                <label>Phone</label>
                                 <input type="number" class="form-control bg-light border-0" placeholder="Your Phone" style="height: 55px;" name="phone">
                             </div>
                             <div class="col-12">
-                                <label>Department</label>
                                 <input type="text" class="form-control bg-light border-0" placeholder="Your Department" style="height: 55px;" name="department">
                             </div>
                             <div class="col-12">
-                                <label>Designation</label>
                                 <input type="text" class="form-control bg-light border-0" placeholder="Your Designation" style="height: 55px;" name="designation">
-                            </div>
+                            </div> --}
 
 
                             <div class="col-12">
@@ -92,7 +88,7 @@
                         </div>
                     </form>
                 </div>
-            </div>
+            </div> --}}
 
         </div>
     </div>

@@ -3,7 +3,7 @@
         <div class="row align-items-center">
             <div class="col-12 col-lg-6 d-flex">
                 <a href="index.html" class="site-logo">
-                    ESOG
+                    <img src="{{ asset('Front/img/logo1.png')}}" style="height: 100px;width:auto;" alt="">
                 </a>
 
                 <a href="#" class="ml-auto d-inline-block d-lg-none site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a>
@@ -15,13 +15,13 @@
                     <a href="#" class="d-inline-block p-3"><span class="icon-twitter"></span></a>
                     <a href="#" class="d-inline-block p-3"><span class="icon-instagram"></span></a>
                 </div>
-                {{-- <form action="#" class="search-form d-inline-block">
+                <form action="#" class="search-form d-inline-block">
 
                     <div class="d-flex">
                         <input type="email" class="form-control" placeholder="Search...">
                         <button type="submit" class="btn btn-secondary"><span class="icon-search"></span></button>
                     </div>
-                </form> --}}
+                </form>
 
 
             </div>
@@ -72,18 +72,25 @@
                             <li class="{{ Request::is('front-advocacy') ? 'active' : '' }}">
                                 <a href="{{ route('front.advocacy') }}" class="nav-link text-left">Advocacy</a>
                             </li>
+                            <li class="{{ Request::is('front-advocacy') ? 'active' : '' }}">
+                                <a href="{{ route('front.advocacy') }}" class="nav-link text-left">Education</a>
+                            </li>
                             <li class="{{ Request::is('front-member') ? 'active' : '' }} nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Membership</a>
                                 <div class="dropdown-menu m-0">
                                     <a href="{{ route('front.member') }}" class="nav-link text-left">Become A member</a>
                                     {{-- <a href="detail.html" class="dropdown-item">Blog Detail</a> --}}
-                                    <a href="{{ route('front.team') }}" class="nav-link text-left">The Team</a>
+                                    <a href="{{ route('front.team') }}" class="nav-link text-left">Members</a>
 
                                 </div>
                             </li>
                             <li class="{{ Request::is('front-contact') ? 'active' : '' }}">
                                 <a href="{{ route('front.contact') }}" class="nav-link text-left">Contact Us</a>
                             </li>
+
+                            <a href="{{ route('dashboard') }}" class="btn btn-primary" type="button" >
+                                Login
+                            </a>
 
                         </ul>
                     </nav>

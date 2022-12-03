@@ -25,7 +25,9 @@
             <a href="{{ route('front.guidelines') }}" class="nav-item nav-link">Guidelines</a>
             <a href="{{ route('front.advocacy') }}" class="nav-item nav-link">Advocacy</a>
             <a href="{{ route('front.member') }}" class="nav-item nav-link">Become a Member</a>
+            <a href="{{ route('front.contact') }}" class="nav-item nav-link">Education</a>
             <a href="{{ route('front.contact') }}" class="nav-item nav-link">Contact</a>
+
         </div>
         <div class="d-none d-lg-flex align-items-center ps-4">
             <i class="fa fa-2x fa-user-alt text-secondary me-3"></i>

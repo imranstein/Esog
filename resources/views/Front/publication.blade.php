@@ -37,10 +37,10 @@
             </div>
 
             @endforeach
+            {{ $publications->links() }}
 
         </div>
     </div>
-    {{ $publications->links() }}
 </div>
 
 {{-- Service Section --}}
