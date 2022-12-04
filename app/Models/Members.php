@@ -16,6 +16,7 @@ class Members extends Model
     use LogsActivity;
 
     protected $fillable = [
+        'user_id',
         'name',
         'email',
         'phone',
@@ -47,5 +48,12 @@ class Members extends Model
     public function memberCourse()
     {
         return $this->hasMany(MemberCourse::class, 'member_id', 'id');
+    }
+
+    //relation with user
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id', 'id');
     }
 }

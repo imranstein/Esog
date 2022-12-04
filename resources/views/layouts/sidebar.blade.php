@@ -20,6 +20,7 @@
                     <p style="color:black;">Dashboard</p>
                 </a>
             </li>
+            @can('user-view')
             <li class="nav-item {{ Request::is('users') ? 'active' :'' }}">
 
                 <a class="nav-link" href="users">
@@ -31,7 +32,8 @@
                     <p style="color:black;">Users</p>
                 </a>
             </li>
-
+            @endcan
+            @can('role-view')
             <li class="nav-item {{ Request::is('roles') ? 'active' :'' }}">
 
                 <a class="nav-link" href="roles">
@@ -43,6 +45,8 @@
                     <p style="color:black;">Roles</p>
                 </a>
             </li>
+            @endcan
+            @can('slider-view')
             <li class="nav-item {{ Request::is('slider') ? 'active' :'' }}">
 
                 <a class="nav-link" href="/slider">
@@ -53,7 +57,8 @@
                     <p style="color:black;">Slider</p>
                 </a>
             </li>
-
+            @endcan
+            @can('member-view')
             <li class="nav-item {{ Request::is('member') ? 'active' :'' }}">
 
                 <a class="nav-link" href="/member">
@@ -64,6 +69,8 @@
                     <p style="color:black;">Member</p>
                 </a>
             </li>
+            @endcan
+            @can('team-view')
             <li class="nav-item {{ Request::is('team') ? 'active' :'' }}">
 
                 <a class="nav-link" href="/team">
@@ -74,6 +81,8 @@
                     <p style="color:black;">Team</p>
                 </a>
             </li>
+            @endcan
+            @can('news-view')
             <li class="nav-item {{ Request::is('news') ? 'active' :'' }}">
 
                 <a class="nav-link" href="/news">
@@ -84,6 +93,8 @@
                     <p style="color:black;">News</p>
                 </a>
             </li>
+            @endcan
+            @can('publication-view')
             <li class="nav-item {{ Request::is('publication') ? 'active' :'' }}">
 
                 <a class="nav-link" href="/publication">
@@ -94,6 +105,8 @@
                     <p style="color:black;">Publication</p>
                 </a>
             </li>
+            @endcan
+            @can('guidelines-view')
             <li class="nav-item {{ Request::is('guidelines') ? 'active' :'' }}">
 
                 <a class="nav-link" href="/guidelines">
@@ -104,6 +117,8 @@
                     <p style="color:black;">Guidelines</p>
                 </a>
             </li>
+            @endcan
+            @can('advocacy-view')
             <li class="nav-item {{ Request::is('advocacy') ? 'active' :'' }}">
 
                 <a class="nav-link" href="/advocacy">
@@ -114,9 +129,32 @@
                     <p style="color:black;">Advocacy</p>
                 </a>
             </li>
+            @endcan
+            @can('course-view')
+            <li class="nav-item {{ Request::is('course') ? 'active' :'' }}">
+
+                <a class="nav-link" href="/course">
 
 
+                    <i style="color:black;" class="material-icons">groups</i>
 
+                    <p style="color:black;">Courses</p>
+                </a>
+            </li>
+            @endcan
+            @can('memberCourse-view')
+
+            <li class="nav-item {{ Request::is('course') ? 'active' :'' }}">
+
+                <a class="nav-link" href="/course">
+
+
+                    <i style="color:black;" class="material-icons">groups</i>
+
+                    <p style="color:black;">Courses</p>
+                </a>
+            </li>
+            @endcan
 
 
 

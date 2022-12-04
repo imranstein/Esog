@@ -68,4 +68,9 @@ class User extends Authenticatable
             ->logOnly(['name', 'text', 'email']);
         // Chain fluent methods for configuration options
     }
+    //relation with member
+    public function member()
+    {
+        return $this->hasOne(Members::class, 'user_id', 'id');
+    }
 }

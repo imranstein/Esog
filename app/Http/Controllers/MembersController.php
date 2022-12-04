@@ -53,9 +53,17 @@ class MembersController
                 'photo.max' => 'Photo Must Be Less Than 20MB',
             ]
         );
+        $user = User::create([
+            'name' => $validated['name'],
+            'email' => $validated['email'],
+            'password' => bcrypt($validated['phone']),
 
+        ]);
+        $memberId = Role::where('name', 'Member')->first();
+        $user->assignRole($memberId);
 
         $members = Members::create([
+            'user_id' => $user->id,
             'name' => $validated['name'],
             'email' => $validated['email'],
             'phone' => $validated['phone'],

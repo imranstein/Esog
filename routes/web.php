@@ -12,6 +12,8 @@ use App\Http\Controllers\SliderController;
 use App\Http\Controllers\MembersController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AdvocacyController;
+use App\Http\Controllers\CourseController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\GuidelinesController;
 use App\Http\Controllers\Front\IndexController;
 use App\Http\Controllers\PublicationController;
@@ -62,9 +64,7 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
-    Route::get('/home', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    Route::get('/home',DashboardController::class)->name('dashboard');
     Route::get('students', Students::class)->name('students');
     Route::resource('users', UserController::class);
     Route::resource('roles', RoleController::class);
@@ -76,6 +76,9 @@ Route::middleware([
     Route::resource('guidelines', GuidelinesController::class);
     Route::resource('advocacy', AdvocacyController::class);
     Route::resource('slider', SliderController::class);
+    Route::resource('course',CourseController::class);
+    Route::post('course/enroll/{id}',[CourseController::class,'enroll'])->name('course.enroll');
+    Route::post('corse/approve/{id}',[CourseController::class,'approve'])->name('course.approve');
     // Route::get('/profile/change_password', [ProfileController::class, 'changePass'])->name('change.password');
     Route::post('/profile/update_password', [ProfileController::class, 'passwordUpdate'])->name('password.update');
 });
