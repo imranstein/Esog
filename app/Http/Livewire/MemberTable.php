@@ -4,9 +4,10 @@ namespace App\Http\Livewire;
 
 use App\Models\Members;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Builder;
-use PowerComponents\LivewirePowerGrid\Rules\{Rule, RuleActions};
 use PowerComponents\LivewirePowerGrid\Traits\ActionButton;
+use PowerComponents\LivewirePowerGrid\Rules\{Rule, RuleActions};
 use PowerComponents\LivewirePowerGrid\{Button, Column, Exportable, Footer, Header, PowerGrid, PowerGridComponent, PowerGridEloquent};
 
 final class MemberTable extends PowerGridComponent
@@ -189,7 +190,12 @@ final class MemberTable extends PowerGridComponent
                 ->route('member.destroy', ['member' => 'id'])
                 ->class('btn btn-danger')
                 ->target('_self')
-                ->method('delete')
+                ->method('delete'),
+                Button::make('approve', 'Approve')
+                ->route('member.approve', ['member' => 'id'])
+                ->class('btn btn-success')
+                ->target('_self'),
+
         ];
     }
 
@@ -208,16 +214,27 @@ final class MemberTable extends PowerGridComponent
      * @return array<int, RuleActions>
      */
 
-    /*
+
     public function actionRules(): array
     {
        return [
 
-           //Hide button edit for ID 1
-            Rule::button('edit')
-                ->when(fn($members) => $members->id === 1)
+           //Hide button approve if is_active is not null
+              Rule::button('approve')
+              ->when(fn (Members $model) => $model->is_active != null)
                 ->hide(),
+
+           Rule::button('approve')
+           ->when(fn () => Auth::user()->cannot('member-approve'))
+           ->hide(),
+           Rule::button('edit')
+           ->when(fn () => Auth::user()->cannot('member-edit'))
+           ->hide(),
+           Rule::button('delete')
+           ->when(fn () => Auth::user()->cannot('member-delete'))
+           ->hide(),
+
         ];
     }
-    */
+
 }

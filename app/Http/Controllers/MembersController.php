@@ -42,6 +42,7 @@ class MembersController
                 'designation' => 'nullable',
                 'workplace' => 'nullable',
                 'photo' => 'nullable|mimes:jpg,jpeg,png|max:20048',
+
             ],
             [
                 'name.required' => 'Please Input Name',
@@ -71,16 +72,9 @@ class MembersController
             'designation' => $validated['designation'],
             'workplace' => $validated['workplace'],
             'photo' => $last_thumb ?? null,
+            'is_active' => 1,
         ]);
 
-        $user = User::create([
-            'name' => $validated['name'],
-            'email' => $validated['email'],
-            'password' => bcrypt($validated['phone']),
-
-        ]);
-        $memberId = Role::where('name', 'Member')->first();
-        $user->assignRole($memberId);
 
 
         return redirect()->route('member.index')->with('success', 'Member Added Successfully');
@@ -150,5 +144,25 @@ class MembersController
         $members->delete();
 
         return redirect()->route('member.index')->with('delete', 'Member Deleted Successfully');
+    }
+
+    public function approve($id)
+    {
+        $members = Members::findOrFail($id);
+        $user = User::create([
+            'name' => $members->name,
+            'email' => $members->email,
+            'password' => bcrypt($members->phone),
+
+        ]);
+        $memberId = Role::where('name', 'Member')->first();
+        $user->assignRole($memberId);
+
+        $members->update([
+            'user_id' => $user->id,
+            'is_active' => 1,
+        ]);
+
+        return redirect()->route('member.index')->with('approve', 'Member Approved Successfully');
     }
 }

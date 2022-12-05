@@ -49,7 +49,10 @@ Route::get('front-guidelines', FrontGuidelinesController::class)->name('front.gu
 Route::get('front-advocacy', FrontAdvocacyController::class)->name('front.advocacy');
 Route::get('front-testimonial', FrontTestimonialController::class)->name('front.testimonial');
 Route::get('front-detail/{id}/{model}', DetailController::class)->name('front.detail');
-Route::get('front-member', MemberController::class)->name('front.member');
+Route::get('front-member', [MemberController::class,'index'])->name('front.member');
+Route::get('front-member/create', [MemberController::class,'create'])->name('front.member.create');
+Route::post('front-memberRegister', [MemberController::class,'store'])->name('front.memberRegister');
+
 //EndFront
 // Route::get('/', function () {
 //     return view('welcome');
@@ -70,6 +73,7 @@ Route::middleware([
     Route::resource('roles', RoleController::class);
     Route::get('profile', Profile::class)->name('profile');
     Route::resource('member', MembersController::class);
+    Route::post('member/{member}/approve', [MembersController::class,'approve'])->name('member.approve');
     Route::resource('team', TeamsController::class);
     Route::resource('news', NewsController::class);
     Route::resource('publication', PublicationController::class);
@@ -79,6 +83,7 @@ Route::middleware([
     Route::resource('course',CourseController::class);
     Route::post('course/enroll/{id}',[CourseController::class,'enroll'])->name('course.enroll');
     Route::post('corse/approve/{id}',[CourseController::class,'approve'])->name('course.approve');
+
     // Route::get('/profile/change_password', [ProfileController::class, 'changePass'])->name('change.password');
     Route::post('/profile/update_password', [ProfileController::class, 'passwordUpdate'])->name('password.update');
 });

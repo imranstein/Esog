@@ -21,16 +21,16 @@
         </div>
         <div class="row g-3">
             @foreach($news as $latest)
-            <div class="col-xl-4 col-lg-6">
+            {{-- <div class="col-xl-4 col-lg-6">
                 <div class="blog-item bg-primary">
                     <img class="img-fluid w-100" src="{{ asset($latest->image)}}" alt="" />
                     <div class="d-flex align-items-center">
                         <div class="bg-forth mt-n4 d-flex flex-column flex-shrink-0 justify-content-center text-center me-4" style="width: 60px; height: 100px">
                             <i class="fa fa-calendar-alt text-dark mb-2"></i>
                             <p class="m-0 text-white">
-                                {{-- convert it to Month and Date --}}
+                                {{-- convert it to Month and Date --}
                                 {{ date('M d', strtotime($latest->created_at)) }}
-                                {{-- {{ $latest->created_at }} --}}
+                                {{-- {{ $latest->created_at }} --}
                             </p>
                             <small class="text-white">
                                 {{ date('Y', strtotime($latest->created_at)) }}
@@ -47,10 +47,24 @@
                         {{-- <div class="d-flex align-items-center">
                             <small class="ms-3"><i class="fa fa-eye text-forth me-2"></i>12345</small>
                             <small class="ms-3"><i class="fa fa-comment text-forth me-2"></i>123</small>
-                        </div> --}}
+                        </div> --}
                     </div>
                 </div>
-            </div>
+            </div> --}}
+            <div class="col-md-4 mt-4">
+    		    <div class="card profile-card-5">
+    		        <div class="card-img-block">
+                        <a  href="/front-detail/{{ $latest->id }}/News">
+    		            <img class="card-img-top" src="{{ asset($latest->image)}}" alt="Card image cap">
+                        </a>
+    		        </div>
+                    <div class="card-body pt-0">
+                    <h5 class="card-title"><a href="/front-detail/{{ $latest->id }}/News">{{ substr($latest->title,0,30) }}</a></h5>
+                    <p class="card-text">{!! substr($latest->description,0,150) !!}</p>
+
+                  </div>
+                </div>
+    		</div>
             @endforeach
             {{ $news->links() }}
 

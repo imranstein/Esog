@@ -42,6 +42,8 @@ class PermissionTableSeeder extends Seeder
 
             'member-delete',
 
+            'member-approve',
+
             'news-list',
 
             'news-create',
@@ -97,6 +99,24 @@ class PermissionTableSeeder extends Seeder
             'advocacy-edit',
 
             'advocacy-delete',
+
+            'course-list',
+
+            'course-create',
+
+            'course-edit',
+
+            'course-delete',
+
+            'memberCourse-list',
+
+            'memberCourse-create',
+
+            'memberCourse-edit',
+
+            'memberCourse-delete',
+
+            'memberCourse-approve',
         ];
 
         foreach ($permissions as $permission) {

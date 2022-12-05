@@ -78,9 +78,9 @@
                             <li class="{{ Request::is('front-member') ? 'active' : '' }} nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Membership</a>
                                 <div class="dropdown-menu m-0">
-                                    <a href="{{ route('front.member') }}" class="nav-link text-left">Become A member</a>
+                                    <a href="{{ route('front.member.create') }}" class="nav-link text-left">Become A member</a>
                                     {{-- <a href="detail.html" class="dropdown-item">Blog Detail</a> --}}
-                                    <a href="{{ route('front.team') }}" class="nav-link text-left">Members</a>
+                                    <a href="{{ route('front.member') }}" class="nav-link text-left">Members</a>
 
                                 </div>
                             </li>

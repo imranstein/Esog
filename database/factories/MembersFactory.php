@@ -25,6 +25,7 @@ class MembersFactory extends Factory
             'designation' => $this->faker->jobTitle,
             'workplace' => $this->faker->company,
             'photo' => $this->faker->imageUrl(640, 480, 'people', true, 'Faker'),
+            'is_active' => $this->faker->boolean,
         ];
     }
 }
