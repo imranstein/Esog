@@ -61,7 +61,7 @@
                             <a href="{{ route('front.member') }}" class="nav-item nav-link">Become a Member</a>
                             <a href="{{ route('front.contact') }}" class="nav-item nav-link">Contact</a> --}}
                             <li class="{{ Request::is('front-news') ? 'active' : '' }}">
-                                <a href="{{ route('front.news') }}" class="nav-link text-left">News</a>
+                                <a href="{{ route('front.news') }}" class="nav-link text-left">What's New</a>
                             </li>
                             <li class="{{ Request::is('front-publication') ? 'active' : '' }}">
                                 <a href="{{ route('front.publication') }}" class="nav-link text-left">Publication</a>
@@ -76,7 +76,7 @@
                                 <a href="{{ route('front.advocacy') }}" class="nav-link text-left">Education</a>
                             </li>
                             <li class="{{ Request::is('front-member') ? 'active' : '' }} nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Membership</a>
+                                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Stay Connected</a>
                                 <div class="dropdown-menu m-0">
                                     <a href="{{ route('front.member.create') }}" class="nav-link text-left">Become A member</a>
                                     {{-- <a href="detail.html" class="dropdown-item">Blog Detail</a> --}}
