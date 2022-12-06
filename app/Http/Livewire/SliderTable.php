@@ -97,7 +97,7 @@ final class SliderTable extends PowerGridComponent
                 return substr(e($model->description), 0, 50);
             })
             ->addColumn('image', function (Slider $model) {
-                return '<img src="' . asset('storage/' . $model->image) . '" width="100" height="100" />';
+                return '<img src="' . asset( $model->image) . '" width="80" height="80" />';
             })
             ->addColumn('created_at_formatted', fn (Slider $model) => Carbon::parse($model->created_at)->format('d/m/Y H:i:s'));
     }

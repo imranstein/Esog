@@ -60,11 +60,16 @@
             <input type="file" name="video" class="form-control">
         </div>
     </div>
-
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <div>
+            <strong>Length</strong>
+            <input type="number" name="length" class="form-control">
+        </div>
+    </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
             <strong>Is Paid</strong>
-            <input type="checkbox" class="form-control" id="is_paid" name="is_paid" placeholder="Enter is_paid">
+            <input class="form-check" type="checkbox" name="is_paid" id="is_paid" value="1">
         </div>
     </div>
 

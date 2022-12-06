@@ -27,7 +27,7 @@ class MemberCourseController
         return view('memberCourse.create', compact('course'));
     }
 
-    public function store(Request $request)
+    public function store(Request $request,$id)
     {
         $validated = $request->validate([
             'course_id' => 'required|exists:courses,id',

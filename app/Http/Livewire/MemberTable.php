@@ -100,7 +100,7 @@ final class MemberTable extends PowerGridComponent
             ->addColumn('designation')
             ->addColumn('workplace')
             ->addColumn('photo', function (Members $model) {
-                return '<a href="' . e($model->photo) . '" target="blank"><img src="' . e($model->photo) . '" width="70" height="50" /></a>';
+                return '<img src="' . asset( $model->photo) . '" width="80" height="80" />';
             })
             ->addColumn('created_at_formatted', fn (Members $model) => Carbon::parse($model->created_at)->format('d/m/Y H:i:s'));
         // ->addColumn('updated_at_formatted', fn (Members $model) => Carbon::parse($model->updated_at)->format('d/m/Y H:i:s'));
@@ -123,7 +123,9 @@ final class MemberTable extends PowerGridComponent
     public function columns(): array
     {
         return [
-            Column::make('ID', 'id'),
+            Column::make('ID', 'id')
+            ->sortable()
+            ->searchable(),
 
             Column::make('NAME', 'name')
                 ->sortable()
@@ -194,7 +196,8 @@ final class MemberTable extends PowerGridComponent
                 Button::make('approve', 'Approve')
                 ->route('member.approve', ['member' => 'id'])
                 ->class('btn btn-success')
-                ->target('_self'),
+                ->target('_self')
+                ->method('post'),
 
         ];
     }
@@ -224,9 +227,9 @@ final class MemberTable extends PowerGridComponent
               ->when(fn (Members $model) => $model->is_active != null)
                 ->hide(),
 
-           Rule::button('approve')
-           ->when(fn () => Auth::user()->cannot('member-approve'))
-           ->hide(),
+        //    Rule::button('approve')
+        //    ->when(fn () => Auth::user()->cannot('member-approve'))
+        //    ->hide(),
            Rule::button('edit')
            ->when(fn () => Auth::user()->cannot('member-edit'))
            ->hide(),

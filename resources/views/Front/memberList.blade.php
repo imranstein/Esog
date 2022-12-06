@@ -29,7 +29,7 @@
 
             <div class="col-lg-4 col-md-6">
                 <div class="team-item">
-                    <img class="img-fluid w-100" src="{{ $member->image}}" alt="" />
+                    <img class="img-fluid w-100" src="{{ $member->photo}}" alt="" />
                     <div class="team-text">
                         {{-- <div class="team-social">
                             <a class="btn btn-lg btn-secondary btn-lg-square rounded-circle me-2" href="/{{ $member->twitter }}"><i class="fab fa-twitter"></i></a>
@@ -46,6 +46,8 @@
                 </div>
             </div>
             @endforeach
+        {{ $members->links() }}
+
         </div>
     </div>
 </div>

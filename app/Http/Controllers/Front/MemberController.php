@@ -10,7 +10,7 @@ use Intervention\Image\Facades\Image;
 class MemberController extends Controller
 {
     public function index(){
-        $members = Members::where('is_active',1)->get();
+        $members = Members::where('is_active',1)->paginate(12);
         return view('Front.memberList',compact('members'));
     }
     public function create()

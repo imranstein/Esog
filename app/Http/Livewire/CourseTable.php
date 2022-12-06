@@ -185,7 +185,7 @@ final class CourseTable extends PowerGridComponent
                 ->target('_self')
                 ->route('course.enroll', ['course' => 'id'])
                 ->method('post'),
-                
+
 
         ];
     }

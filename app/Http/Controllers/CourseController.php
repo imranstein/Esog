@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Course;
+use App\Models\MemberCourse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Intervention\Image\Facades\Image;
@@ -144,5 +145,18 @@ class CourseController
         $course->delete();
 
         return redirect()->route('course.index')->with('delete', 'Course Deleted successfully');
+    }
+    public function enroll($id)
+    {
+        $memberCourse = MemberCourse::create([
+            'member_id' => Auth::user()->id,
+            'course_id' => $id,
+            'is_approved' => null,
+            'started_at' => null,
+            'finished_at' => null,
+        ]);
+
+        return redirect()->route('memberCourse.index')->with('success', 'MemberCourse Created successfully');
+
     }
 }
