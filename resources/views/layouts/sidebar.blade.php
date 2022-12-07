@@ -155,6 +155,19 @@
                 </a>
             </li>
             @endcan
+            @can('myProfile')
+
+            <li class="nav-item {{ Request::is('myProfile') ? 'active' :'' }}">
+
+                <a class="nav-link" href="/myProfile">
+
+
+                    <i style="color:black;" class="material-icons">groups</i>
+
+                    <p style="color:black;">My Profile</p>
+                </a>
+            </li>
+            @endcan
 
 
 

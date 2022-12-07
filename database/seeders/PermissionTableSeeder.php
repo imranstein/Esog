@@ -117,6 +117,8 @@ class PermissionTableSeeder extends Seeder
             'memberCourse-delete',
 
             'memberCourse-approve',
+
+            'myProfile',
         ];
 
         foreach ($permissions as $permission) {

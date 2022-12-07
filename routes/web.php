@@ -28,6 +28,7 @@ use App\Http\Controllers\Front\FrontTestimonialController;
 use App\Http\Controllers\Front\AdvocacyController as FrontAdvocacyController;
 use App\Http\Controllers\Front\CourseController as FrontCourseController;
 use App\Http\Controllers\Front\GuidelinesController as FrontGuidelinesController;
+use App\Http\Controllers\MyProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -88,4 +89,6 @@ Route::middleware([
 Route::resource('memberCourse',MemberCourseController::class);
     // Route::get('/profile/change_password', [ProfileController::class, 'changePass'])->name('change.password');
     Route::post('/profile/update_password', [ProfileController::class, 'passwordUpdate'])->name('password.update');
+    Route::get('myProfile',[MyProfileController::class,'index'])->name('myProfile');
+    Route::put('myProfile/{id}',[MyProfileController::class,'update'])->name('myProfile.update');
 });
