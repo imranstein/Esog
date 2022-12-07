@@ -17,23 +17,20 @@
 <!-- Hero End -->
 
 <!-- About Start -->
-<section id="about" class="about" style="margin: 180px 0;">
+<section id="about" class="about container-fluid py-5" style="margin: 90px 0;padding:6em;">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-xl-5 col-lg-6 video-box d-flex justify-content-center align-items-stretch position-relative" style="background-image: url({{ asset('Front/img/3.jpg')}}); background-size: cover; background-position: center center;">
+            <div class="col-xl-6 col-lg-6 video-box d-flex justify-content-center align-items-stretch position-relative" style="background-image: url({{ asset('Front/img/3.jpg')}}); background-size: cover; background-position: center center;">
 
                 <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="glightbox play-btn mb-4"></a>
             </div>
 
-            <div class="col-xl-7 col-lg-6 icon-boxes d-flex flex-column align-items-stretch justify-content-center py-5 px-lg-5">
-                <h3>Enim quis est voluptatibus aliquid consequatur fugiat</h3>
+            <div class="col-xl-6 col-lg-6 icon-boxes d-flex flex-column align-items-stretch justify-content-center py-5 px-lg-5">
+                <h3>About Us</h3>
                 <p>
-                    Esse voluptas cumque vel exercitationem. Reiciendis est hic
-                    accusamus. Non ipsam et sed minima temporibus laudantium. Soluta
-                    voluptate sed facere corporis dolores excepturi. Libero laboriosam
-                    sint et id nulla tenetur. Suscipit aut voluptate.
+                    The Ethiopian Society of Obstetricians & Gynecologists (ESOG) was established in 1992 in response to the Safe Motherhood Initiative as a collective professional expression of concern to the high maternal and perinatal mortality and morbidity, and the poor SRH status in the country. The main aim was to enhance the contribution of Obstetricians and Gynecologists to improve access and quality of the SRH service in Ethiopia. Consequently, during the last 28 years ESOG has undertaken a number of remarkable SRH activities by engaging its members, working hand in hand with FMoH and networking with other partners working in the area of SRH. The major focus of intervention includes Safe Motherhood, prevention of Mother to Child Transmission of HIV/AIDS, Prevention of Post Partum Hemorrhage, Care for Survivors of Sexual Assault, improving access to quality CEmONC services, introducing national standards and guidelines.
                 </p>
-
+{{--
                 <div class="icon-box">
                     <div class="icon"><i class="bx bx-fingerprint"></i></div>
                     <h4 class="title"><a href="">Lorem Ipsum</a></h4>
@@ -59,14 +56,14 @@
                         Explicabo est voluptatum asperiores consequatur magnam. Et
                         veritatis odit. Sunt aut deserunt minus aut eligendi omnis
                     </p>
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>
 </section>
 <!-- About End -->
 <!-- About Start -->
-<section id="about" class="about">
+{{-- <section id="about" class="about">
     <div class="container-fluid">
         <div class="row">
             <div class="col-xl-6 col-lg-6 icon-boxes d-flex flex-column align-items-stretch justify-content-center py-5 px-lg-4">
@@ -107,7 +104,7 @@
             </div>
 
             <div class="col-xl-6 col-lg-6 icon-boxes d-flex flex-column align-items-stretch justify-content-center py-5 px-lg-4">
-                <h3>Vission</h3>
+                <h3>Vision</h3>
                 <p>
                     Esse voluptas cumque vel exercitationem. Reiciendis est hic
                     accusamus. Non ipsam et sed minima temporibus laudantium. Soluta
@@ -144,7 +141,7 @@
             </div>
         </div>
     </div>
-</section>
+</section> --}}
 <!-- About End -->
 <!-- Team Start -->
 <div class="container-fluid py-5">
