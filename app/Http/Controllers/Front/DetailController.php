@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Front;
 
 use App\Models\News;
 use App\Models\Advocacy;
+use App\Models\Course;
 use App\Models\Guidelines;
 use App\Models\Publication;
 use Illuminate\Http\Request;
@@ -24,6 +25,10 @@ class DetailController
         } elseif ($model == 'Advocacy') {
             $result = Advocacy::findOrFail($id);
             $latests = Advocacy::where('id', '!=', $id)->latest()->take(6)->get();
+        }
+        elseif ($model == 'Course') {
+            $result = Course::findOrFail($id);
+            $latests = Course::where('id', '!=', $id)->latest()->take(6)->get();
         }
 
         return view('Front.detail', compact('result', 'latests', 'model'));

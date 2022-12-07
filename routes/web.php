@@ -26,6 +26,7 @@ use App\Http\Controllers\Front\FrontAboutController;
 use App\Http\Controllers\Front\FrontPublicationController;
 use App\Http\Controllers\Front\FrontTestimonialController;
 use App\Http\Controllers\Front\AdvocacyController as FrontAdvocacyController;
+use App\Http\Controllers\Front\CourseController as FrontCourseController;
 use App\Http\Controllers\Front\GuidelinesController as FrontGuidelinesController;
 
 /*
@@ -53,7 +54,7 @@ Route::get('front-detail/{id}/{model}', DetailController::class)->name('front.de
 Route::get('front-member', [MemberController::class,'index'])->name('front.member');
 Route::get('front-member/create', [MemberController::class,'create'])->name('front.member.create');
 Route::post('front-memberRegister', [MemberController::class,'store'])->name('front.memberRegister');
-
+Route::get('front-course',FrontCourseController::class)->name('front.course');
 //EndFront
 // Route::get('/', function () {
 //     return view('welcome');

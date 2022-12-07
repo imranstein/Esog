@@ -72,8 +72,8 @@
                             <li class="{{ Request::is('front-advocacy') ? 'active' : '' }}">
                                 <a href="{{ route('front.advocacy') }}" class="nav-link text-left">Advocacy</a>
                             </li>
-                            <li class="{{ Request::is('front-advocacy') ? 'active' : '' }}">
-                                <a href="{{ route('front.advocacy') }}" class="nav-link text-left">Education</a>
+                            <li class="{{ Request::is('front-course') ? 'active' : '' }}">
+                                <a href="{{ route('front.course') }}" class="nav-link text-left">Education</a>
                             </li>
                             <li class="{{ Request::is('front-member') ? 'active' : '' }} nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Stay Connected</a>

@@ -70,8 +70,11 @@
                                 @endif
                             </div>
 
-                            <div class="col-12">
+                            <div class="col-8">
                                 <button class="btn btn-secondary w-100 py-3" type="submit">Register</button>
+                            </div>
+                            <div class="col-4">
+                                <a href="{{ route('dashboard') }}" class="btn btn-secondary w-100 py-3" type="submit">Login</a>
                             </div>
                         </div>
                     </form>
