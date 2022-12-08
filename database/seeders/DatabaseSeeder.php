@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Advocacy;
+use App\Models\Course;
 use App\Models\Guidelines;
 use App\Models\Members;
 use App\Models\Message;
@@ -27,13 +28,14 @@ class DatabaseSeeder extends Seeder
         $this->call(CreateAdminUserSeeder::class);
         $this->call(RoleTableSeeder::class);
         Student::factory(50)->create();
-        Members::factory(50)->create();
+        Members::factory(10)->create();
         Team::factory(20)->create();
         News::factory(20)->create();
         Publication::factory(20)->create();
         Message::factory(10)->create();
-        Slider::factory(6)->create();
+        Slider::factory(3)->create();
         Advocacy::factory(20)->create();
         Guidelines::factory(20)->create();
+        Course::factory(4)->create();
     }
 }

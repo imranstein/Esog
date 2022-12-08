@@ -90,5 +90,6 @@ Route::resource('memberCourse',MemberCourseController::class);
     // Route::get('/profile/change_password', [ProfileController::class, 'changePass'])->name('change.password');
     Route::post('/profile/update_password', [ProfileController::class, 'passwordUpdate'])->name('password.update');
     Route::get('myProfile',[MyProfileController::class,'index'])->name('myProfile');
+    Route::get('myProfile/{id}/edit',[MyProfileController::class,'edit'])->name('myProfile.edit');
     Route::put('myProfile/{id}',[MyProfileController::class,'update'])->name('myProfile.update');
 });

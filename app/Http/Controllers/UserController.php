@@ -35,7 +35,7 @@ class UserController extends Controller
     {
         $roles = Role::pluck('name', 'name')->all();
 
-        $data = User::orderBy('id', 'DESC')->paginate(5);
+        $data = User::with('roles')->orderBy('id', 'DESC')->paginate(5);
 
         return view('users.index', compact('data', 'roles'))
 

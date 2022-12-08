@@ -7,9 +7,12 @@
      <div>
          <div class="content">
              <div class="container-fluid">
+                @if($member)
                  <div class="row">
-                     <div class="col-lg-3 col-md-6 col-sm-6">
-                         <img src = "{{ $member->photo }}" alt = "photo" width = "100" height = "300">
+                     <div class="col-lg-6 col-md-6 col-sm-6">
+                        {{-- @if($member->photo) --}}
+                         <img src = "{{ asset($member->photo) }}" alt = "photo" width = "100" height = "300">
+                         {{-- @endif --}}
                      </div>
                      <div class="col-lg-6 col-md-6 col-sm-6">
                         <table class="table table-hover">
@@ -77,10 +80,11 @@
                             </tbody>
                         </table>
                      </div>
-                     <a href="{{ route('profile.edit') }}" class="btn btn-primary">Edit</a>
+                     <a href="{{ route('myProfile.edit',$member->id) }}" class="btn btn-primary">Edit</a>
                  </div>
+                 @endif
                  <div class="row">
-                    <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="col-lg-8 col-md-6 col-sm-6">
                         <form method="POST" action="{{ route('password.update') }}">
                             @csrf
                             {{-- <input type="hidden" name="_token" value="u1oqXZXNh33LCFsuR87oiWM0bAY7c1wtNWWIa1Jg"> <input type="hidden" name="_method" value="put"> --}}

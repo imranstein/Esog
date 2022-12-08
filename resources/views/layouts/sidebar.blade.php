@@ -12,9 +12,9 @@
     </div>
     <div class="sidebar-wrapper">
         <ul class="nav">
-            <li class="nav-item {{ Request::is('/') ? 'active' :'' }}">
+            <li class="nav-item {{ Request::is('/home') ? 'active' :'' }}">
 
-                <a class="nav-link" href="/">
+                <a class="nav-link" href="{{ route('dashboard') }}">
 
                     <i style="color:black;" class="material-icons">dashboard</i>
                     <p style="color:black;">Dashboard</p>
@@ -144,14 +144,14 @@
             @endcan
             @can('memberCourse-list')
 
-            <li class="nav-item {{ Request::is('course') ? 'active' :'' }}">
+            <li class="nav-item {{ Request::is('memberCourse') ? 'active' :'' }}">
 
-                <a class="nav-link" href="/course">
+                <a class="nav-link" href="/memberCourse">
 
 
                     <i style="color:black;" class="material-icons">groups</i>
 
-                    <p style="color:black;">Courses</p>
+                    <p style="color:black;">Registered Courses</p>
                 </a>
             </li>
             @endcan
