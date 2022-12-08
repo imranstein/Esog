@@ -1,8 +1,8 @@
 @extends('layouts.components.index')
-@section('model','Member's Course')
+@section('model','Member Course')
 @section('count',$count)
-@section('title','Member's Course')
-@section('insert','Member's Course')
+@section('title','Member Course')
+@section('insert','Member Course')
 
 @section('content')
 <livewire:member-course-table />

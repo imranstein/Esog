@@ -85,7 +85,7 @@ Route::middleware([
     Route::resource('slider', SliderController::class);
     Route::resource('course',CourseController::class);
     Route::post('course/enroll/{course}',[CourseController::class,'enroll'])->name('course.enroll');
-    Route::post('corse/approve/{course}',[CourseController::class,'approve'])->name('course.approve');
+    Route::post('course/approve/{course}',[MemberCourseController::class,'approve'])->name('course.approve');
 Route::resource('memberCourse',MemberCourseController::class);
     // Route::get('/profile/change_password', [ProfileController::class, 'changePass'])->name('change.password');
     Route::post('/profile/update_password', [ProfileController::class, 'passwordUpdate'])->name('password.update');

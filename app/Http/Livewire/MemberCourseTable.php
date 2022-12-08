@@ -175,7 +175,7 @@ final class MemberCourseTable extends PowerGridComponent
         Button::make('approve','Approve')
         ->class('btn btn-success')
         ->target('_self')
-            ->route('course.approve', ['member-course' => 'id'])
+            ->route('course.approve', ['course' => 'id'])
             ->method('post'),
         ];
     }
@@ -202,12 +202,12 @@ final class MemberCourseTable extends PowerGridComponent
 
            //Hide button edit for ID 1
            //hide approve button if is_approved is not null
-              Rule::make('approve')
-                ->when('is_approved', '!=', null)
+              Rule::button('approve')
+                ->when(fn (MemberCourse $model) => $model->is_approved != null)
                 ->hide(),
-                Rule::button('approve')
-                ->when(fn () => Auth::user()->cannot('memberCourse-approve'))
-                ->hide(),
+                // Rule::button('approve')
+                // ->when(fn () => Auth::user()->cannot('memberCourse-approve'))
+                // ->hide(),
 
         ];
     }

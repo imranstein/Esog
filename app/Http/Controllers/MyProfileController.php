@@ -42,7 +42,7 @@ class MyProfileController
             [
                 'name' => 'required',
                 // 'email' => 'nullable|unique:members|' . id,
-                'email' => 'nullable|email:rfc,dns|unique:members,email,' . $members->id,
+                'email' => 'nullable|email|unique:members,email,' . $members->id,
                 'phone' => 'nullable|digits_between:9,14|numeric|unique:members,phone,' . $members->id,
                 'department' => 'nullable',
                 'designation' => 'nullable',

@@ -155,6 +155,7 @@ class CourseController
             'started_at' => null,
             'finished_at' => null,
         ]);
+        dd($memberCourse);
 
         return redirect()->route('memberCourse.index')->with('success', 'MemberCourse Created successfully');
 

@@ -1,6 +1,7 @@
 @extends('layouts.components.index')
 @section('model','Members Course')
-@section('count',{{ total($memberCourses) }})
+{{-- @section('count', ($memberCourses)->count() ) --}}
+@section('count',$count)
 @section('title','Members Course')
 @section('insert','Members Course')
 
@@ -33,7 +34,7 @@
                                             @foreach ($memberCourses as $course)
 
                                             <tr>
-                                                <td>{{ ++$i }}</td>
+                                                <td>{{ $course->id }}</td>
 
                                                 <td>{{ $course->course->title }}</td>
                                                 <td>{{ $course->course->author }}</td>
@@ -69,7 +70,7 @@
 
                                         </tbody>
                                     </table>
-                                    {!! $data->render() !!}
+                                    {!! $memberCourses->render() !!}
 
 
 @endsection

@@ -130,7 +130,7 @@
                 </a>
             </li>
             @endcan
-            @can('course-list')
+            {{-- @can('course-list') --}}
             <li class="nav-item {{ Request::is('course') ? 'active' :'' }}">
 
                 <a class="nav-link" href="/course">
@@ -141,8 +141,8 @@
                     <p style="color:black;">Courses</p>
                 </a>
             </li>
-            @endcan
-            @can('memberCourse-list')
+            {{-- @endcan
+            @can('memberCourse-list') --}}
 
             <li class="nav-item {{ Request::is('memberCourse') ? 'active' :'' }}">
 
@@ -154,8 +154,8 @@
                     <p style="color:black;">Registered Courses</p>
                 </a>
             </li>
-            @endcan
-            @can('myProfile')
+            {{-- @endcan
+            @can('myProfile') --}}
 
             <li class="nav-item {{ Request::is('myProfile') ? 'active' :'' }}">
 
@@ -167,7 +167,7 @@
                     <p style="color:black;">My Profile</p>
                 </a>
             </li>
-            @endcan
+            {{-- @endcan --}}
 
 
 

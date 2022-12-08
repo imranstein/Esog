@@ -11,9 +11,10 @@ class MemberCourseController
 {
     public function index()
     {
-        if(Auth::role('Member')){
-            $memberCourses = MemberCourse::where('member_id', Auth::user()->id)->paginate(5);
-            return view('memberCourse.individual', compact('memberCourses'));
+        if(Auth::user()->roles[0]->name == 'Member'){
+            $memberCourses = MemberCourse::with('course')->where('member_id', Auth::user()->id)->paginate(5);
+            $count = $memberCourses->count();
+            return view('memberCourse.individual', compact('memberCourses', 'count'));
         }else{
     $count = MemberCourse::count();
 

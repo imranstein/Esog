@@ -9,12 +9,12 @@
              <div class="container-fluid">
                 @if($member)
                  <div class="row">
-                     <div class="col-lg-6 col-md-6 col-sm-6">
+                     <div class="col-lg-4 col-md-4 col-sm-4">
                         {{-- @if($member->photo) --}}
-                         <img src = "{{ asset($member->photo) }}" alt = "photo" width = "100" height = "300">
+                         <img src = "{{ asset($member->photo) }}" alt = "photo" width = "auto" height = "300">
                          {{-- @endif --}}
                      </div>
-                     <div class="col-lg-6 col-md-6 col-sm-6">
+                     <div class="col-lg-4 col-md-4 col-sm-4">
                         <table class="table table-hover">
                             <tbody>
                                 <tr>
@@ -80,7 +80,9 @@
                             </tbody>
                         </table>
                      </div>
-                     <a href="{{ route('myProfile.edit',$member->id) }}" class="btn btn-primary">Edit</a>
+                     <div class="card-footer ml-auto mr-auto">
+                        <a href="{{ route('myProfile.edit',$member->id) }}" class="btn btn-primary">Edit</a>
+                    </div>
                  </div>
                  @endif
                  <div class="row">
