@@ -1,7 +1,11 @@
 <?php
+
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\Course;
+use App\Models\Members;
+use Termwind\Components\Dd;
 use App\Models\MemberCourse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -11,15 +15,16 @@ class MemberCourseController
 {
     public function index()
     {
-        if(Auth::user()->roles[0]->name == 'Member'){
-            $memberCourses = MemberCourse::with('course')->where('member_id', Auth::user()->id)->paginate(5);
+        if (Auth::user()->roles[0]->name == 'Member') {
+            $member_id = Members::where('user_id', Auth::user()->id)->first()->id;
+            $memberCourses = MemberCourse::with('course','member')->where('member_id', $member_id)->paginate(5);
             $count = $memberCourses->count();
             return view('memberCourse.individual', compact('memberCourses', 'count'));
-        }else{
-    $count = MemberCourse::count();
+        } else {
+            $count = MemberCourse::count();
 
-    return view('memberCourse.index', compact('count'));
-}
+            return view('memberCourse.index', compact('count'));
+        }
     }
 
     public function create()
@@ -28,7 +33,7 @@ class MemberCourseController
         return view('memberCourse.create', compact('course'));
     }
 
-    public function store(Request $request,$id)
+    public function store(Request $request, $id)
     {
         $validated = $request->validate([
             'course_id' => 'required|exists:courses,id',
@@ -43,7 +48,6 @@ class MemberCourseController
         ]);
 
         return redirect()->route('memberCourse.index')->with('success', 'MemberCourse Created successfully');
-
     }
 
     public function show($id)
@@ -62,15 +66,12 @@ class MemberCourseController
     {
         $memberCourse = MemberCourse::findOrFail($id);
 
-        $validated = $request->validate([
-
-        ]);
+        $validated = $request->validate([]);
 
 
         $memberCourse->update($validated);
 
         return redirect()->route('memberCourse.index')->with('update', 'MemberCourse Updated successfully');
-
     }
 
     public function destroy($id)
@@ -83,8 +84,9 @@ class MemberCourseController
 
     public function enroll($id)
     {
+        $member_id = Members::where('user_id', Auth::user()->id)->first()->id;
         MemberCourse::create([
-            'member_id' => Auth::user()->id,
+            'member_id' => $member_id,
             'course_id' => $id,
             'is_approved' => null,
             'started_at' => null,
@@ -110,8 +112,10 @@ class MemberCourseController
         $memberCourse->update([
             'started_at' => now(),
         ]);
+        $course = Course::findOrFail($memberCourse->course_id);
 
-        return redirect()->route('memberCourse.index')->with('success', 'MemberCourse Started successfully');
+        return view('course.show', compact('course'));
+        // return redirect()->route('memberCourse.index')->with('success', 'MemberCourse Started successfully');
     }
 
     public function finish($id)
@@ -119,15 +123,22 @@ class MemberCourseController
         $memberCourse = MemberCourse::findOrFail($id);
         $courseLength = Course::findOrFail($memberCourse->course_id)->length;
         //check if the course length is greater than between started_at and now in minutes
-        if ($courseLength > $memberCourse->started_at->diffInMinutes(now())) {
-            return redirect()->route('memberCourse.index')->with('error', 'Course length is greater than the time you have spent on it');
-        }
-    else{
-    $memberCourse->update([
-        'finished_at' => now(),
-    ]);
+        //the minute differece between started_at and now
+        $now = Carbon::now()->toDateTimeString();
+        //   change the format of started_at to be the same as now
+        $started = Carbon::parse($memberCourse->started_at)->toDateTimeString();
 
-    return redirect()->route('memberCourse.index')->with('success', 'Course been Finished successfully');
-}
+        $diff = Carbon::parse($now)->diffInMinutes($started);
+
+
+        if ($courseLength > $diff) {
+            return redirect()->route('memberCourse.index')->with('delete', 'Course length is greater than the time you have spent on it');
+        } else {
+            $memberCourse->update([
+                'finished_at' => now(),
+            ]);
+
+            return redirect()->route('memberCourse.index')->with('success', 'Course been Finished successfully');
+        }
     }
 }

@@ -52,10 +52,10 @@ Route::get('front-guidelines', FrontGuidelinesController::class)->name('front.gu
 Route::get('front-advocacy', FrontAdvocacyController::class)->name('front.advocacy');
 Route::get('front-testimonial', FrontTestimonialController::class)->name('front.testimonial');
 Route::get('front-detail/{id}/{model}', DetailController::class)->name('front.detail');
-Route::get('front-member', [MemberController::class,'index'])->name('front.member');
-Route::get('front-member/create', [MemberController::class,'create'])->name('front.member.create');
-Route::post('front-memberRegister', [MemberController::class,'store'])->name('front.memberRegister');
-Route::get('front-course',FrontCourseController::class)->name('front.course');
+Route::get('front-member', [MemberController::class, 'index'])->name('front.member');
+Route::get('front-member/create', [MemberController::class, 'create'])->name('front.member.create');
+Route::post('front-memberRegister', [MemberController::class, 'store'])->name('front.memberRegister');
+Route::get('front-course', FrontCourseController::class)->name('front.course');
 //EndFront
 // Route::get('/', function () {
 //     return view('welcome');
@@ -70,26 +70,28 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
-    Route::get('/home',DashboardController::class)->name('dashboard');
+    Route::get('/home', DashboardController::class)->name('dashboard');
     Route::get('students', Students::class)->name('students');
     Route::resource('users', UserController::class);
     Route::resource('roles', RoleController::class);
     Route::get('profile', Profile::class)->name('profile');
     Route::resource('member', MembersController::class);
-    Route::post('member/{member}/approve', [MembersController::class,'approve'])->name('member.approve');
+    Route::post('member/{member}/approve', [MembersController::class, 'approve'])->name('member.approve');
     Route::resource('team', TeamsController::class);
     Route::resource('news', NewsController::class);
     Route::resource('publication', PublicationController::class);
     Route::resource('guidelines', GuidelinesController::class);
     Route::resource('advocacy', AdvocacyController::class);
     Route::resource('slider', SliderController::class);
-    Route::resource('course',CourseController::class);
-    Route::post('course/enroll/{course}',[CourseController::class,'enroll'])->name('course.enroll');
-    Route::post('course/approve/{course}',[MemberCourseController::class,'approve'])->name('course.approve');
-Route::resource('memberCourse',MemberCourseController::class);
+    Route::resource('course', CourseController::class);
+    Route::post('course/enroll/{course}', [CourseController::class, 'enroll'])->name('course.enroll');
+    Route::post('course/approve/{course}', [MemberCourseController::class, 'approve'])->name('course.approve');
+    Route::resource('memberCourse', MemberCourseController::class);
+    Route::get('startCourse/{id}', [MemberCourseController::class, 'start'])->name('startCourse');
+    Route::get('finishCourse/{id}', [MemberCourseController::class, 'finish'])->name('finishCourse');
     // Route::get('/profile/change_password', [ProfileController::class, 'changePass'])->name('change.password');
     Route::post('/profile/update_password', [ProfileController::class, 'passwordUpdate'])->name('password.update');
-    Route::get('myProfile',[MyProfileController::class,'index'])->name('myProfile');
-    Route::get('myProfile/{id}/edit',[MyProfileController::class,'edit'])->name('myProfile.edit');
-    Route::put('myProfile/{id}',[MyProfileController::class,'update'])->name('myProfile.update');
+    Route::get('myProfile', [MyProfileController::class, 'index'])->name('myProfile');
+    Route::get('myProfile/{id}/edit', [MyProfileController::class, 'edit'])->name('myProfile.edit');
+    Route::put('myProfile/{id}', [MyProfileController::class, 'update'])->name('myProfile.update');
 });

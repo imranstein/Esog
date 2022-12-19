@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Course;
+use App\Models\Members;
 use App\Models\MemberCourse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -75,6 +76,8 @@ class CourseController
     public function show($id)
     {
         $course = Course::findOrFail($id);
+
+        return view('course.show', compact('course'));
     }
 
     public function edit($id)
@@ -148,16 +151,18 @@ class CourseController
     }
     public function enroll($id)
     {
+        // get the member id from the member table where the user id is equal to the auth id
+        $member_id = Members::where('user_id', Auth::user()->id)->first()->id;
         $memberCourse = MemberCourse::create([
-            'member_id' => Auth::user()->id,
+
+            'member_id' => $member_id,
             'course_id' => $id,
             'is_approved' => null,
             'started_at' => null,
             'finished_at' => null,
         ]);
-        dd($memberCourse);
+        // dd($memberCourse);
 
         return redirect()->route('memberCourse.index')->with('success', 'MemberCourse Created successfully');
-
     }
 }

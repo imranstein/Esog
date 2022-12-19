@@ -3,10 +3,13 @@
 namespace App\Http\Livewire;
 
 use App\Models\Course;
+use App\Models\Members;
+use App\Models\MemberCourse;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Builder;
-use PowerComponents\LivewirePowerGrid\Rules\{Rule, RuleActions};
 use PowerComponents\LivewirePowerGrid\Traits\ActionButton;
+use PowerComponents\LivewirePowerGrid\Rules\{Rule, RuleActions};
 use PowerComponents\LivewirePowerGrid\{Button, Column, Exportable, Footer, Header, PowerGrid, PowerGridComponent, PowerGridEloquent};
 
 final class CourseTable extends PowerGridComponent
@@ -44,10 +47,10 @@ final class CourseTable extends PowerGridComponent
     */
 
     /**
-    * PowerGrid datasource.
-    *
-    * @return Builder<\App\Models\Course>
-    */
+     * PowerGrid datasource.
+     *
+     * @return Builder<\App\Models\Course>
+     */
     public function datasource(): Builder
     {
         return Course::query();
@@ -88,7 +91,7 @@ final class CourseTable extends PowerGridComponent
             ->addColumn('id')
             ->addColumn('title')
 
-           /** Example of custom column using a closure **/
+            /** Example of custom column using a closure **/
             ->addColumn('title_lower', function (Course $model) {
                 return strtolower(e($model->title));
             })
@@ -100,7 +103,7 @@ final class CourseTable extends PowerGridComponent
             })
             ->addColumn('author')
             ->addColumn('length');
-         }
+    }
 
     /*
     |--------------------------------------------------------------------------
@@ -111,7 +114,7 @@ final class CourseTable extends PowerGridComponent
     |
     */
 
-     /**
+    /**
      * PowerGrid Columns.
      *
      * @return array<int, Column>
@@ -125,13 +128,11 @@ final class CourseTable extends PowerGridComponent
 
             Column::make('TITLE', 'title')
                 ->sortable()
-                ->searchable()
-               ,
+                ->searchable(),
 
             Column::make('TAGS', 'tags')
                 ->sortable()
-                ->searchable()
-               ,
+                ->searchable(),
 
             Column::make('DESCRIPTION', 'description')
                 ->sortable()
@@ -139,8 +140,7 @@ final class CourseTable extends PowerGridComponent
 
             Column::make('AUTHOR', 'author')
                 ->sortable()
-                ->searchable()
-               ,
+                ->searchable(),
 
             Column::make('LENGTH', 'length')
                 ->sortable()
@@ -148,8 +148,7 @@ final class CourseTable extends PowerGridComponent
 
 
 
-        ]
-;
+        ];
     }
 
     /*
@@ -160,7 +159,7 @@ final class CourseTable extends PowerGridComponent
     |
     */
 
-     /**
+    /**
      * PowerGrid Course Action Buttons.
      *
      * @return array<int, Button>
@@ -169,18 +168,18 @@ final class CourseTable extends PowerGridComponent
 
     public function actions(): array
     {
-       return [
-           Button::make('edit', 'Edit')
-           ->class('btn btn-primary')
-           ->target('_self')
-               ->route('course.edit', ['course' => 'id']),
-
-           Button::make('destroy', 'Delete')
-              ->class('btn btn-danger')
+        return [
+            Button::make('edit', 'Edit')
+                ->class('btn btn-primary')
                 ->target('_self')
-               ->route('course.destroy', ['course' => 'id'])
-               ->method('delete'),
-               Button::make('enroll', 'Enroll')
+                ->route('course.edit', ['course' => 'id']),
+
+            Button::make('destroy', 'Delete')
+                ->class('btn btn-danger')
+                ->target('_self')
+                ->route('course.destroy', ['course' => 'id'])
+                ->method('delete'),
+            Button::make('enroll', 'Enroll')
                 ->class('btn btn-success')
                 ->target('_self')
                 ->route('course.enroll', ['course' => 'id'])
@@ -199,22 +198,24 @@ final class CourseTable extends PowerGridComponent
     |
     */
 
-     /**
+    /**
      * PowerGrid Course Action Rules.
      *
      * @return array<int, RuleActions>
      */
 
-    /*
     public function actionRules(): array
     {
-       return [
+        $member_id = Members::where('user_id', Auth::user()->id)->first()->id;
+        $userCourse = MemberCourse::where('member_id', $member_id)->pluck('course_id')->toArray();
 
-           //Hide button edit for ID 1
-            Rule::button('edit')
-                ->when(fn($course) => $course->id === 1)
+
+        return [
+
+            //Hide enroll button if user is already enrolled
+            Rule::button('enroll')
+                ->when(fn ($model) => in_array($model->id, $userCourse))
                 ->hide(),
         ];
     }
-    */
 }
