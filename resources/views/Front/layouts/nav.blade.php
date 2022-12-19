@@ -21,7 +21,10 @@
             </div>
 
             <a href="{{ route('front.news') }}" class="nav-item nav-link">News</a>
-            <a href="{{ route('front.publication') }}" class="nav-item nav-link">Publication</a>
+
+
+            {{-- <a href="{{ route('front.publication') }}" class="nav-item nav-link">Publication</a> --}}
+            <a href=" https://ejrh.org/index.php/ejrh" class="nav-item nav-link">Publication</a>
             <a href="{{ route('front.guidelines') }}" class="nav-item nav-link">Guidelines</a>
             <a href="{{ route('front.advocacy') }}" class="nav-item nav-link">Advocacy</a>
             <a href="{{ route('front.member') }}" class="nav-item nav-link">Become a Member</a>

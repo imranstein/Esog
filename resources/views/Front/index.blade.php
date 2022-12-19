@@ -242,7 +242,7 @@
 
             {{-- End --}}
             <!-- Team Start -->
-            <div class="container-fluid py-5">
+            {{-- <div class="container-fluid py-5">
                 <div class="container py-5">
                     <div class="text-center mx-auto mb-5" style="max-width: 500px">
                         <h4 class="display-6">Latest Publications</h1>
@@ -254,7 +254,7 @@
                         <div class="profile-card-2"><img src="http://envato.jayasankarkr.in/code/profile/assets/img/profile-2.jpg" class="img img-responsive">
                             <div class="profile-name">{{ $publication->author }}</div>
                             <div class="profile-username">{{ $publication->title }}</div>
-                            {{-- created at with diffforhumans form --}}
+                            {{-- created at with diffforhumans form --}
                             <div class="profile-icons">{{ $publication->created_at->diffForHumans() }}</div>
 
                         </div>
@@ -262,6 +262,6 @@
 
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
             @endsection
