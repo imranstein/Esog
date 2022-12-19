@@ -206,16 +206,26 @@ final class CourseTable extends PowerGridComponent
 
     public function actionRules(): array
     {
-        $member_id = Members::where('user_id', Auth::user()->id)->first()->id;
-        $userCourse = MemberCourse::where('member_id', $member_id)->pluck('course_id')->toArray();
-
+        if (Auth::user()->roles[0]->name == 'Member') {
+            $member_id = Members::where('user_id', Auth::user()->id)->first()->id;
+            $userCourse = MemberCourse::where('member_id', $member_id)->pluck('course_id')->toArray();
+        }
+        else {
+            $userCourse = [];
+        }
 
         return [
 
             //Hide enroll button if user is already enrolled
+
             Rule::button('enroll')
                 ->when(fn ($model) => in_array($model->id, $userCourse))
                 ->hide(),
+            // hide enroll button if user is not a member
+            Rule::button('enroll')
+                ->when(fn ($model) => Auth::user()->roles[0]->name != 'Member')
+                ->hide(),
+
         ];
     }
 }
