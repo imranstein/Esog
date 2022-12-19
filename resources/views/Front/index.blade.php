@@ -155,7 +155,7 @@
             </div>
             <!-- Blog End -->
             <!-- Small Introduction -->
-            <div class="container-fluid py-5" style="margin-top: 40px;background-color: rgb(225, 225, 225);">
+            {{-- <div class="container-fluid py-5" style="margin-top: 40px;background-color: rgb(225, 225, 225);">
                 <div class="container py-5">
                     <div class="row justify-content-start">
                         <div class="col-md-6">
@@ -173,7 +173,7 @@
 
                     </div>
                 </div>
-            </div>
+            </div> --}}
             <!-- Small Introduction -->
             {{-- Service --}}
             <div style="margin-top: 90px">
