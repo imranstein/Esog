@@ -16,16 +16,33 @@ class MyProfileController
         $user = User::find($userId);
         $member = Members::where('user_id', $userId)->first();
 
-        return view('profile.myProfile', [
+        return view('Front.member.profile', [
             'user' => $user,
             'member' => $member
         ]);
-
     }
-    public function edit($id){
+    public function editImage(Request $request)
+    {
+        $id = $request->id;
+        $member = Members::find($id);
+
+        if ($request->hasFile('photo')) {
+            $photo = $request->file('photo');
+            $name_gen = hexdec(uniqid()) . '.' . $photo->getClientOriginalExtension();
+            Image::make($photo)->save('Photo/' . $name_gen);
+
+            $last_thumb = 'Photo/' . $name_gen;
+        }
+
+        $member->photo = $last_thumb;
+        $member->save();
+
+        return redirect()->back();
+    }
+    public function edit($id)
+    {
         $member = Members::find($id);
         return view('profile.editProfile', compact('member'));
-
     }
     public function update(Request $request, $id)
     {

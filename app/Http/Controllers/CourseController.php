@@ -75,7 +75,11 @@ class CourseController
 
     public function show($id)
     {
+
         $course = Course::findOrFail($id);
+        if (Auth::user()->roles[0]->name == 'Member') {
+            return view('Front.member.detail', compact('course'));
+        }
 
         return view('course.show', compact('course'));
     }
@@ -157,7 +161,7 @@ class CourseController
 
             'member_id' => $member_id,
             'course_id' => $id,
-            'is_approved' => null,
+            'is_approved' => now(),
             'started_at' => null,
             'finished_at' => null,
         ]);

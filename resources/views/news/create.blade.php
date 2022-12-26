@@ -49,3 +49,23 @@
 
 </form>
 @endsection
+@section('script')
+<script>
+    ClassicEditor
+        .create(document.querySelector('#description'))
+        .catch(error => {
+            console.error(error);
+        });
+
+</script>
+
+{{-- Amharic body --}}
+{{-- <script>
+    ClassicEditor
+        .create(document.querySelector('#content_am'))
+        .catch(error => {
+            console.error(error);
+        });
+
+</script> --}}
+@endsection

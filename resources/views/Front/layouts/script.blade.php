@@ -25,3 +25,8 @@
 
 <!-- Template Main JS File -->
 <script src="{{ asset('Front/assets/js/main.js')}}"></script> --}}
+@stack('js')
+<script src="https://cdn.ckeditor.com/ckeditor5/31.1.0/classic/ckeditor.js"></script>
+
+
+@yield('script')

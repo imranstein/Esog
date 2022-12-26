@@ -17,9 +17,9 @@ class MemberCourseController
     {
         if (Auth::user()->roles[0]->name == 'Member') {
             $member_id = Members::where('user_id', Auth::user()->id)->first()->id;
-            $memberCourses = MemberCourse::with('course','member')->where('member_id', $member_id)->paginate(5);
+            $memberCourses = MemberCourse::with('course', 'member')->where('member_id', $member_id)->paginate(5);
             $count = $memberCourses->count();
-            return view('memberCourse.individual', compact('memberCourses', 'count'));
+            return view('Front.member.memberCourse', compact('memberCourses', 'count'));
         } else {
             $count = MemberCourse::count();
 
@@ -52,7 +52,9 @@ class MemberCourseController
 
     public function show($id)
     {
-        $memberCourse = MemberCourse::findOrFail($id);
+        $course = MemberCourse::findOrFail($id);
+
+        return view('Front.member.detail', compact('course'));
     }
 
     public function edit($id)
@@ -114,9 +116,10 @@ class MemberCourseController
         ]);
         $course = Course::findOrFail($memberCourse->course_id);
 
-        return view('course.show', compact('course'));
+        return view('Front.member.detail', compact('course'));
         // return redirect()->route('memberCourse.index')->with('success', 'MemberCourse Started successfully');
     }
+
 
     public function finish($id)
     {
@@ -132,7 +135,7 @@ class MemberCourseController
 
 
         if ($courseLength > $diff) {
-            return redirect()->route('memberCourse.index')->with('delete', 'Course length is greater than the time you have spent on it');
+            return redirect()->route('memberCourse.show', $id)->with('delete', 'Course length is greater than the time you have spent on it');
         } else {
             $memberCourse->update([
                 'finished_at' => now(),

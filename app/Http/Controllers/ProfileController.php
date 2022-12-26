@@ -14,7 +14,11 @@ class ProfileController extends Controller
 
     //     return view('profile.change_pass');
     // }
-
+    public function logout()
+    {
+        Auth::logout();
+        return redirect()->route('front.index');
+    }
     public function passwordUpdate(Request $request)
     {
         $validateData = $request->validate([
@@ -32,7 +36,7 @@ class ProfileController extends Controller
             $user->save();
 
             // Auth::logout();
-            return redirect()->route('login')->with('success', 'Password Changed Succesfully');
+            return redirect()->route('front.index')->with('success', 'Password Changed Successfully');
         } else {
             return redirect()->back()->with('error', 'Current Password is Incorrect');
         }

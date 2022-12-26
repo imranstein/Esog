@@ -63,18 +63,28 @@
                             <li class="{{ Request::is('front-news') ? 'active' : '' }}">
                                 <a href="{{ route('front.news') }}" class="nav-link text-left">What's New</a>
                             </li>
-                            <li class="{{ Request::is('front-publication') ? 'active' : '' }}">
-                                <a href="{{ route('front.publication') }}" class="nav-link text-left">Publication</a>
+                            <li>
+                                <a href="https://ejrh.org/index.php/ejrh" class="nav-link text-left">Publication</a>
                             </li>
-                            <li class="{{ Request::is('front-guidelines') ? 'active' : '' }}">
-                                <a href="{{ route('front.guidelines') }}" class="nav-link text-left">Guidelines</a>
+                            <li class="{{ Request::is('front-guidelines') || Request::is('front-advocacy') || Request::is('front-course') ? 'active' : '' }} nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Resource</a>
+                                <div class="dropdown-menu m-0">
+                                    <a href="{{ route('front.guidelines') }}" class="nav-link text-left">Guidelines</a>
+                                    <a href="{{ route('front.advocacy') }}" class="nav-link text-left">Advocacy</a>
+                                    <a href="{{ route('front.course') }}" class="nav-link text-left">Education</a>
+
+                                </div>
+                            </li>
+
+                            {{-- <li class="{{ Request::is('front-guidelines') ? 'active' : '' }}">
+                            <a href="{{ route('front.guidelines') }}" class="nav-link text-left">Guidelines</a>
                             </li>
                             <li class="{{ Request::is('front-advocacy') ? 'active' : '' }}">
                                 <a href="{{ route('front.advocacy') }}" class="nav-link text-left">Advocacy</a>
                             </li>
                             <li class="{{ Request::is('front-course') ? 'active' : '' }}">
                                 <a href="{{ route('front.course') }}" class="nav-link text-left">Education</a>
-                            </li>
+                            </li> --}}
                             <li class="{{ Request::is('front-member') ? 'active' : '' }} nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Stay Connected</a>
                                 <div class="dropdown-menu m-0">
@@ -88,9 +98,15 @@
                                 <a href="{{ route('front.contact') }}" class="nav-link text-left">Contact Us</a>
                             </li>
 
-                            <a href="{{ route('dashboard') }}" class="btn btn-primary" type="button" >
+                            @if(Auth::check() && Auth::user()->roles[0]->name == 'Member')
+                            <a href="{{ route('dashboard') }}" class="nav-link text-left">
+                                {{ Auth::user()->name }}
+                            </a>
+                            @else
+                            <a href="{{ route('dashboard') }}" class="btn btn-primary" type="button">
                                 Login
                             </a>
+                            @endif
 
                         </ul>
                     </nav>

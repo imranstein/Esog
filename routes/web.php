@@ -84,7 +84,7 @@ Route::middleware([
     Route::resource('advocacy', AdvocacyController::class);
     Route::resource('slider', SliderController::class);
     Route::resource('course', CourseController::class);
-    Route::post('course/enroll/{course}', [CourseController::class, 'enroll'])->name('course.enroll');
+    Route::get('course/enroll/{course}', [CourseController::class, 'enroll'])->name('course.enroll');
     Route::post('course/approve/{course}', [MemberCourseController::class, 'approve'])->name('course.approve');
     Route::resource('memberCourse', MemberCourseController::class);
     Route::get('startCourse/{id}', [MemberCourseController::class, 'start'])->name('startCourse');
@@ -94,4 +94,6 @@ Route::middleware([
     Route::get('myProfile', [MyProfileController::class, 'index'])->name('myProfile');
     Route::get('myProfile/{id}/edit', [MyProfileController::class, 'edit'])->name('myProfile.edit');
     Route::put('myProfile/{id}', [MyProfileController::class, 'update'])->name('myProfile.update');
+    Route::put('editImage', [MyProfileController::class, 'editImage'])->name('editImage');
+    Route::get('logout', [ProfileController::class, 'logout'])->name('logout');
 });

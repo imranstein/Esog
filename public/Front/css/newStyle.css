@@ -126,6 +126,7 @@ h5,
     }
 }
 
+
 .border-top {
     border-top: 1px solid #edf0f5 !important;
 }
@@ -334,10 +335,11 @@ h5,
 }
 
 .site-navbar .site-navigation .site-menu .active>a {
-    color: #000;
+    color: #86B7E2;
     display: inline-block;
     padding-left: 10px;
     padding-right: 10px;
+    font-weight: 700;
 }
 
 .site-navbar .site-navigation .site-menu a {
@@ -1686,6 +1688,16 @@ h5,
     padding: 50px;
     font-size: .9rem;
     height: auto;
+}
+
+@media (max-width: 767.98px) {
+    .half-post-entry .contents {
+        padding: 30px;
+    }
+
+    .site-section {
+        display: none;
+    }
 }
 
 @media (max-width: 991.98px) {
