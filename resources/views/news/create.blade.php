@@ -49,7 +49,7 @@
 
 </form>
 @endsection
-@section('script')
+{{-- @section('script')
 <script>
     ClassicEditor
         .create(document.querySelector('#description'))
@@ -67,5 +67,5 @@
             console.error(error);
         });
 
-</script> --}}
-@endsection
+</script> --}
+@endsection --}}

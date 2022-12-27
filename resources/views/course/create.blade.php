@@ -80,7 +80,7 @@
 
 </form>
 @endsection
-@section('script')
+{{-- @section('script')
 <script>
     ClassicEditor
         .create(document.querySelector('#description'))
@@ -91,4 +91,4 @@
 
 </script>
 
-@endsection
+@endsection --}}

@@ -96,4 +96,5 @@ Route::middleware([
     Route::put('myProfile/{id}', [MyProfileController::class, 'update'])->name('myProfile.update');
     Route::put('editImage', [MyProfileController::class, 'editImage'])->name('editImage');
     Route::get('logout', [ProfileController::class, 'logout'])->name('logout');
+    Route::post('image-upload', [NewsController::class, 'storeImage'])->name('image.upload');
 });
