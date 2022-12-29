@@ -29,6 +29,7 @@ use App\Http\Controllers\Front\AdvocacyController as FrontAdvocacyController;
 use App\Http\Controllers\Front\CourseController as FrontCourseController;
 use App\Http\Controllers\Front\GuidelinesController as FrontGuidelinesController;
 use App\Http\Controllers\MyProfileController;
+use App\Http\Controllers\ProjectController;
 
 /*
 |--------------------------------------------------------------------------
@@ -84,6 +85,7 @@ Route::middleware([
     Route::resource('advocacy', AdvocacyController::class);
     Route::resource('slider', SliderController::class);
     Route::resource('course', CourseController::class);
+    Route::resource('project', ProjectController::class);
     Route::get('course/enroll/{course}', [CourseController::class, 'enroll'])->name('course.enroll');
     Route::post('course/approve/{course}', [MemberCourseController::class, 'approve'])->name('course.approve');
     Route::resource('memberCourse', MemberCourseController::class);

@@ -1622,6 +1622,48 @@ img {
     .contact-form .send {
         margin-bottom: 20px;
     }
+
+    #slider {
+        display: none;
+    }
+
+    .site-logo {
+        display: none;
+    }
+
+    .search-form {
+        margin: 10px;
+        ;
+    }
+
+    a.site-logo-mob {
+        display: inline-flex;
+        margin-right: 24em;
+    }
+
+    div#navContainer {
+        padding: 0 !important;
+        margin: 2em !important;
+        width: 100% !important;
+    }
+
+    .search-form {
+        margin-top: 3em;
+        margin-left: 7em;
+        margin-bottom: -3em;
+    }
+}
+
+.site-logo-mob {
+    display: none;
+}
+
+.nav-active {
+    display: none;
+}
+
+.nav-disabled {
+    display: block;
 }
 
 .section-title h2 {

@@ -1,10 +1,14 @@
 <div class="header-top">
-    <div class="container">
+    <div class="container" id="navContainer" style="padding-left:5em;padding-top: 0;padding-bottom: 0;">
         <div class="row align-items-center">
-            <div class="col-12 col-lg-6 d-flex">
+            <div class="col-12 col-lg-5 d-flex">
                 <a href="index.html" class="site-logo">
-                    <img src="{{ asset('Front/img/logo1.png')}}" style="height: 100px;width:auto;" alt="">
+                    <img src="{{ asset('Front/img/logo.png')}}" style="height: 80px;width:auto;" alt="">
                 </a>
+                <a href="index.html" class="site-logo-mob">
+                    <img src="{{ asset('Front/img/logo1.png')}}" style="height: 80px;width:auto;" alt="">
+                </a>
+
 
                 <a href="#" class="ml-auto d-inline-block d-lg-none site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a>
 
@@ -18,7 +22,7 @@
                 <form action="#" class="search-form d-inline-block">
 
                     <div class="d-flex">
-                        <input type="email" class="form-control" placeholder="Search...">
+                        <input type="text" class="form-control" placeholder="Search..." style="width:17em;">
                         <button type="submit" class="btn btn-secondary"><span class="icon-search"></span></button>
                     </div>
                 </form>
@@ -36,7 +40,7 @@
 
     <div class="site-navbar py-2 js-sticky-header site-navbar-target d-none pl-0 d-lg-block" role="banner">
 
-        <div class="container" style="max-width: 1370px;">
+        <div class="container" style="max-width: 1170px;">
             <div class="d-flex align-items-center">
 
                 <div class="mr-auto">
@@ -51,6 +55,7 @@
                                     <a href="{{ route('front.about') }}" class="nav-link text-left">About Us</a>
                                     {{-- <a href="detail.html" class="dropdown-item">Blog Detail</a> --}}
                                     <a href="{{ route('front.team') }}" class="nav-link text-left">The Team</a>
+                                    {{-- <a href="{{ route('front.project') }}" class="nav-link text-left">Projects</a> --}}
 
                                 </div>
                             </li>

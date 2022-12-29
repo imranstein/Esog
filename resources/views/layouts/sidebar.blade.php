@@ -130,6 +130,19 @@
                 </a>
             </li>
             @endcan
+            @can('project-list')
+            <li class="nav-item {{ Request::is('project') ? 'active' :'' }}">
+
+                <a class="nav-link" href="/project">
+
+
+                    <i style="color:black;" class="material-icons">groups</i>
+
+                    <p style="color:black;">Project</p>
+                </a>
+            </li>
+            @endcan
+
             {{-- @can('course-list') --}}
             <li class="nav-item {{ Request::is('course') ? 'active' :'' }}">
 

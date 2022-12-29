@@ -119,6 +119,14 @@ class PermissionTableSeeder extends Seeder
             'memberCourse-approve',
 
             'myProfile',
+
+            'project-list',
+
+            'project-create',
+
+            'project-edit',
+
+            'project-delete',
         ];
 
         foreach ($permissions as $permission) {

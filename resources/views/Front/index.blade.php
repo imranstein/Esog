@@ -2,7 +2,7 @@
 @section('title','Home')
 @section('content')
 <div class="row col-md-12">
-    <div class="site-section py-0 col-md-6">
+    <div class="site-section py-0 col-md-6 col-lg-8" id="slider">
         <div class="owl-carousel hero-slide owl-style ">
             @foreach($sliders as $slider)
             <div class="site-section">
@@ -27,7 +27,7 @@
 
             </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6 col-lg-4">
             <div class="row justify-content-center position-relative" style="margin-top: 1em;">
                 <div class="p-5 m-5 mb-0" style="background-color: rgb(223, 223, 223);">
                     <form method="POST" action="{{ route('front.memberRegister') }}" nctype="multipart/form-data">
@@ -152,19 +152,23 @@
         <div class="container">
 
             <div class="text-center mx-auto mb-5" style="max-width: 500px">
-                <h4 class="display-6">Current Services</h1>
+                <h4 class="display-6">Our Current Projects</h1>
                     <hr class="w-25 mx-auto text-primary" style="opacity: 1" />
             </div>
 
 
             <div class="row">
+                @forelse ($projects as $project)
                 <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
                     <div class="icon-box">
                         <div class="icon"><i class="fas fa-heartbeat"></i></div>
-                        <h4><a href="">Lorem Ipsum</a></h4>
-                        <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
+                        <h4><a href="">{{ $project->title }}</a></h4>
+                        <p>{!! Str::limit($project->description, 100, '...') !!}</p>
                     </div>
                 </div>
+                @empty
+
+                @endforelse
 
                 <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
                     <div class="icon-box">
