@@ -28,6 +28,7 @@ use App\Http\Controllers\Front\FrontTestimonialController;
 use App\Http\Controllers\Front\AdvocacyController as FrontAdvocacyController;
 use App\Http\Controllers\Front\CourseController as FrontCourseController;
 use App\Http\Controllers\Front\GuidelinesController as FrontGuidelinesController;
+use App\Http\Controllers\Front\ProjectController as FrontProjectController;
 use App\Http\Controllers\MyProfileController;
 use App\Http\Controllers\ProjectController;
 
@@ -57,6 +58,7 @@ Route::get('front-member', [MemberController::class, 'index'])->name('front.memb
 Route::get('front-member/create', [MemberController::class, 'create'])->name('front.member.create');
 Route::post('front-memberRegister', [MemberController::class, 'store'])->name('front.memberRegister');
 Route::get('front-course', FrontCourseController::class)->name('front.course');
+Route::get('front-project', FrontProjectController::class)->name('front.project');
 //EndFront
 // Route::get('/', function () {
 //     return view('welcome');

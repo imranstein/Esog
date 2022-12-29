@@ -55,7 +55,7 @@
                                     <a href="{{ route('front.about') }}" class="nav-link text-left">About Us</a>
                                     {{-- <a href="detail.html" class="dropdown-item">Blog Detail</a> --}}
                                     <a href="{{ route('front.team') }}" class="nav-link text-left">The Team</a>
-                                    {{-- <a href="{{ route('front.project') }}" class="nav-link text-left">Projects</a> --}}
+                                    <a href="{{ route('front.project') }}" class="nav-link text-left">Projects</a>
 
                                 </div>
                             </li>

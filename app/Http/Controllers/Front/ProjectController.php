@@ -9,7 +9,7 @@ class ProjectController
 {
     public function __invoke(Request $request)
     {
-        $projects = Project::get();
+        $projects = Project::latest()->paginate(9);
 
         return view('front.project', compact('projects'));
     }

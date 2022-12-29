@@ -170,7 +170,7 @@
 
                 @endforelse
 
-                <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
+                {{-- <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
                     <div class="icon-box">
                         <div class="icon"><i class="fas fa-pills"></i></div>
                         <h4><a href="">Sed ut perspiciatis</a></h4>
@@ -208,7 +208,7 @@
                         <h4><a href="">Divera don</a></h4>
                         <p>Modi nostrum vel laborum. Porro fugit error sit minus sapiente sit aspernatur</p>
                     </div>
-                </div>
+                </div> --}}
 
             </div>
 
