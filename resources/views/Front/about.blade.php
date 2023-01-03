@@ -13,7 +13,7 @@
 
                     </div>
 
-                    <img src="{{ asset('Front/img/2.JPG') }}" alt="">
+                    <img src="{{ asset('Front/img/2.jpg') }}" alt="">
 
                     <div class="about-text">
                         <p>The Ethiopian Society of Obstetricians & Gynecologists (ESOG) was established in 1992 in response to the Safe Motherhood Initiative as a collective professional expression of concern to the high maternal and perinatal mortality and morbidity, and the poor SRH status in the country. The main aim was to enhance the contribution of Obstetricians and Gynecologists to improve access and quality of the SRH service in Ethiopia. Consequently, during the last 28 years ESOG has undertaken a number of remarkable SRH activities by engaging its members, working hand in hand with FMoH and networking with other partners working in the area of SRH. The major focus of intervention includes Safe Motherhood, prevention of Mother to Child Transmission of HIV/AIDS, Prevention of Post Partum Hemorrhage, Care for Survivors of Sexual Assault, improving access to quality CEmONC services, introducing national standards and guidelines.</p>
