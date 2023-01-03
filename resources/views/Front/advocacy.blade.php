@@ -29,7 +29,7 @@
                 <div class="col-lg-4">
                     <div class="card card-margin" id="cards">
                         <div class="card-header no-border">
-                            <h5 class="card-title">{{ $advocacy->title }}</h5>
+                            <h5 class="card-title">{{ Str::limit($advocacy->title, 25, '...') }}</h5>
                         </div>
                         <div class="card-body pt-0">
                             <div class="widget-49">

@@ -1,27 +1,24 @@
-<!-- @format -->
-
 <!DOCTYPE html>
 <html lang="en">
+
 @include('Front.layouts.header')
 
 <body>
-    <!-- Topbar Start -->
-    {{-- @include('Front.layouts.top') --}}
-    <!-- Topbar End -->
+    <!-- ##### Header Area Start ##### -->
+    @include('Front.layouts.nav')
+    <!-- ##### Header Area End ##### -->
 
-    <!-- Navbar Start -->
-    @include('Front.layouts.newnav')
-    <!-- Navbar End -->
-
+    <!-- ##### Hero Area Start ##### -->
     @yield('content')
+    <!-- ##### Instagram Area End ##### -->
 
-
-
-    <!-- Footer Start -->
+    <!-- ##### Footer Area Start ##### -->
     @include('Front.layouts.footer')
-    <!-- Footer End -->
+    <!-- ##### Footer Area Start ##### -->
 
-    <!-- Back to Top -->
+    <!-- ##### All Javascript Script ##### -->
+    <!-- jQuery-2.2.4 js -->
     @include('Front.layouts.script')
 </body>
+
 </html>

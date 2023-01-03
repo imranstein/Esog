@@ -38,8 +38,8 @@
                         </div>
                         <div class="mt-auto mb-2">
                             <h4 class="mb-1">{{ $team->name }}</h4>
-                            <span class="text-uppercase">{{ $team->designation }}</span>
-                            <span class="text-uppercase">{{ $team->email }}</span>
+                            <span class="text-uppercase" style="font-size: 13px">{{ $team->designation }}</span>
+                            <span class="text-uppercase" style="font-size: 13px">{{ $team->email }}</span>
 
                         </div>
                     </div>
@@ -70,8 +70,8 @@
                         </div>
                         <div class="mt-auto mb-2">
                             <h4 class="mb-1">{{ $team->name }}</h4>
-                            <span class="text-uppercase">{{ $team->designation }}</span>
-                            <span class="text-uppercase">{{ $team->email }}</span>
+                            <span class="text-uppercase" style="font-size: 13px">{{ $team->designation }}</span>
+                            <span class="text-uppercase" style="font-size: 13px">{{ $team->email }}</span>
 
                         </div>
                     </div>

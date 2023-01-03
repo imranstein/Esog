@@ -29,7 +29,7 @@
                 <div class="col-lg-4">
                     <div class="card card-margin" id="cards">
                         <div class="card-header no-border">
-                            <h5 class="card-title">{{ $course->title }}</h5>
+                            <h5 class="card-title">{{ Str::limit($course->title, 25, '...') }}</h5>
                         </div>
                         <div class="card-body pt-0">
                             <div class="widget-49">
@@ -46,7 +46,7 @@
 
                                 <ul class="widget-49-meeting-points">
                                     {{-- course content only 100 charachters --}}
-                                    <li class="widget-49-meeting-item">{!! Str::limit($course->content, 150) !!}</li>
+                                    <li class="widget-49-meeting-item">{!! Str::limit($course->description, 150) !!}</li>
                                 </ul>
                                 <div class="widget-49-meeting-action">
                                     @if($course->is_paid == 0)
@@ -60,7 +60,7 @@
                     </div>
                 </div>
                 @endforeach
-    {{ $courses->links() }}
+                {{ $courses->links() }}
 
             </div>
         </div>

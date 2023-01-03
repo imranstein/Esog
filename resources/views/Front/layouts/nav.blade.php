@@ -1,42 +1,146 @@
-<nav class="navbar navbar-expand-lg bg-dark navbar-dark shadow-sm px-5 py-3 py-lg-0">
-    <a href="index.html" class="navbar-brand p-0">
-        <h1 class="m-0 text-uppercase text-primary">
-            <i class="fa fa-user-doctor  text-secondary me-3"></i>ESOG
-        </h1>
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarCollapse">
-        <div class="navbar-nav ms-auto py-0 pe-4 border-end border-5 border-primary">
-            <a href="{{ route('front.index') }}" class="nav-item nav-link">Home</a>
-            <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">About</a>
-                <div class="dropdown-menu m-0">
-                    <a href="{{ route('front.about') }}" class="dropdown-item">About Us</a>
-                    {{-- <a href="detail.html" class="dropdown-item">Blog Detail</a> --}}
-                    <a href="{{ route('front.team') }}" class="dropdown-item">The Team</a>
-                    <a href="{{ route('front.testimonial') }}" class="dropdown-item">Testimonial</a>
+    <header class="header-area">
+        <!-- Navbar Area -->
+        <div class="nikki-main-menu">
+            <div class="classy-nav-container breakpoint-off">
+                <div class="container-fluid">
+                    <!-- Menu -->
+                    <nav class="classy-navbar justify-content-between" id="nikkiNav">
+
+                        <!-- Nav brand -->
+                        <a href="{{ route('front.index') }}" class="nav-brand"><img src="{{ asset('Front/img/logo1.png')}}" alt=""></a>
+
+                        <!-- Navbar Toggler -->
+                        <div class="classy-navbar-toggler">
+                            <span class="navbarToggler"><span></span><span></span><span></span></span>
+                        </div>
+
+                        <!-- Menu -->
+                        <div class="classy-menu">
+
+                            <!-- close btn -->
+                            <div class="classycloseIcon">
+                                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                            </div>
+
+                            <!-- Nav Start -->
+                            <div class="classynav">
+                                <ul style="padding-top: 1em;">
+                                    <li><a href="{{ route('front.index') }}">Home</a></li>
+                                    <li><a href="#">About</a>
+                                        <ul class="dropdown">
+                                            <li><a href="{{ route('front.about') }}" class="dropdown-item">About Us</a></li>
+                                            <li><a href="{{ route('front.team') }}" class="dropdown-item">The Team</a></li>
+                                            <li><a href="{{ route('front.project') }}" class="dropdown-item">Projects</a></li>
+                                        </ul>
+                                    </li>
+                                    <li> <a href="{{ route('front.news') }}">What's new</a></li>
+
+                                    <li>
+                                        <a href="#">Resource</a>
+                                        <ul class="dropdown">
+                                            <li><a href="https://ejrh.org/index.php/ejrh">Publication</a></li>
+                                            <li><a href="{{ route('front.guidelines') }}" class="nav-link text-left">Guidelines</a></li>
+                                            <li><a href="{{ route('front.advocacy') }}" class="nav-link text-left">Advocacy</a></li>
+                                            <li><a href="{{ route('front.course') }}" class="nav-link text-left">Education</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#">Member</a>
+                                        <ul class="dropdown">
+                                            <li> <a href="{{ route('front.member.create') }}" class="nav-link text-left">Become A member</a></li>
+
+                                            <li><a href="{{ route('front.member') }}" class="nav-link text-left">Members</a></li>
+
+                                        </ul>
+                                    </li>
+
+                                    {{-- <li><a href="#">Pages</a>
+                                        <ul class="dropdown">
+                                            <li><a href="index.html">Home</a></li>
+                                            <li><a href="archive-blog.html">Archive Blog</a></li>
+                                            <li><a href="single-post.html">Single Post</a></li>
+                                            <li><a href="about-us.html">About</a></li>
+                                            <li><a href="contact.html">Contact</a></li>
+                                            <li><a href="typography.html">Typography</a></li>
+                                        </ul>
+                                    </li> --}}
+                                    {{-- <li><a href="#">Catagories</a>
+                                        <div class="megamenu">
+                                            <ul class="single-mega cn-col-4">
+                                                <li><a href="#">- Features</a></li>
+                                                <li><a href="#">- Food</a></li>
+                                                <li><a href="#">- Travel</a></li>
+                                                <li><a href="#">- Recipe</a></li>
+                                                <li><a href="#">- Bread</a></li>
+                                                <li><a href="#">- Breakfast</a></li>
+                                                <li><a href="#">- Meat</a></li>
+                                            </ul>
+                                            <ul class="single-mega cn-col-4">
+                                                <li><a href="#">- Features</a></li>
+                                                <li><a href="#">- Food</a></li>
+                                                <li><a href="#">- Travel</a></li>
+                                                <li><a href="#">- Recipe</a></li>
+                                                <li><a href="#">- Bread</a></li>
+                                                <li><a href="#">- Breakfast</a></li>
+                                                <li><a href="#">- Meat</a></li>
+                                            </ul>
+                                            <ul class="single-mega cn-col-4">
+                                                <li><a href="#">- Features</a></li>
+                                                <li><a href="#">- Food</a></li>
+                                                <li><a href="#">- Travel</a></li>
+                                                <li><a href="#">- Recipe</a></li>
+                                                <li><a href="#">- Bread</a></li>
+                                                <li><a href="#">- Breakfast</a></li>
+                                                <li><a href="#">- Meat</a></li>
+                                            </ul>
+                                            <ul class="single-mega cn-col-4">
+                                                <li><a href="#">- Features</a></li>
+                                                <li><a href="#">- Food</a></li>
+                                                <li><a href="#">- Travel</a></li>
+                                                <li><a href="#">- Recipe</a></li>
+                                                <li><a href="#">- Bread</a></li>
+                                                <li><a href="#">- Breakfast</a></li>
+                                                <li><a href="#">- Meat</a></li>
+                                            </ul>
+                                        </div>
+                                    </li> --}}
+                                    <li><a href="{{ route('front.contact') }}">Contact Us</a></li>
+                                    @if(Auth::check() && Auth::user()->roles[0]->name == 'Member')
+                                    <a href="{{ route('dashboard') }}" class="nav-link text-left">
+                                        {{ Auth::user()->name }}
+                                    </a>
+                                    @else
+                                    <a href="{{ route('dashboard') }}" class="btn btn-primary" style="background-color: #86b7e2;" type="button">
+
+
+                                        Login
+                                    </a>
+                                    @endif
+
+                                </ul>
+
+
+                                <!-- Search Form -->
+                                <div class="search-form">
+                                    <form action="#" method="get">
+                                        <input type="search" name="search" class="form-control" placeholder="Search and hit enter...">
+                                        <button type="submit"><i class="fa fa-search"></i></button>
+                                    </form>
+                                </div>
+
+                                <!-- Social Button -->
+                                <div class="top-social-info">
+                                    <a href="#" data-toggle="tooltip" data-placement="bottom" title="Facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                    <a href="#" data-toggle="tooltip" data-placement="bottom" title="Twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                    <a href="#" data-toggle="tooltip" data-placement="bottom" title="Instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                                    {{-- <a href="#" data-toggle="tooltip" data-placement="bottom" title="Pinterest"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
+                                    <a href="#" data-toggle="tooltip" data-placement="bottom" title="RSS Feed"><i class="fa fa-rss" aria-hidden="true"></i></a> --}}
+                                </div>
+
+                            </div>
+                            <!-- Nav End -->
+                        </div>
+                    </nav>
                 </div>
             </div>
-
-            <a href="{{ route('front.news') }}" class="nav-item nav-link">News</a>
-
-
-            {{-- <a href="{{ route('front.publication') }}" class="nav-item nav-link">Publication</a> --}}
-            <a href=" https://ejrh.org/index.php/ejrh" class="nav-item nav-link">Publication</a>
-            <a href="{{ route('front.guidelines') }}" class="nav-item nav-link">Guidelines</a>
-            <a href="{{ route('front.advocacy') }}" class="nav-item nav-link">Advocacy</a>
-            <a href="{{ route('front.member') }}" class="nav-item nav-link">Become a Member</a>
-            <a href="{{ route('front.contact') }}" class="nav-item nav-link">Education</a>
-            <a href="{{ route('front.contact') }}" class="nav-item nav-link">Contact</a>
-
         </div>
-        <div class="d-none d-lg-flex align-items-center ps-4">
-            <i class="fa fa-2x fa-user-alt text-secondary me-3"></i>
-            <div>
-                <a href="{{ route('dashboard') }}" class="btn btn-primary rounded-pill py-2 px-4">Login</a>
-            </div>
-        </div>
-    </div>
-</nav>
+    </header>

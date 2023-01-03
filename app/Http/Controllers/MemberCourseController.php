@@ -52,9 +52,20 @@ class MemberCourseController
 
     public function show($id)
     {
-        $course = MemberCourse::findOrFail($id);
+        $memberCourse = MemberCourse::findOrFail($id);
+        if ($memberCourse->started_at == null) {
+            $memberCourse->update([
+                'started_at' => now(),
+            ]);
+        }
+        $courseId = $memberCourse->course_id;
+        $memberId = $memberCourse->member_id;
+        $course = Course::findOrFail($courseId);
 
-        return view('Front.member.detail', compact('course'));
+        $memberCourses = MemberCourse::where('member_id', $memberId)->where('finished_at', null)->whereNotIn('id', [$memberCourse->id])->take(2)->pluck('course_id')->toArray();
+
+        $courses = Course::whereIn('id', $memberCourses)->get();
+        return view('Front.member.detailAlt', compact('course', 'courses'));
     }
 
     public function edit($id)
@@ -114,9 +125,12 @@ class MemberCourseController
         $memberCourse->update([
             'started_at' => now(),
         ]);
+        $memberId = $memberCourse->member_id;
         $course = Course::findOrFail($memberCourse->course_id);
+        $memberCourses = MemberCourse::where('member_id', $memberId)->where('finished_at', null)->whereNotIn('id', [$memberCourse->id])->take(2)->pluck('course_id')->toArray();
 
-        return view('Front.member.detail', compact('course'));
+        $courses = Course::whereIn('id', $memberCourses)->get();
+        return view('Front.member.detailAlt', compact('course', 'courses'));
         // return redirect()->route('memberCourse.index')->with('success', 'MemberCourse Started successfully');
     }
 

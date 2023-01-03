@@ -15,34 +15,34 @@
                 </div>
                 @endif
                 <article class="article">
-                    @if($course->course->video)
+                    @if($course->video)
                     <div class="article-img">
                         <video width="100%" height="100%" controls>
-                            <source src="{{ asset('storage/'.$course->course->video) }}" type="video/mp4">
-                            <source src="{{ asset('storage/'.$course->course->video) }}" type="video/ogg">
+                            <source src="{{ asset('storage/'.$course->video) }}" type="video/mp4">
+                            <source src="{{ asset('storage/'.$course->video) }}" type="video/ogg">
                             Your browser does not support the video tag.
                         </video>
                     </div>
                     @endif
                     <div class="article-title">
-                        <h6><a href="#">Lifestyle</a></h6>
-                        <h2>{{ $course->course->title }}</h2>
+                        {{-- <h6><a href="#">Lifestyle</a></h6> --}}
+                        <h2>{{ $course->title }}</h2>
                         <div class="media">
                             <div class="avatar">
                                 <img src="https://bootdey.com/img/Content/avatar/avatar1.png" title="" alt="">
                             </div>
                             <div class="media-body">
-                                <label>{{ $course->course->author }}</label>
-                                <span>{{ ($course->course->created_at)->format('d-M-Y') }}</span>
+                                <label>{{ $course->author }}</label>
+                                <span>{{ ($course->created_at)->format('d-M-Y') }}</span>
                             </div>
                         </div>
                     </div>
                     <div class="article-content">
-                        <p>{!! $course->course->description !!}</p>
+                        <p>{!! $course->description !!}</p>
                     </div>
-                    @if($course->course->document)
+                    @if($course->document)
                     <div class="article-content">
-                        <a href="{{ asset($course->course->document) }}" target="_blank">{{ $course->course->document }}</a>
+                        <a href="{{ asset($course->document) }}" target="_blank">{{ $course->document }}</a>
                     </div>
                     @endif
                     {{-- <div class="nav tag-cloud">
@@ -58,7 +58,7 @@
 
                 {{-- add finish button --}}
                 <div class="article-content">
-                    <a href="{{ route('finishCourse',$course->id) }}" class="btn btn-primary">Finish Course</a>
+                    <a href="{{ route('finishCourse',$course->id) }}" class="btn btn-primary" style="background-color: #86b7e2 ">Finish Course</a>
                 </div>
                 {{-- <div class="contact-form article-comment">
                     <h4>Leave a Reply</h4>
