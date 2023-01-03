@@ -29,7 +29,7 @@
                     <a href="#" class="post-title" data-animation="fadeIn" data-delay="300ms">
                         <h2>{{ $slider->title }}</h2>
                     </a>
-                    <p class="post-excerpt" data-animation="fadeIn" data-delay="500ms">{{ Str::limit($slider->description, 100, '...') }}</p>
+                    <p class="post-excerpt" data-animation="fadeIn" data-delay="500ms">{!! Str::limit($slider->description, 100, '...') !!}</p>
                     {{-- <a href="#" class="btn nikki-btn" data-animation="fadeIn" data-delay="700ms">Read More</a> --}}
                 </div>
                 <!-- Page Count -->
