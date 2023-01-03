@@ -9,7 +9,7 @@
     <title>Esog</title>
 
     <!-- Favicon -->
-    <link rel="icon" href="{{ asset('Front/new/img/core-img/favicon.ico') }}">
+    <link rel="icon" href="{{ asset('Front/img/logo1.png') }}">
 
     <!-- Core Stylesheet -->
     <link rel="stylesheet" href="{{ asset('Front/new/style.css') }}">
