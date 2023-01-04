@@ -29,7 +29,7 @@
                                     <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
                                     <li><a href="/myProfile">My Profile</a></li>
                                     <li><a href="{{ route('front.course') }}">Course</a></li>
-                                    <li><a href="/memberCourse">Registered Course</a></li>
+                                    <li><a href="/memberCourse">Enrolled Course</a></li>
                                     <a class="btn btn-primary" style="background-color: #86b7e2;" href="{{ route('logout') }}">
                                         <span>{{ __('Logout') }}</span>
                                     </a>
@@ -49,7 +49,7 @@
                                     $member = App\Models\Members::where('user_id', Auth::user()->id)->first();
                                     $image = $member->photo;
                                     @endphp
-                                    <a style="margin-left: 10em;align-self: right;">
+                                    <a style="margin-left: 2em;align-self: right;">
                                         <img class="rounded-circle" src="{{ $image }}" style="height: 30px;width:auto;" alt="">
                                         {{ $member->name  }}
                                     </a>
