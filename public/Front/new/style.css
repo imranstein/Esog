@@ -2804,6 +2804,7 @@ body {
 .shadow-none {
     box-shadow: none !important;
 }
+
 /* 22.Course Detail */
 .blog-single {
     padding-top: 30px;
@@ -2928,6 +2929,23 @@ img {
     vertical-align: middle;
     border-style: none;
 }
+
+/* Mobile Css */
+@media screen and (max-width: 1350px) {
+    .header-area .search-form form input.form-control {
+        width: 200px;
+        height: 40px;
+        border: none;
+        background-color: #ffffff;
+        font-size: 14px;
+        font-style: italic;
+        color: #a6a6a6;
+        padding: 0;
+        -webkit-transition-duration: 500ms;
+        transition-duration: 500ms;
+    }
+}
+
 /* ======= The End ======= */
 
 /*# sourceMappingURL=style.css.map */

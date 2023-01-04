@@ -33,7 +33,7 @@
                                             <li><a href="{{ route('front.project') }}" class="dropdown-item">Projects</a></li>
                                         </ul>
                                     </li>
-                                    <li> <a href="{{ route('front.news') }}">What's new</a></li>
+                                    <li> <a href="{{ route('front.news') }}">News</a></li>
 
                                     <li>
                                         <a href="#">Resource</a>
@@ -103,15 +103,13 @@
                                             </ul>
                                         </div>
                                     </li> --}}
-                                    <li><a href="{{ route('front.contact') }}">Contact Us</a></li>
+                                    <li><a href="{{ route('front.contact') }}">Contact</a></li>
                                     @if(Auth::check() && Auth::user()->roles[0]->name == 'Member')
                                     <a href="{{ route('dashboard') }}" class="nav-link text-left">
                                         {{ Auth::user()->name }}
                                     </a>
                                     @else
                                     <a href="{{ route('dashboard') }}" class="btn btn-primary" style="background-color: #86b7e2;" type="button">
-
-
                                         Login
                                     </a>
                                     @endif
