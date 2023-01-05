@@ -41,7 +41,7 @@
                                     <li>
                                         <a href="#">Resource</a>
                                         <ul class="dropdown">
-                                            <li><a href="https://ejrh.org/index.php/ejrh">Publication</a></li>
+                                            <li><a href="https://ejrh.org/index.php/ejrh" target="blank">Publication</a></li>
                                             <li><a href="{{ route('front.guidelines') }}" class="nav-link text-left">Guidelines</a></li>
                                             <li><a href="{{ route('front.advocacy') }}" class="nav-link text-left">Advocacy</a></li>
                                             <li><a href="{{ route('front.course') }}" class="nav-link text-left">Education</a></li>
