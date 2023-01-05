@@ -10,8 +10,8 @@ return new class extends Migration
     {
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('objective')->nullable();
+            $table->text('title');
+            $table->text('objective')->nullable();
             $table->string('funded_by')->nullable();
             $table->string('sites')->nullable();
             $table->date('start_date')->nullable();

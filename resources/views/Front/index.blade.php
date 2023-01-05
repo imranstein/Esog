@@ -202,7 +202,7 @@
                                 <a href="#" class="post-title">
                                     <h6>{{ $project->title }}</h6>
                                 </a>
-                                <p class="post-desc">{{ Str::limit($service->description, 60, '...') }}</p>
+                                <p class="post-desc">{!! Str::limit($project->objective, 60, '...') !!}</p>
                                 <a href="#" class="post-author"><span>funded by</span> {{ $project->funded_by }}</a>
                             </div>
                         </div>

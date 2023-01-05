@@ -142,6 +142,33 @@
                 </a>
             </li>
             @endcan
+            {{-- @can('partner-list') --}}
+            <li class="nav-item {{ Request::is('partner') ? 'active' :'' }}">
+
+                <a class="nav-link" href="/partner">
+
+
+                    <i style="color:black;" class="material-icons">groups</i>
+
+                    <p style="color:black;">Partner</p>
+                </a>
+            </li>
+            {{-- @endcan --}}
+
+            {{-- @can('conference-list') --}}
+            <li class="nav-item {{ Request::is('conference') ? 'active' :'' }}">
+
+                <a class="nav-link" href="/conference">
+
+
+                    <i style="color:black;" class="material-icons">groups</i>
+
+                    <p style="color:black;">Conference</p>
+                </a>
+            </li>
+            {{-- @endcan --}}
+
+
 
             {{-- @can('course-list') --}}
             <li class="nav-item {{ Request::is('course') ? 'active' :'' }}">

@@ -11,6 +11,6 @@ class ProjectController
     {
         $projects = Project::latest()->paginate(9);
 
-        return view('front.project', compact('projects'));
+        return view('Front.project', compact('projects'));
     }
 }

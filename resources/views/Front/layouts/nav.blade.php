@@ -31,6 +31,9 @@
                                             <li><a href="{{ route('front.about') }}" class="dropdown-item">About Us</a></li>
                                             <li><a href="{{ route('front.team') }}" class="dropdown-item">The Team</a></li>
                                             <li><a href="{{ route('front.project') }}" class="dropdown-item">Projects</a></li>
+                                            <li><a href="{{ route('front.conference') }}" class="dropdown-item">Annual Conferences</a></li>
+                                            <li><a href="{{ route('front.partner') }}" class="dropdown-item">Partners</a></li>
+
                                         </ul>
                                     </li>
                                     <li> <a href="{{ route('front.news') }}">News</a></li>
@@ -42,18 +45,22 @@
                                             <li><a href="{{ route('front.guidelines') }}" class="nav-link text-left">Guidelines</a></li>
                                             <li><a href="{{ route('front.advocacy') }}" class="nav-link text-left">Advocacy</a></li>
                                             <li><a href="{{ route('front.course') }}" class="nav-link text-left">Education</a></li>
+                                            <li><a href="{{ route('front.strategy') }}" class="nav-link-text-left">Strategic Plan</a></li>
+                                            <li><a href="{{ route('front.constitution') }}" class="nav-link-text-left">Constitution</a></li>
                                         </ul>
                                     </li>
                                     <li><a href="#">Member</a>
                                         <ul class="dropdown">
                                             <li> <a href="{{ route('front.member.create') }}" class="nav-link text-left">Become A member</a></li>
+                                            <li><a href="{{ route('front.membershipType') }}" class="nav-link text-left">Membership Type</a></li>
 
-                                            <li><a href="{{ route('front.member') }}" class="nav-link text-left">Members</a></li>
+                                            {{-- <li><a href="{{ route('front.member') }}" class="nav-link text-left">Members</a>
+                                    </li> --}}
 
-                                        </ul>
-                                    </li>
+                                </ul>
+                                </li>
 
-                                    {{-- <li><a href="#">Pages</a>
+                                {{-- <li><a href="#">Pages</a>
                                         <ul class="dropdown">
                                             <li><a href="index.html">Home</a></li>
                                             <li><a href="archive-blog.html">Archive Blog</a></li>
@@ -63,7 +70,7 @@
                                             <li><a href="typography.html">Typography</a></li>
                                         </ul>
                                     </li> --}}
-                                    {{-- <li><a href="#">Catagories</a>
+                                {{-- <li><a href="#">Catagories</a>
                                         <div class="megamenu">
                                             <ul class="single-mega cn-col-4">
                                                 <li><a href="#">- Features</a></li>
@@ -103,16 +110,16 @@
                                             </ul>
                                         </div>
                                     </li> --}}
-                                    <li><a href="{{ route('front.contact') }}">Contact</a></li>
-                                    @if(Auth::check() && Auth::user()->roles[0]->name == 'Member')
-                                    <a href="{{ route('dashboard') }}" class="nav-link text-left">
-                                        {{ Auth::user()->name }}
-                                    </a>
-                                    @else
-                                    <a href="{{ route('dashboard') }}" class="btn btn-primary" style="background-color: #86b7e2;" type="button">
-                                        Login
-                                    </a>
-                                    @endif
+                                <li><a href="{{ route('front.contact') }}">Contact</a></li>
+                                @if(Auth::check() && Auth::user()->roles[0]->name == 'Member')
+                                <a href="{{ route('dashboard') }}" class="nav-link text-left">
+                                    {{ Auth::user()->name }}
+                                </a>
+                                @else
+                                <a href="{{ route('dashboard') }}" class="btn btn-primary" style="background-color: #86b7e2;" type="button">
+                                    Login
+                                </a>
+                                @endif
 
                                 </ul>
 

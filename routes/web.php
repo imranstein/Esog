@@ -13,6 +13,7 @@ use App\Http\Controllers\SliderController;
 use App\Http\Controllers\MembersController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AdvocacyController;
+use App\Http\Controllers\ConferenceController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\GuidelinesController;
 use App\Http\Controllers\Front\IndexController;
@@ -26,10 +27,13 @@ use App\Http\Controllers\Front\FrontAboutController;
 use App\Http\Controllers\Front\FrontPublicationController;
 use App\Http\Controllers\Front\FrontTestimonialController;
 use App\Http\Controllers\Front\AdvocacyController as FrontAdvocacyController;
+use App\Http\Controllers\Front\ConferenceController as FrontConferenceController;
 use App\Http\Controllers\Front\CourseController as FrontCourseController;
 use App\Http\Controllers\Front\GuidelinesController as FrontGuidelinesController;
+use App\Http\Controllers\Front\PartnerController as FrontPartnerController;
 use App\Http\Controllers\Front\ProjectController as FrontProjectController;
 use App\Http\Controllers\MyProfileController;
+use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\ProjectController;
 
 /*
@@ -59,7 +63,17 @@ Route::get('front-member/create', [MemberController::class, 'create'])->name('fr
 Route::post('front-memberRegister', [MemberController::class, 'store'])->name('front.memberRegister');
 Route::get('front-course', FrontCourseController::class)->name('front.course');
 Route::get('front-project', FrontProjectController::class)->name('front.project');
-//EndFront
+Route::get('strategy', function () {
+    return view('front.strategy');
+})->name('front.strategy');
+Route::get('constitution', function () {
+    return view('front.constitution');
+})->name('front.constitution');
+Route::get('membershipType', function () {
+    return view('front.membership');
+})->name('front.membershipType');
+Route::get('front-conference', FrontConferenceController::class)->name('front.conference');
+Route::get('front-partner', FrontPartnerController::class)->name('front.partner');
 // Route::get('/', function () {
 //     return view('welcome');
 // });
@@ -88,6 +102,8 @@ Route::middleware([
     Route::resource('slider', SliderController::class);
     Route::resource('course', CourseController::class);
     Route::resource('project', ProjectController::class);
+    Route::resource('partner', PartnerController::class);
+    Route::resource('conference', ConferenceController::class);
     Route::get('course/enroll/{course}', [CourseController::class, 'enroll'])->name('course.enroll');
     Route::post('course/approve/{course}', [MemberCourseController::class, 'approve'])->name('course.approve');
     Route::resource('memberCourse', MemberCourseController::class);

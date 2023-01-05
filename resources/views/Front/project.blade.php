@@ -29,13 +29,35 @@
 
             <div class="row">
                 @forelse ($projects as $project)
-                <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-                    <div class="icon-box">
-                        <div class="icon"><i class="fas fa-heartbeat"></i></div>
-                        <h4><a href="">{{ $project->title }}</a></h4>
-                        <p>{!! Str::limit($project->description, 100, '...') !!}</p>
+                <div class="col-lg-4">
+                    <div class="card card-margin" id="cards">
+                        <div class="card-header no-border">
+                            <h5 class="card-title">{{ Str::limit($project->title, 25, '...') }}</h5>
+                        </div>
+                        <div class="card-body pt-0">
+                            <div class="widget-49">
+                                <div class="widget-49-title-wrapper">
+                                    <div class="widget-49-date-primary">
+                                        <span class="widget-49-date-day">{{ Carbon\Carbon::parse($project->start_date)->format('m-y') }}</span>
+                                    </div>
+                                    <div class="widget-49-meeting-info">
+                                        <span class="widget-49-pro-title">{{ $project->funded_by }}</span>
+                                    </div>
+
+                                </div>
+
+                                <ul class="widget-49-meeting-points">
+                                    {{-- project content only 100 charachters --}}
+                                    <li class="widget-49-meeting-item">{!! Str::limit($project->objective, 150) !!}</li>
+                                </ul>
+                                <div class="widget-49-meeting-action">
+                                    <a href="/front-detail/{{ $project->id }}/Project" class="btn btn-sm btn-flash-border-primary">View All</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
+
                 @empty
 
                 @endforelse

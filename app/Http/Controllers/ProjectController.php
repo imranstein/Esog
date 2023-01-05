@@ -25,9 +25,9 @@ class ProjectController
     {
 
         $validated = $request->validate([
-            'title' => 'required|string|max:40',
-            'objective' => 'nullable|string|max:40',
-            'funded_by' => 'nullable|string|max:40',
+            'title' => 'required|string|max:140',
+            'objective' => 'nullable|string',
+            'funded_by' => 'nullable|string',
             'sites' => 'nullable|string|max:300',
             'start_date' => 'nullable|date',
             'end_date' => 'nullable|date|after:start_date',
@@ -56,9 +56,9 @@ class ProjectController
         $project = Project::findOrFail($id);
 
         $validated = $request->validate([
-            'title' => 'required|string|max:40',
-            'objective' => 'nullable|string|max:40',
-            'funded_by' => 'nullable|string|max:40',
+            'title' => 'required|string|max:130',
+            'objective' => 'nullable|string',
+            'funded_by' => 'nullable|string',
             'sites' => 'nullable|string|max:300',
             'start_date' => 'nullable|date',
             'end_date' => 'nullable|date|after:start_date',
