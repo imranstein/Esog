@@ -64,13 +64,13 @@ Route::post('front-memberRegister', [MemberController::class, 'store'])->name('f
 Route::get('front-course', FrontCourseController::class)->name('front.course');
 Route::get('front-project', FrontProjectController::class)->name('front.project');
 Route::get('strategy', function () {
-    return view('front.strategy');
+    return view('Front.strategy');
 })->name('front.strategy');
 Route::get('constitution', function () {
-    return view('front.constitution');
+    return view('Front.constitution');
 })->name('front.constitution');
 Route::get('membershipType', function () {
-    return view('front.membership');
+    return view('Front.membership');
 })->name('front.membershipType');
 Route::get('front-conference', FrontConferenceController::class)->name('front.conference');
 Route::get('front-partner', FrontPartnerController::class)->name('front.partner');
