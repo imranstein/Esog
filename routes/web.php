@@ -70,7 +70,7 @@ Route::get('constitution', function () {
     return view('Front.constitution');
 })->name('front.constitution');
 Route::get('membershipType', function () {
-    return view('Front.membership');
+    return view('Front.memberShip');
 })->name('front.membershipType');
 Route::get('front-conference', FrontConferenceController::class)->name('front.conference');
 Route::get('front-partner', FrontPartnerController::class)->name('front.partner');
