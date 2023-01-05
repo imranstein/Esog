@@ -33,25 +33,30 @@
             <div class="col-12 col-lg-6">
                 <div class="contact-content mb-100">
                     <h4>Get In Touch</h4>
-                    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia dese mollit anim id est laborum, consectetur adipisicing elit.</p>
+                    {{-- <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia dese mollit anim id est laborum, consectetur adipisicing elit.</p> --}}
                     <!-- Single Contact Info -->
                     <div class="single-contact-info">
                         <h6>Location:</h6>
-                        <h4>Tsehafi Tízaz Teferawork Keda Building, Ras Desta Damtew Avenue</h4>
+                        <h6>Tsehafi Tízaz Teferawork Keda Building, Ras Desta Damtew Avenue</h6>
                     </div>
 
                     <!-- Single Contact Info -->
                     <div class="single-contact-info">
                         <h6>Email:</h6>
                         {{-- prompt to email --}}
-                        <h4><a href="mailto: info@esog-eth.org"> info@esog-eth.org</a></h4>
+                        <h4><a style="color: black" href="mailto: info@esog-eth.org"> info@esog-eth.org</a></h4>
+                        <h4><a style="color: black" href="mailto: esogeth@gmail.com"> esogeth@gmail.com</a></h4>
+
+
                     </div>
 
                     <!-- Single Contact Info -->
                     <div class="single-contact-info">
                         <h6>Phone:</h6>
                         {{-- prompt to call --}}
-                        <h4><a href="tel:+251115506068">+251115506068</a></h4>
+                        <h4><a style="color: black" href="tel:+251115506068">+251115506068</a></h4>
+                        <h4><a style="color: black" href="tel:+251115506069">+251115506069</a></h4>
+
                         <h4></h4>
                     </div>
                 </div>

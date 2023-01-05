@@ -3078,7 +3078,7 @@ div.c {
     margin: 2em;
 }
 
-input {
+.icheck {
     position: absolute;
     left: 0;
     top: 0;
@@ -3122,14 +3122,14 @@ div.section p {
     padding-left: 2em;
 }
 
-input:checked~h5 label::before {
+.icheck:checked~h5 label::before {
     border-left: 15px solid transparent;
     border-top: 20px solid white;
     margin-top: 12px;
     margin-right: 10px;
 }
 
-input:checked~h5~div.section {
+.icheck:checked~h5~div.section {
     max-height: 40em;
 }
 

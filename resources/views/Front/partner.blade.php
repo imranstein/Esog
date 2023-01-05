@@ -13,12 +13,12 @@
                     </div>
                     @forelse($partners as $partner)
                     <div class="c">
-                        <input type="checkbox" id="faq-1">
+                        <input type="checkbox" id="faq-1" class="icheck">
                         <h5><label for="faq-1">{{ $partner->name }}</label></h5>
                         <div class="section">
                             <label for="faq-1">
-                                <p>Website: <a href="{{ $partner->website }}" target="blank">{{ $partner->website }}</a></p>
-                                <p> Email: <a href="mailto:{{ $partner->email }}">{{ $partner->email }}</a></p>
+                                <p>Website: <a style="color: black" href="{{ $partner->website }}" target="blank">{{ $partner->website }}</a></p>
+                                <p> Email: <a style="color: black" href="mailto:{{ $partner->email }}">{{ $partner->email }}</a></p>
 
                             </label>
                             <p>{!! $partner->description !!}</p>
