@@ -460,7 +460,7 @@ button.list-group-item-primary.active {
   color: #e0e1ff;
 }
 .menu.bg-primary .menu-inner-shadow {
-  background: linear-gradient(#696cff 41%, rgba(105, 108, 255, 0.11) 95%, rgba(105, 108, 255, 0));
+  background: linear-gradient(#393baf 41%, rgba(105, 108, 255, 0.11) 95%, rgba(105, 108, 255, 0));
 }
 .menu.bg-primary .menu-text {
   color: #fff;
