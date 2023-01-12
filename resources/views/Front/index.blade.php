@@ -48,14 +48,14 @@
                     <div id="myCarousel" class="owl-carousel owl-theme">
                         @forelse($sliders as $slider)
                         <div class="item owl-lazy" style="height:450px;" data-src="{{ $slider->image }}">
-                            <div class="sliderContent">
+                            {{-- <div class="sliderContent">
                                 <div class="sliderContentInner">
-                                    {{-- <i class="fab fa-android"></i> --}}
+                                    {{-- <i class="fab fa-android"></i> --}
                                     <h3>{{ $slider->title }}</h3>
                                     <p class="lead">{!! Str::limit($slider->description, 100, '...') !!}</p>
-                                    {{-- <p><a href="#" class="btn btn-default">LEARN MORE</a></p> --}}
+                                    {{-- <p><a href="#" class="btn btn-default">LEARN MORE</a></p> --}
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                         @empty
                         @endforelse
