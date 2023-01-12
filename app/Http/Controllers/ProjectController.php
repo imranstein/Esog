@@ -25,7 +25,7 @@ class ProjectController
     {
 
         $validated = $request->validate([
-            'title' => 'required|string|max:140',
+            'title' => 'required|string|max:170',
             'objective' => 'nullable|string',
             'funded_by' => 'nullable|string',
             'sites' => 'nullable|string|max:300',
