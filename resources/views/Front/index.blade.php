@@ -199,11 +199,11 @@
                                 <img src="img/blog-img/lp1.jpg" alt="">
                             </div> --}}
                                     <div class="post-content">
-                                        <a href="#" class="post-title">
+                                        <a href="/front-detail/{{ $project->id }}/Project" class="post-title">
                                             <h6>{{ Str::limit($project->title,60, '...') }}</h6>
                                         </a>
                                         <p class="post-desc">{!! Str::limit($project->objective, 100, '...') !!}</p>
-                                        <a href="#" class="post-author"><span>funded by</span> {{ $project->funded_by }}</a>
+                                        <a class="post-author"><span>funded by</span> {{ $project->funded_by }}</a>
                                     </div>
                                 </div>
                                 @empty
