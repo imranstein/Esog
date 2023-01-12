@@ -29,7 +29,7 @@
                         <div class="text-center mb-50">
                             <p class="post-date">{{ Carbon\Carbon::parse($result->created_at)->format('M d, Y') }}</p>
                             {{-- check if the length of the title is bigger thatn 40 --}}
-                            @if(strlen($result->title) > 40)
+                            @if($model == 'Project')
                             <h4 class="post-title">{{ $result->title }}</h4>
                             @else
                             <h2 class="post-title">{{ $result->title }}</h2>
