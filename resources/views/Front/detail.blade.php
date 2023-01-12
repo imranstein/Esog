@@ -47,6 +47,12 @@
                             <iframe width="100%" height="400" src="{{ $result->video }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
                         @endif
+                        @if($result->objective)
+                        <div class="post-text">
+                            <h4>Objective</h4>
+                            <p>{!! $result->objective !!}</p>
+                        </div>
+                        @endif
 
                         <!-- Post Text -->
                         <div class="post-text">
