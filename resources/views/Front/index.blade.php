@@ -200,7 +200,7 @@
                             </div> --}}
                                     <div class="post-content">
                                         <a href="#" class="post-title">
-                                            <h6>{{ Str::limit($project->title,40, '...') }}</h6>
+                                            <h6>{{ Str::limit($project->title,60, '...') }}</h6>
                                         </a>
                                         <p class="post-desc">{!! Str::limit($project->objective, 100, '...') !!}</p>
                                         <a href="#" class="post-author"><span>funded by</span> {{ $project->funded_by }}</a>
