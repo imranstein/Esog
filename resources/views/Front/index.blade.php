@@ -41,6 +41,28 @@
 
     </div>
 </section> --}}
+        <section class="hero-area" style="height: auto;">
+            <div class="container">
+                <div class="owl-demo">
+                    <!-- <div class="slide-progress"></div> -->
+                    <div id="myCarousel" class="owl-carousel owl-theme">
+                        @forelse($sliders as $slider)
+                        <div class="item owl-lazy" style="height:450px;" data-src="{{ $slider->image }}">
+                            <div class="sliderContent">
+                                <div class="sliderContentInner">
+                                    {{-- <i class="fab fa-android"></i> --}}
+                                    <h3>{{ $slider->title }}</h3>
+                                    <p class="lead">{!! Str::limit($slider->description, 100, '...') !!}</p>
+                                    {{-- <p><a href="#" class="btn btn-default">LEARN MORE</a></p> --}}
+                                </div>
+                            </div>
+                        </div>
+                        @empty
+                        @endforelse
+                    </div>
+                </div>
+            </div>
+        </section>
         <!-- ##### Hero Area End ##### -->
 
         <!-- ##### Blog Content Area Start ##### -->
@@ -368,3 +390,66 @@
 
 
     @endsection
+
+    <script src="{{ asset('Front/new/js/jquery/jquery-2.2.4.min.js') }}"></script>
+    <script>
+        jQuery(document).ready(function() {
+
+            //Initiate the slider
+            initSlider();
+
+            function initSlider() {
+                $(".owl-carousel").owlCarousel({
+                    items: 1
+                    , loop: true
+                    , animateOut: 'fadeOut'
+                    , autoHeight: false
+                    , autoplay: true
+                    , autoplayTimeout: 4500
+                    , autoplayHoverPause: true
+                    , dots: true
+                    , lazyLoad: true
+                    , onDrag: stopSlider
+                    // onInitialized: startProgressBar,
+                    // onTranslate: resetProgressBar,
+                    // onTranslated: startProgressBar
+                });
+            }
+
+            // When the slider is dragged it will be stopped
+            function stopSlider(event) {
+                var heroPeepsSlider = $('#myCarousel');
+                heroPeepsSlider.trigger('stop.owl.autoplay');
+            }
+
+            // Progress Bars
+            function startProgressBar() {
+                $(".slide-progress").css({
+                    width: "100%"
+                    , transition: "width 6000ms"
+                });
+            }
+
+            function resetProgressBar() {
+                $(".slide-progress").css({
+                    width: 0
+                    , transition: "width 0s"
+                });
+            }
+        });
+
+        // Add Keyboard Functionality
+        jQuery(document).keyup(function(event) {
+            var heroPeepsSlider = jQuery("#myCarousel");
+            // handle cursor keys
+            heroPeepsSlider.trigger('stop.owl.autoplay');
+            if (event.keyCode == 37) {
+                // go left
+                heroPeepsSlider.trigger('prev.owl.carousel');
+            } else if (event.keyCode == 39) {
+                // go right
+                heroPeepsSlider.trigger('next.owl.carousel');
+            }
+        });
+
+    </script>
