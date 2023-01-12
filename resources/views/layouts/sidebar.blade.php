@@ -23,7 +23,7 @@
             @can('user-list')
             <li class="nav-item {{ Request::is('users') ? 'active' :'' }}">
 
-                <a class="nav-link" href="users">
+                <a class="nav-link" href="/users">
 
 
                     <i style="color:black;" class="material-icons">people</i>
@@ -36,7 +36,7 @@
             @can('role-list')
             <li class="nav-item {{ Request::is('roles') ? 'active' :'' }}">
 
-                <a class="nav-link" href="roles">
+                <a class="nav-link" href="/roles">
 
 
                     <i style="color:black;" class="material-icons">work</i>
