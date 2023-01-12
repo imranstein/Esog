@@ -391,7 +391,7 @@
 
     @endsection
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="{{ asset('Front/new/js/jquery/jquery-2.2.4.min.js') }}"></script>
     <script>
         jQuery(document).ready(function() {
 
