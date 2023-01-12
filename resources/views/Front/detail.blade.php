@@ -28,7 +28,12 @@
 
                         <div class="text-center mb-50">
                             <p class="post-date">{{ Carbon\Carbon::parse($result->created_at)->format('M d, Y') }}</p>
+                            {{-- check if the length of the title is bigger thatn 40 --}}
+                            @if(strlen($result->title) > 40)
+                            <h4 class="post-title">{{ $result->title }}</h4>
+                            @else
                             <h2 class="post-title">{{ $result->title }}</h2>
+                            @endif
                             <!-- Post Meta -->
                             @if($result->author)
                             <div class="post-meta">
@@ -51,6 +56,24 @@
                         <div class="post-text">
                             <h4>Objective</h4>
                             <p>{!! $result->objective !!}</p>
+                        </div>
+                        @endif
+                        @if($result->funded_by)
+                        <div class="post-text">
+                            <h4>Funded By</h4>
+                            <p>{!! $result->funded_by !!}</p>
+                        </div>
+                        @endif
+                        @if($result->start_date || $result->end_date)
+                        <div class="post-text">
+                            <h4>Duration</h4>
+                            <p>{{ Carbon\Carbon::parse($result->start_date)->format('M d, Y') }} - {{ Carbon\Carbon::parse($result->end_date)->format('M d, Y') }}</p>
+                        </div>
+                        @endif
+                        @if($result->sites)
+                        <div class="post-text">
+                            <h4>Sites</h4>
+                            <p>{!! $result->sites !!}</p>
                         </div>
                         @endif
 
