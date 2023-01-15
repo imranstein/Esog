@@ -53,9 +53,9 @@
                         <div class="sliderContent">
                             <div class="sliderContentInner">
                                 {{-- <i class="fab fa-android"></i> --}}
-                                <a href="{{route('front.news')}}">
-                                    <h3>{{ $slider->title }}</h3>
-                                </a>
+                                {{-- <a href="{{route('front.news')}}">
+                                <h3>{{ $slider->title }}</h3>
+                                </a> --}}
 
                                 {{-- <p class="lead">{!! Str::limit($slider->description, 100, '...') !!}</p> --}}
                                 {{-- <p><a href="#" class="btn btn-default">LEARN MORE</a></p> --}}
