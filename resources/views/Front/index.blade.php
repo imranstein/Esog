@@ -237,11 +237,17 @@
                                 <img src="img/blog-img/lp1.jpg" alt="">
                             </div> --}}
                                 <div class="post-content">
-                                    <a href="/front-detail/{{ $project->id }}/Project" class="post-title">
-                                        <h6>{{ Str::limit($project->title,60, '...') }}</h6>
-                                    </a>
-                                    <p class="post-desc">{!! Str::limit($project->objective, 100, '...') !!}</p>
-                                    <a class="post-author"><span>funded by</span> {{ $project->funded_by }}</a>
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <a href="/front-detail/{{ $project->id }}/Project" class="post-title">
+                                                <h6>{{ Str::limit($project->title,60, '...') }}</h6>
+                                            </a>
+                                        </div>
+                                        <div class="card-body">
+                                            <p class="post-desc">{!! Str::limit($project->objective, 100, '...') !!}</p>
+                                            <a class="post-author"><span>funded by</span> {{ $project->funded_by }}</a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             @empty
