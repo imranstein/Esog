@@ -18,4 +18,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
     <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
 
+    <link rel="stylesheet" type="text/css" href="{{ asset('Front/engine1/style.css')}}" />
+    <script type="text/javascript" src="{{ asset('Front/engine1/jquery.js')}}"></script>
 </head>
