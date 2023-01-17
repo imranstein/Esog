@@ -19,12 +19,12 @@
         </div>
     </div>
 
-    <div class="col-xs-12 col-sm-12 col-md-12">
+    {{-- <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
             <strong>Description</strong>
             <textarea class="form-control" id="description" name="description" placeholder="Enter Description" value="{{ old('description') }}"></textarea>
         </div>
-    </div>
+    </div> --}}
 
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div>

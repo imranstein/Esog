@@ -32,7 +32,7 @@ class SliderController
         }
         $validated = $request->validate([
             'title' => 'required',
-            'description' => 'required',
+            'description' => 'nullable',
             'image' => 'required|mimes:jpeg,jpg,png|max:20048',
         ]);
 
@@ -73,7 +73,7 @@ class SliderController
 
         $validated = $request->validate([
             'title' => 'required',
-            'description' => 'required',
+            'description' => 'nullable',
             'image' => 'mimes:jpeg,jpg,png|max:20048',
         ]);
 
