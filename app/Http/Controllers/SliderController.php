@@ -31,7 +31,7 @@ class SliderController
             $last_thumb = 'Photo/' . $name_gen;
         }
         $validated = $request->validate([
-            'title' => 'required',
+            'title' => 'nullable',
             // 'description' => 'nullable',
             'image' => 'required|mimes:jpeg,jpg,png|max:20048',
         ]);
@@ -72,7 +72,7 @@ class SliderController
         }
 
         $validated = $request->validate([
-            'title' => 'required',
+            'title' => 'nullable',
             // 'description' => 'nullable',
             'image' => 'mimes:jpeg,jpg,png|max:20048',
         ]);

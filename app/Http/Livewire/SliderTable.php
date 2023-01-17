@@ -127,9 +127,9 @@ final class SliderTable extends PowerGridComponent
                 ->sortable()
                 ->searchable(),
 
-            Column::make('DESCRIPTION', 'description')
-                ->sortable()
-                ->searchable(),
+            // Column::make('DESCRIPTION', 'description')
+            //     ->sortable()
+            //     ->searchable(),
 
             Column::make('IMAGE', 'image')
                 ->sortable()
