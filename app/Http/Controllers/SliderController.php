@@ -32,13 +32,13 @@ class SliderController
         }
         $validated = $request->validate([
             'title' => 'required',
-            'description' => 'nullable',
+            // 'description' => 'nullable',
             'image' => 'required|mimes:jpeg,jpg,png|max:20048',
         ]);
 
         $slider = Slider::create([
             'title' => $validated['title'],
-            'description' => $validated['description'],
+            // 'description' => $validated['description'],
             'image' => $last_thumb ?? null,
         ]);
 
@@ -73,14 +73,14 @@ class SliderController
 
         $validated = $request->validate([
             'title' => 'required',
-            'description' => 'nullable',
+            // 'description' => 'nullable',
             'image' => 'mimes:jpeg,jpg,png|max:20048',
         ]);
 
 
         $slider->update([
             'title' => $validated['title'] ?? $slider->title,
-            'description' => $validated['description'] ?? $slider->description,
+            // 'description' => $validated['description'] ?? $slider->description,
             'image' => $last_thumb,
         ]);
 
