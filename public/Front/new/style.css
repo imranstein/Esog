@@ -600,7 +600,7 @@ img {
 
     .hero-area,
     .hero-post-slides {
-        display: none;
+        height: 234px;
     }
 }
 
@@ -608,7 +608,7 @@ img {
 
     .hero-area,
     .hero-post-slides {
-        height: 750px;
+        height: 234px;
     }
 }
 

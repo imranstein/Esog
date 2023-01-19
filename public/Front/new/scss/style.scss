@@ -1,7 +1,7 @@
-@import 'theme_color';
-@import 'fonts';
-@import 'mixin';
-@import 'responsive';
+@import "theme_color";
+@import "fonts";
+@import "mixin";
+@import "responsive";
 
 /* [Master Stylesheet] */
 
@@ -43,16 +43,16 @@ Version: - v1.0.0
 
 /* :: 1.0 Import Fonts */
 
-@import url('https://fonts.googleapis.com/css?family=Barlow:300,400,500,600,700|Work+Sans:300,400,500,600,700');
+@import url("https://fonts.googleapis.com/css?family=Barlow:300,400,500,600,700|Work+Sans:300,400,500,600,700");
 
 /* :: 2.0 Import All CSS */
 
-@import 'css/bootstrap.min.css';
-@import 'css/classy-nav.css';
-@import 'css/owl.carousel.min.css';
-@import 'css/animate.css';
-@import 'css/magnific-popup.css';
-@import 'css/font-awesome.min.css';
+@import "css/bootstrap.min.css";
+@import "css/classy-nav.css";
+@import "css/owl.carousel.min.css";
+@import "css/animate.css";
+@import "css/magnific-popup.css";
+@import "css/font-awesome.min.css";
 
 /* :: 3.0 Base CSS */
 
@@ -262,24 +262,26 @@ img {
                 width: 2em;
                 height: 2em;
                 border-radius: 50%;
-                animation: a 1.5s calc(((var(--i) + var(--o, 0))/var(--n) - 1)*#{$t}) infinite;
+                animation: a 1.5s
+                    calc(((var(--i) + var(--o, 0)) / var(--n) - 1) *#{$t})
+                    infinite;
             }
             &:after {
                 --o: 1;
                 background: $white-color;
-                content: ''
+                content: "";
             }
         }
         @-webkit-keyframes a {
             0%,
             50% {
-                transform: scale(0)
+                transform: scale(0);
             }
         }
         @keyframes a {
             0%,
             50% {
-                transform: scale(0)
+                transform: scale(0);
             }
         }
     }
@@ -547,7 +549,7 @@ img {
         height: 900px;
     }
     @media #{$breakpoint-xs-landscape} {
-        height: 750px;
+        height: 234px;
     }
     .owl-nav {
         position: absolute;
@@ -895,7 +897,7 @@ img {
         left: 0;
         z-index: 5;
         background-color: rgba(255, 255, 255, 0.9);
-        content: '';
+        content: "";
         position: absolute;
         opacity: 0;
         visibility: hidden;
@@ -1025,7 +1027,7 @@ img {
         .breadcrumb-item + .breadcrumb-item::before {
             color: $heading-color;
             content: "\f105";
-            font-family: 'FontAwesome';
+            font-family: "FontAwesome";
         }
     }
 }
@@ -1138,7 +1140,7 @@ img {
             left: 100px;
             top: 0;
             z-index: 2;
-            content: '';
+            content: "";
             @media #{$breakpoint-xs} {
                 display: none;
             }
@@ -1552,7 +1554,7 @@ img {
     }
     @media #{$breakpoint-xs} {
         padding: 50px 20px;
-    }    
+    }
     .post-content {
         .post-date {
             font-weight: 500;
