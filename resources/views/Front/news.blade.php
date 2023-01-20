@@ -71,7 +71,7 @@
         <div class="single-blog-post mb-50">
             <!-- Thumbnail -->
             <div class="post-thumbnail">
-                <a href="/front-detail/{{ $latest->id }}/News"><img src="{{ asset($latest->image) }}" alt=""></a>
+                <a href="/front-detail/{{ $latest->id }}/News"><img src="{{ asset($latest->image) }}" style="height: 233.3px" alt=""></a>
             </div>
             <!-- Content -->
             <div class="post-content">
