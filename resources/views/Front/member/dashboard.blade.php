@@ -4,7 +4,7 @@
 <section id="dashboard" class="about container-fluid py-5" style="margin: 90px 0;padding:6em;">
     <div class="col-md-12">
         <div class="row ">
-            <div class="col-xl-3 col-lg-6">
+            <div class="col-xl-3 col-lg-6 col-sm-12">
                 <div class="card l-bg-cherry">
                     <div class="card-statistic-3 p-4">
                         <div class="card-icon card-icon-large"><i class="fas fa-shopping-cart"></i></div>
@@ -27,7 +27,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xl-3 col-lg-6">
+            <div class="col-xl-3 col-lg-6 col-sm-12">
                 <div class="card l-bg-blue-dark">
                     <div class="card-statistic-3 p-4">
                         <div class="card-icon card-icon-large"><i class="fas fa-users"></i></div>
@@ -50,7 +50,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xl-3 col-lg-6">
+            <div class="col-xl-3 col-lg-6 col-sm-12">
                 <div class="card l-bg-green-dark">
                     <div class="card-statistic-3 p-4">
                         <div class="card-icon card-icon-large"><i class="fas fa-ticket-alt"></i></div>
@@ -73,7 +73,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xl-3 col-lg-6">
+            <div class="col-xl-3 col-lg-6 col-sm-12">
                 <div class="card l-bg-orange-dark">
                     <div class="card-statistic-3 p-4">
                         <div class="card-icon card-icon-large"><i class="fas fa-dollar-sign"></i></div>
