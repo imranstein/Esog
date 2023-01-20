@@ -9,9 +9,10 @@ use Intervention\Image\Facades\Image;
 
 class MemberController extends Controller
 {
-    public function index(){
-        $members = Members::where('is_active',1)->paginate(12);
-        return view('Front.memberList',compact('members'));
+    public function index()
+    {
+        $members = Members::where('is_active', 1)->paginate(12);
+        return view('Front.memberList', compact('members'));
     }
     public function create()
     {
@@ -53,15 +54,15 @@ class MemberController extends Controller
             'name' => $validated['name'],
             'email' => $validated['email'],
             'phone' => $validated['phone'],
-            'department' => $validated['department'],
-            'designation' => $validated['designation'],
+            'department' => $validated['department'] ?? null,
+            'designation' => $validated['designation'] ?? null,
             'workplace' => $validated['workplace'],
             'photo' => $last_thumb ?? null,
         ]);
 
 
 
-return view('Front.memberSuccess');
+        return view('Front.memberSuccess');
         // return redirect()->route('member.index')->with('success', 'Member Added Successfully');
 
     }
