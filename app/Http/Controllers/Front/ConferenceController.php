@@ -9,7 +9,7 @@ class ConferenceController
 {
     public function __invoke(Request $request)
     {
-        $conferences = Conference::latest()->paginate(10);
+        $conferences = Conference::latest()->paginate(5);
 
         return view('Front.conference', compact('conferences'));
     }

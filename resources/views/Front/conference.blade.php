@@ -20,13 +20,14 @@
                             <div class="box-content">
                                 <label style="color:#000;font-weight: 500;">Conference Date : </label>
                                 {{ $conference->date }}
+                                <br>
                                 {!! $conference->description !!}</div>
                         </section>
                         @empty
                         @endforelse
                         <input type="radio" name="accordion" id="acc-close" />
                     </nav>
-
+                    {{ $conferences->links()}}
 
 
                 </div>

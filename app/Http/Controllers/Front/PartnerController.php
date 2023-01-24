@@ -9,7 +9,7 @@ class PartnerController
 {
     public function __invoke(Request $request)
     {
-        $partners = Partner::latest()->get();
+        $partners = Partner::latest()->paginate(15);
 
         return view('Front.partner', compact('partners'));
     }

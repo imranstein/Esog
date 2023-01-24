@@ -28,8 +28,10 @@
                     @endforelse
 
 
+                    {{ $partners->links() }}
 
                 </div>
+
             </div>
         </div>
     </div>
