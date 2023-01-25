@@ -4,9 +4,10 @@ namespace App\Http\Livewire;
 
 use App\Models\Guidelines;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Builder;
-use PowerComponents\LivewirePowerGrid\Rules\{Rule, RuleActions};
 use PowerComponents\LivewirePowerGrid\Traits\ActionButton;
+use PowerComponents\LivewirePowerGrid\Rules\{Rule, RuleActions};
 use PowerComponents\LivewirePowerGrid\{Button, Column, Exportable, Footer, Header, PowerGrid, PowerGridComponent, PowerGridEloquent};
 
 final class GuidelinesTable extends PowerGridComponent
@@ -158,21 +159,21 @@ final class GuidelinesTable extends PowerGridComponent
      */
 
 
-    // public function actions(): array
-    // {
-    //     return [
-    //         Button::make('edit', 'Edit')
-    //             ->class('btn btn-primary')
-    //             ->target('_self')
-    //             ->route('guidelines.edit', ['guideline' => 'id']),
+    public function actions(): array
+    {
+        return [
+            Button::make('edit', 'Edit')
+                ->class('btn btn-primary')
+                ->target('_self')
+                ->route('guidelines.edit', ['guideline' => 'id']),
 
-    //         Button::make('destroy', 'Delete')
-    //             ->class('btn btn-danger')
-    //             ->target('_self')
-    //             ->route('guidelines.destroy', ['guidelines' => 'id'])
-    //             ->method('delete')
-    //     ];
-    // }
+            Button::make('destroy', 'Delete')
+                ->class('btn btn-danger')
+                ->target('_self')
+                ->route('guidelines.destroy', ['guideline' => 'id'])
+                ->method('delete')
+        ];
+    }
 
 
     /*
@@ -189,16 +190,21 @@ final class GuidelinesTable extends PowerGridComponent
      * @return array<int, RuleActions>
      */
 
-    /*
     public function actionRules(): array
     {
-       return [
+        return [
 
-           //Hide button edit for ID 1
+            //Hide button edit for ID 1
+            //Rule::button('edit')
+            //  ->when(fn($news) => $news->id === 1)
+            //->hide(),
             Rule::button('edit')
-                ->when(fn($guidelines) => $guidelines->id === 1)
+                ->when(fn () => Auth::user()->cannot('guidelines-edit'))
+                ->hide(),
+
+            Rule::button('delete')
+                ->when(fn () => Auth::user()->cannot('guidelines-delete'))
                 ->hide(),
         ];
     }
-    */
 }

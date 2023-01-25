@@ -4,9 +4,10 @@ namespace App\Http\Livewire;
 
 use App\Models\Publication;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Builder;
-use PowerComponents\LivewirePowerGrid\Rules\{Rule, RuleActions};
 use PowerComponents\LivewirePowerGrid\Traits\ActionButton;
+use PowerComponents\LivewirePowerGrid\Rules\{Rule, RuleActions};
 use PowerComponents\LivewirePowerGrid\{Button, Column, Exportable, Footer, Header, PowerGrid, PowerGridComponent, PowerGridEloquent};
 
 final class PublicationTable extends PowerGridComponent
@@ -172,21 +173,23 @@ final class PublicationTable extends PowerGridComponent
      * @return array<int, Button>
      */
 
-    /*
+
     public function actions(): array
     {
-       return [
-           Button::make('edit', 'Edit')
-               ->class('bg-indigo-500 cursor-pointer text-white px-3 py-2.5 m-1 rounded text-sm')
-               ->route('publication.edit', ['publication' => 'id']),
+        return [
+            Button::make('edit', 'Edit')
+                ->class('btn btn-primary')
+                ->target('_self')
+                ->route('publication.edit', ['publication' => 'id']),
 
-           Button::make('destroy', 'Delete')
-               ->class('bg-red-500 cursor-pointer text-white px-3 py-2 m-1 rounded text-sm')
-               ->route('publication.destroy', ['publication' => 'id'])
-               ->method('delete')
+            Button::make('destroy', 'Delete')
+                ->class('btn btn-danger')
+                ->target('_self')
+                ->route('publication.destroy', ['publication' => 'id'])
+                ->method('delete')
         ];
     }
-    */
+
 
     /*
     |--------------------------------------------------------------------------
@@ -202,16 +205,21 @@ final class PublicationTable extends PowerGridComponent
      * @return array<int, RuleActions>
      */
 
-    /*
     public function actionRules(): array
     {
-       return [
+        return [
 
-           //Hide button edit for ID 1
+            //Hide button edit for ID 1
+            //Rule::button('edit')
+            //  ->when(fn($news) => $news->id === 1)
+            //->hide(),
             Rule::button('edit')
-                ->when(fn($publication) => $publication->id === 1)
+                ->when(fn () => Auth::user()->cannot('publication-edit'))
+                ->hide(),
+
+            Rule::button('delete')
+                ->when(fn () => Auth::user()->cannot('publication-delete'))
                 ->hide(),
         ];
     }
-    */
 }

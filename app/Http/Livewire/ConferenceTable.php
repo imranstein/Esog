@@ -4,9 +4,10 @@ namespace App\Http\Livewire;
 
 use App\Models\Conference;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Builder;
-use PowerComponents\LivewirePowerGrid\Rules\{Rule, RuleActions};
 use PowerComponents\LivewirePowerGrid\Traits\ActionButton;
+use PowerComponents\LivewirePowerGrid\Rules\{Rule, RuleActions};
 use PowerComponents\LivewirePowerGrid\{Button, Column, Exportable, Footer, Header, PowerGrid, PowerGridComponent, PowerGridEloquent};
 
 final class ConferenceTable extends PowerGridComponent
@@ -154,10 +155,10 @@ final class ConferenceTable extends PowerGridComponent
     public function actions(): array
     {
         return [
-            // Button::make('edit', 'Edit')
-            //     ->class('btn btn-primary')
-            //     ->target('_self')
-            //     ->route('conference.edit', ['conference' => 'id']),
+            Button::make('edit', 'Edit')
+                ->class('btn btn-primary')
+                ->target('_self')
+                ->route('conference.edit', ['conference' => 'id']),
 
             Button::make('destroy', 'Delete')
                 ->class('btn btn-danger')
@@ -182,16 +183,21 @@ final class ConferenceTable extends PowerGridComponent
      * @return array<int, RuleActions>
      */
 
-    /*
     public function actionRules(): array
     {
-       return [
+        return [
 
-           //Hide button edit for ID 1
+            //Hide button edit for ID 1
+            //Rule::button('edit')
+            //  ->when(fn($news) => $news->id === 1)
+            //->hide(),
             Rule::button('edit')
-                ->when(fn($conference) => $conference->id === 1)
+                ->when(fn () => Auth::user()->cannot('conference-edit'))
+                ->hide(),
+
+            Rule::button('delete')
+                ->when(fn () => Auth::user()->cannot('conference-delete'))
                 ->hide(),
         ];
     }
-    */
 }

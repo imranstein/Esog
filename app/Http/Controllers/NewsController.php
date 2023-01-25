@@ -64,11 +64,31 @@ class NewsController
 
     public function update(Request $request, $id)
     {
-        $validated = $request->validate([]);
-
         $news = News::findOrFail($id);
 
+        $validated = $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'image' => 'nullable|mimes:jpeg,jpg,png|max:20048',
+            'caption' => 'nullable',
+        ]);
+
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
+            Image::make($image)->save('Photo/' . $name_gen);
+
+            $last_thumb = 'Photo/' . $name_gen;
+        } else {
+            $last_thumb = $news->image;
+        }
+
+
         $news->update($validated);
+        $news->image = $last_thumb;
+        $news->save();
+
+        return redirect()->route('news.index')->with('update', 'News Updated successfully');
     }
 
     public function destroy($id)

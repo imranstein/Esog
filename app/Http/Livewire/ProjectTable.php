@@ -4,9 +4,10 @@ namespace App\Http\Livewire;
 
 use App\Models\Project;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Builder;
-use PowerComponents\LivewirePowerGrid\Rules\{Rule, RuleActions};
 use PowerComponents\LivewirePowerGrid\Traits\ActionButton;
+use PowerComponents\LivewirePowerGrid\Rules\{Rule, RuleActions};
 use PowerComponents\LivewirePowerGrid\{Button, Column, Exportable, Footer, Header, PowerGrid, PowerGridComponent, PowerGridEloquent};
 
 final class ProjectTable extends PowerGridComponent
@@ -168,21 +169,23 @@ final class ProjectTable extends PowerGridComponent
      * @return array<int, Button>
      */
 
-    /*
+
     public function actions(): array
     {
-       return [
-           Button::make('edit', 'Edit')
-               ->class('bg-indigo-500 cursor-pointer text-white px-3 py-2.5 m-1 rounded text-sm')
-               ->route('project.edit', ['project' => 'id']),
+        return [
+            Button::make('edit', 'Edit')
+                ->class('btn btn-primary')
+                ->target('_self')
+                ->route('project.edit', ['project' => 'id']),
 
-           Button::make('destroy', 'Delete')
-               ->class('bg-red-500 cursor-pointer text-white px-3 py-2 m-1 rounded text-sm')
-               ->route('project.destroy', ['project' => 'id'])
-               ->method('delete')
+            Button::make('destroy', 'Delete')
+                ->class('btn btn-danger')
+                ->target('_Self')
+                ->route('project.destroy', ['project' => 'id'])
+                ->method('delete')
         ];
     }
-    */
+
 
     /*
     |--------------------------------------------------------------------------
@@ -198,16 +201,21 @@ final class ProjectTable extends PowerGridComponent
      * @return array<int, RuleActions>
      */
 
-    /*
     public function actionRules(): array
     {
-       return [
+        return [
 
-           //Hide button edit for ID 1
+            //Hide button edit for ID 1
+            //Rule::button('edit')
+            //  ->when(fn($news) => $news->id === 1)
+            //->hide(),
             Rule::button('edit')
-                ->when(fn($project) => $project->id === 1)
+                ->when(fn () => Auth::user()->cannot('project-edit'))
+                ->hide(),
+
+            Rule::button('delete')
+                ->when(fn () => Auth::user()->cannot('project-delete'))
                 ->hide(),
         ];
     }
-    */
 }

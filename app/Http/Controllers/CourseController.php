@@ -32,7 +32,7 @@ class CourseController
             'author' => 'nullable',
             'document' => 'nullable',
             'video' => 'nullable',
-            'is_paid' => 'required',
+            'is_paid' => 'nullable',
             'length' => 'required|numeric',
         ]);
         if ($request->hasFile('video')) {
@@ -125,7 +125,7 @@ class CourseController
             'author' => 'nullable',
             'document' => 'nullable',
             'video' => 'nullable',
-            'is_paid' => 'required',
+            'is_paid' => 'nullable',
             'length' => 'required|numeric',
         ]);
 
@@ -139,7 +139,7 @@ class CourseController
             'author' => $validated['author'] ?? $course->author,
             'document' => $documentname,
             'video' => $last_vid,
-            'is_paid' => $validated['is_paid'] ?? 0,
+            'is_paid' => $validated['is_paid'] ?? $course->is_paid,
             'length' => $validated['length'] ?? $course->length,
         ]);
 

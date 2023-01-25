@@ -33,11 +33,11 @@ class TeamsController
             'type' => 'required',
             'designation' => 'required',
             'name' => 'required',
-            'email' => 'required|email:rfc,dns',
+            'email' => 'required|email',
             'image' => 'required|mimes:jpeg,jpg,png|max:20048',
-            'facebook' => 'required|url',
-            'twitter' => 'required|url',
-            'linkedin' => 'required|url',
+            'facebook' => 'nullable|url',
+            'twitter' => 'nullable|url',
+            'linkedin' => 'nullable|url',
             'phone' => 'required|numeric|digits_between:9,15',
         ]);
 
@@ -64,15 +64,38 @@ class TeamsController
     public function edit($id)
     {
         $team = Team::findOrFail($id);
+        return view('team.edit', compact('team'));
     }
 
     public function update(Request $request, $id)
     {
-        $validated = $request->validate([]);
-
         $team = Team::findOrFail($id);
 
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
+            Image::make($image)->resize(500, 500)->save('Photo/' . $name_gen);
+
+            $last_thumb = 'Photo/' . $name_gen;
+        }
+        $validated = $request->validate([
+            'type' => 'required',
+            'designation' => 'required',
+            'name' => 'required',
+            'email' => 'required|email',
+            'image' => 'mimes:jpeg,jpg,png|max:20048',
+            'facebook' => 'nullable|url',
+            'twitter' => 'nullable|url',
+            'linkedin' => 'nullable|url',
+            'phone' => 'required|numeric|digits_between:9,15',
+        ]);
+
+
         $team->update($validated);
+        $team->image = $last_thumb ?? $team->image;
+        $team->save();
+
+        return redirect()->route('team.index')->with('update', 'Team Member Updated Successfully');
     }
 
     public function destroy($id)
