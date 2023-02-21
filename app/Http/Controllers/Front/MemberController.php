@@ -21,8 +21,9 @@ class MemberController extends Controller
 
     public function store(Request $request)
     {
-        if ($request->hasFile('photo')) {
-            $photo = $request->file('photo');
+        // dd($request->image);
+        if ($request->hasFile('image')) {
+            $photo = $request->file('image');
             $name_gen = hexdec(uniqid()) . '.' . $photo->getClientOriginalExtension();
             Image::make($photo)->save('Photo/' . $name_gen);
 
@@ -36,7 +37,7 @@ class MemberController extends Controller
                 'department' => 'nullable',
                 'designation' => 'nullable',
                 'workplace' => 'nullable',
-                'photo' => 'nullable|max:20048',
+                'image' => 'nullable|max:20048',
 
             ],
             [
@@ -45,8 +46,8 @@ class MemberController extends Controller
                 'phone.unique' => 'This Phone Number Already Exists',
                 'phone.digits_between' => 'Phone Number Must Be Between 9 To 14 Digits',
                 'phone.numeric' => 'Phone Number Must Be Numeric',
-                'photo.mimes' => 'Photo Must Be jpg,jpeg,png',
-                'photo.max' => 'Photo Must Be Less Than 20MB',
+                'image.mimes' => 'Image Must Be jpg,jpeg,png',
+                'image.max' => 'Image Must Be Less Than 20MB',
             ]
         );
 

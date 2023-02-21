@@ -51,7 +51,8 @@ final class MemberTable extends PowerGridComponent
      */
     public function datasource(): Builder
     {
-        return Members::query();
+        //
+        return Members::query()->orderBy('created_at', 'desc');
     }
 
     /*
@@ -100,7 +101,7 @@ final class MemberTable extends PowerGridComponent
             ->addColumn('designation')
             ->addColumn('workplace')
             ->addColumn('photo', function (Members $model) {
-                return '<img src="' . asset( $model->photo) . '" width="80" height="80" />';
+                return '<img src="' . asset($model->photo) . '" width="80" height="80" />';
             })
             ->addColumn('created_at_formatted', fn (Members $model) => Carbon::parse($model->created_at)->format('d/m/Y H:i:s'));
         // ->addColumn('updated_at_formatted', fn (Members $model) => Carbon::parse($model->updated_at)->format('d/m/Y H:i:s'));
@@ -124,8 +125,8 @@ final class MemberTable extends PowerGridComponent
     {
         return [
             Column::make('ID', 'id')
-            ->sortable()
-            ->searchable(),
+                ->sortable()
+                ->searchable(),
 
             Column::make('NAME', 'name')
                 ->sortable()
@@ -193,7 +194,7 @@ final class MemberTable extends PowerGridComponent
                 ->class('btn btn-danger')
                 ->target('_self')
                 ->method('delete'),
-                Button::make('approve', 'Approve')
+            Button::make('approve', 'Approve')
                 ->route('member.approve', ['member' => 'id'])
                 ->class('btn btn-success')
                 ->target('_self')
@@ -220,24 +221,23 @@ final class MemberTable extends PowerGridComponent
 
     public function actionRules(): array
     {
-       return [
+        return [
 
-           //Hide button approve if is_active is not null
-              Rule::button('approve')
-              ->when(fn (Members $model) => $model->is_active != null)
+            //Hide button approve if is_active is not null
+            Rule::button('approve')
+                ->when(fn (Members $model) => $model->is_active != 0)
                 ->hide(),
 
-        //    Rule::button('approve')
-        //    ->when(fn () => Auth::user()->cannot('member-approve'))
-        //    ->hide(),
-           Rule::button('edit')
-           ->when(fn () => Auth::user()->cannot('member-edit'))
-           ->hide(),
-           Rule::button('delete')
-           ->when(fn () => Auth::user()->cannot('member-delete'))
-           ->hide(),
+            //    Rule::button('approve')
+            //    ->when(fn () => Auth::user()->cannot('member-approve'))
+            //    ->hide(),
+            Rule::button('edit')
+                ->when(fn () => Auth::user()->cannot('member-edit'))
+                ->hide(),
+            Rule::button('delete')
+                ->when(fn () => Auth::user()->cannot('member-delete'))
+                ->hide(),
 
         ];
     }
-
 }
