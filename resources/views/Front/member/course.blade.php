@@ -33,7 +33,8 @@
                                     <li class="widget-49-meeting-item">{!! Str::limit($course->description, 130) !!}</li>
                                 </ul>
                                 @php
-                                $enrolled = App\Models\MemberCourse::where('course_id',$course->id)->where('member_id',Auth::user()->id)->first();
+                                $memberId = App\Models\Members::where('user_id',Auth::user()->id)->first()->id;
+                                $enrolled = App\Models\MemberCourse::where('course_id',$course->id)->where('member_id',$memberId)->first();
                                 @endphp
                                 @if ($enrolled == null)
                                 <div class="widget-49-meeting-action">

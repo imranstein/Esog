@@ -13,7 +13,25 @@
                 </ol>
             </nav> --}}
             <!-- /Breadcrumb -->
+            @if (session()->has('success'))
+            <div class="alert alert-success">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <i class="material-icons">close</i>
+                </button>
+                <span>
+                    <b> </b> {{ session('success') }} </span>
 
+            </div>
+            @endif
+            @if(session()->has('delete'))
+            <div class="alert alert-danger">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <i class="material-icons">close</i>
+                </button>
+                <span>
+                    <b> </b> {{ session('delete') }} </span>
+            </div>
+            @endif
             <div class="row gutters-sm">
                 <div class="col-md-4 col-sm-12 mb-3">
                     <div class="card">
@@ -146,7 +164,7 @@
                                             </div>
                                             <div class="card-body ">
                                                 <div class="row">
-                                                    <label class="col-sm-2 col-form-label" for="input-current-password">Current Password</label>
+                                                    <label class="col-sm-5 col-form-label" for="input-current-password">Current Password</label>
                                                     <div class="col-sm-7">
                                                         <div class="form-group">
                                                             <input class="form-control" input type="password" name="old_password" id="input-current-password" placeholder="Current Password" value="" required />
@@ -158,7 +176,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <label class="col-sm-2 col-form-label" for="input-password">New Password</label>
+                                                    <label class="col-sm-5 col-form-label" for="input-password">New Password</label>
                                                     <div class="col-sm-7">
                                                         <div class="form-group">
                                                             <input class="form-control" name="password" id="input-password" type="password" placeholder="New Password" value="" required />
@@ -170,7 +188,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <label class="col-sm-2 col-form-label" for="input-password-confirmation">Confirm New Password</label>
+                                                    <label class="col-sm-5 col-form-label" for="input-password-confirmation">Confirm New Password</label>
                                                     <div class="col-sm-7">
                                                         <div class="form-group">
                                                             <input class="form-control" name="password_confirmation" id="input-password-confirmation" type="password" placeholder="Confirm New Password" value="" required />
@@ -201,7 +219,7 @@
                                     </div>
                                     <small>Website Markup</small>
                                     <div class="progress mb-3" style="height: 5px">
-                                        <div class="progress-bar bg-primary" role="progressbar" style="width: 72%" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100"></div>
+                                        <div class="progress-bar bg-primary" role="progressbar" style="width: 62%" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
                                     <small>One Page</small>
                                     <div class="progress mb-3" style="height: 5px">

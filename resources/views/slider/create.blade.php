@@ -23,12 +23,12 @@
         <div class="form-group">
             <strong>Description</strong>
             <textarea class="form-control" id="description" name="description" placeholder="Enter Description" value="{{ old('description') }}"></textarea>
-        </div>
+    </div>
     </div> --}}
 
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div>
-            <strong>Image</strong>
+            <strong>Image (1500px X 300px )</strong>
             <input type="file" name="image" class="form-control">
 
         </div>

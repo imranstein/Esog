@@ -45,13 +45,13 @@ final class MemberCourseTable extends PowerGridComponent
     */
 
     /**
-    * PowerGrid datasource.
-    *
-    * @return Builder<\App\Models\MemberCourse>
-    */
+     * PowerGrid datasource.
+     *
+     * @return Builder<\App\Models\MemberCourse>
+     */
     public function datasource(): Builder
     {
-        return MemberCourse::query();
+        return MemberCourse::query()->with('member', 'course');
     }
 
     /*
@@ -95,8 +95,8 @@ final class MemberCourseTable extends PowerGridComponent
             })
             ->addColumn('is_approved_formatted', fn (MemberCourse $model) => Carbon::parse($model->is_approved)->format('d/m/Y H:i:s'))
             ->addColumn('started_at_formatted', fn (MemberCourse $model) => Carbon::parse($model->started_at)->format('d/m/Y H:i:s'))
-            ->addColumn('finished_at_formatted', fn (MemberCourse $model) => Carbon::parse($model->finished_at)->format('d/m/Y H:i:s'))
-;}
+            ->addColumn('finished_at_formatted', fn (MemberCourse $model) => Carbon::parse($model->finished_at)->format('d/m/Y H:i:s'));
+    }
 
     /*
     |--------------------------------------------------------------------------
@@ -107,7 +107,7 @@ final class MemberCourseTable extends PowerGridComponent
     |
     */
 
-     /**
+    /**
      * PowerGrid Columns.
      *
      * @return array<int, Column>
@@ -129,21 +129,17 @@ final class MemberCourseTable extends PowerGridComponent
 
             Column::make('IS APPROVED', 'is_approved_formatted', 'is_approved')
                 ->searchable()
-                ->sortable()
-               ,
+                ->sortable(),
 
             Column::make('STARTED AT', 'started_at_formatted', 'started_at')
                 ->searchable()
-                ->sortable()
-               ,
+                ->sortable(),
 
             Column::make('FINISHED AT', 'finished_at_formatted', 'finished_at')
                 ->searchable()
-                ->sortable()
-               ,
+                ->sortable(),
 
-        ]
-;
+        ];
     }
 
     /*
@@ -154,7 +150,7 @@ final class MemberCourseTable extends PowerGridComponent
     |
     */
 
-     /**
+    /**
      * PowerGrid MemberCourse Action Buttons.
      *
      * @return array<int, Button>
@@ -163,20 +159,20 @@ final class MemberCourseTable extends PowerGridComponent
 
     public function actions(): array
     {
-       return [
-        //    Button::make('edit', 'Edit')
-        //        ->class('bg-indigo-500 cursor-pointer text-white px-3 py-2.5 m-1 rounded text-sm')
-        //        ->route('member-course.edit', ['member-course' => 'id']),
+        return [
+            //    Button::make('edit', 'Edit')
+            //        ->class('bg-indigo-500 cursor-pointer text-white px-3 py-2.5 m-1 rounded text-sm')
+            //        ->route('member-course.edit', ['member-course' => 'id']),
 
-        //    Button::make('destroy', 'Delete')
-        //        ->class('bg-red-500 cursor-pointer text-white px-3 py-2 m-1 rounded text-sm')
-        //        ->route('member-course.destroy', ['member-course' => 'id'])
-        //        ->method('delete')
-        Button::make('approve','Approve')
-        ->class('btn btn-success')
-        ->target('_self')
-            ->route('course.approve', ['course' => 'id'])
-            ->method('post'),
+            //    Button::make('destroy', 'Delete')
+            //        ->class('bg-red-500 cursor-pointer text-white px-3 py-2 m-1 rounded text-sm')
+            //        ->route('member-course.destroy', ['member-course' => 'id'])
+            //        ->method('delete')
+            Button::make('approve', 'Approve')
+                ->class('btn btn-success')
+                ->target('_self')
+                ->route('course.approve', ['course' => 'id'])
+                ->method('post'),
         ];
     }
 
@@ -189,7 +185,7 @@ final class MemberCourseTable extends PowerGridComponent
     |
     */
 
-     /**
+    /**
      * PowerGrid MemberCourse Action Rules.
      *
      * @return array<int, RuleActions>
@@ -198,18 +194,17 @@ final class MemberCourseTable extends PowerGridComponent
 
     public function actionRules(): array
     {
-       return [
+        return [
 
-           //Hide button edit for ID 1
-           //hide approve button if is_approved is not null
-              Rule::button('approve')
+            //Hide button edit for ID 1
+            //hide approve button if is_approved is not null
+            Rule::button('approve')
                 ->when(fn (MemberCourse $model) => $model->is_approved != null)
                 ->hide(),
-                // Rule::button('approve')
-                // ->when(fn () => Auth::user()->cannot('memberCourse-approve'))
-                // ->hide(),
+            // Rule::button('approve')
+            // ->when(fn () => Auth::user()->cannot('memberCourse-approve'))
+            // ->hide(),
 
         ];
     }
-
 }

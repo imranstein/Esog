@@ -79,7 +79,7 @@
                 <a href="/front-detail/{{ $latest->id }}/News" class="post-title">
                     <h4>{{ Str::limit($latest->title, 40, '...') }}</h4>
                 </a>
-                <p class="post-excerpt">{{ Str::limit($latest->description, 120, '...') }}</p>
+                <p class="post-excerpt">{!! Str::limit($latest->description, 120, '...') !!}</p>
             </div>
         </div>
     </div>

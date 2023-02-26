@@ -26,7 +26,7 @@ class SliderController
         if ($request->hasFile('image')) {
             $photo = $request->file('image');
             $name_gen = hexdec(uniqid()) . '.' . $photo->getClientOriginalExtension();
-            Image::make($photo)->save('Photo/' . $name_gen);
+            Image::make($photo)->resize(1500, 300)->save('Photo/' . $name_gen);
 
             $last_thumb = 'Photo/' . $name_gen;
         }
