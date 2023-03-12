@@ -22,7 +22,7 @@
                                 <p> Email: <a style="color: black" href="mailto:{{ $partner->email }}">{{ $partner->email }}</a></p>
 
                             </label>
-                            <p>{!! $partner->description !!}</p>
+                            <p style="margin-left: 5%">{!! $partner->description !!}</p>
                         </div>
                     </div>
                     @empty
