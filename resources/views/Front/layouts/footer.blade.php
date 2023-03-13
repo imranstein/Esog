@@ -4,13 +4,13 @@
             <div class="col-12">
                 <!-- Footer Social Info -->
                 <div class="footer-social-info d-flex align-items-center justify-content-between">
-                    <a href="#"><i class="fa fa-facebook"></i><span>Facebook</span></a>
+                    <a href="https://www.facebook.com/esogethiopia"><i class="fa fa-facebook"></i><span>Facebook</span></a>
                     <a href="#"><i class="fa fa-twitter"></i><span>Twitter</span></a>
                     <a href="#"><i class="fa fa-google-plus"></i><span>Google +</span></a>
                     <a href="#"><i class="fa fa-linkedin"></i><span>linkedin</span></a>
                     <a href="#"><i class="fa fa-instagram"></i><span>Instagram</span></a>
-                    <a href="#"><i class="fa fa-vimeo"></i><span>Vimeo</span></a>
-                    <a href="#"><i class="fa fa-youtube"></i><span>Youtube</span></a>
+                    {{-- <a href="#"><i class="fa fa-vimeo"></i><span>Vimeo</span></a> --}}
+                    <a href="https://www.youtube.com/channel/UCSkpjufHp_Nsnh_WGf3PM5w?view_as=subscriber"><i class="fa fa-youtube"></i><span>Youtube</span></a>
                 </div>
             </div>
         </div>
