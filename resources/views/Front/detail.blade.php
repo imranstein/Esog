@@ -107,7 +107,7 @@
                             <div class="nikki-list-area mb-50">
                                 <h4 class="mb-15">Documents</h4>
                                 <ul class="nikki-list">
-                                    <li> <a class="btn btn-sm btn-forth rounded-pill px-3" href="{{ asset('Document/'.$result->document) }}" target="blank">{{ $result->document }}</a></li>
+                                    <li> <a class="btn btn-info btn-forth rounded-pill px-3" href="{{ asset($result->document) }}" target="blank">View Document</a></li>
                                 </ul>
                             </div>
                             @endif
