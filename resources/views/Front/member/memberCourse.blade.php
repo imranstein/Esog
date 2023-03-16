@@ -34,7 +34,8 @@
                                 </ul>
                                 @if($course->is_approved != null && $course->started_at != null && $course->finished_at != null)
                                 <div class="widget-49-meeting-action">
-                                    <a class="btn btn-sm btn-flash-border-primary">Finished</a>
+                                    {{-- <a class="btn btn-sm btn-flash-border-primary">Finished</a> --}}
+                                    <a class="btn btn-sm btn-flash-border-primary" href="/certificate/{{ $course->course->title }}/{{ $course->started_at }}/{{ $course->finished_at }}">Print</a>
                                 </div>
                                 @else
                                 @if($course->started_at != null)

@@ -34,6 +34,7 @@ class GuidelinesController
         }
         $validated = $request->validate([
             'title' => 'required',
+            'group' => 'required',
             'description' => 'required',
             'author' => 'nullable',
             'document' => 'nullable',
@@ -76,6 +77,7 @@ class GuidelinesController
         }
         $validated = $request->validate([
             'title' => 'required',
+            'group' => 'required',
             'description' => 'required',
             'author' => 'nullable',
             'document' => 'nullable',
@@ -84,6 +86,7 @@ class GuidelinesController
 
         $guidelines->update([
             'title' => $validated['title'] ?? $guidelines->title,
+            'group' => $validated['group'] ?? $guidelines->group,
             'description' => $validated['description'] ?? $guidelines->description,
             'author' => $validated['author'] ?? $guidelines->author,
             'document' => $documentname,

@@ -61,6 +61,17 @@
                                 </ul>
                             </div>
                             @endif
+                            <div class="article-content">
+                                <form method="POST" action="{{ route('finishCourse') }}">
+                                    @csrf
+                                    <input type="hidden" name="id" value="{{ $course->id }}">
+                                    <button type="submit" class="btn btn-primary" style="background-color: #86b7e2 ">Finish Course</button>
+
+                                </form>
+
+                                {{-- <a href="{{ route('finishCourse',$course->id) }}" class="btn btn-primary" style="background-color: #86b7e2 ">Finish Course</a> --}}
+                            </div>
+
                             <!-- Post Tags & Share -->
                             {{-- <div class="post-tags-share">
                                 <!-- Tags -->

@@ -135,10 +135,16 @@ class MemberCourseController
     }
 
 
-    public function finish($id)
+    public function finish(Request $request)
     {
-        $memberCourse = MemberCourse::findOrFail($id);
+        $id = $request->id;
+        // dd($id);
+        $member_id = Members::where('user_id', Auth::user()->id)->first()->id;
+        $memberCourse = MemberCourse::where('course_id', $id)->where('member_id', $member_id)->first();
+        // dd($memberCourse);
         $courseLength = Course::findOrFail($memberCourse->course_id)->length;
+
+
         //check if the course length is greater than between started_at and now in minutes
         //the minute differece between started_at and now
         $now = Carbon::now()->toDateTimeString();

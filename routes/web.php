@@ -13,6 +13,8 @@ use App\Http\Controllers\SliderController;
 use App\Http\Controllers\MembersController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AdvocacyController;
+use App\Http\Controllers\CertificateController;
+use App\Http\Controllers\ChapaController;
 use App\Http\Controllers\ConferenceController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\GuidelinesController;
@@ -35,6 +37,7 @@ use App\Http\Controllers\Front\ProjectController as FrontProjectController;
 use App\Http\Controllers\MyProfileController;
 use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\ProjectController;
+use App\Models\Members;
 
 /*
 |--------------------------------------------------------------------------
@@ -60,6 +63,7 @@ Route::get('front-testimonial', FrontTestimonialController::class)->name('front.
 Route::get('front-detail/{id}/{model}', DetailController::class)->name('front.detail');
 Route::get('front-member', [MemberController::class, 'index'])->name('front.member');
 Route::get('front-member/create', [MemberController::class, 'create'])->name('front.member.create');
+Route::get('memberSuccess/{id}', [MemberController::class, 'isPaid'])->name('memberSuccess');
 Route::post('front-memberRegister', [MemberController::class, 'store'])->name('front.memberRegister');
 Route::get('front-course', FrontCourseController::class)->name('front.course');
 Route::get('front-project', FrontProjectController::class)->name('front.project');
@@ -74,6 +78,12 @@ Route::get('membershipType', function () {
 })->name('front.membershipType');
 Route::get('front-conference', FrontConferenceController::class)->name('front.conference');
 Route::get('front-partner', FrontPartnerController::class)->name('front.partner');
+Route::post('pay', [ChapaController::class, 'initialize'])->name('pay');
+
+
+// The callback url after a payment
+Route::get('callback/{reference}', [ChapaController::class, 'callback'])->name('callback');
+
 // Route::get('/', function () {
 //     return view('welcome');
 // });
@@ -93,6 +103,7 @@ Route::middleware([
     Route::resource('roles', RoleController::class);
     Route::get('profile', Profile::class)->name('profile');
     Route::resource('member', MembersController::class);
+    Route::get('markAsRead/{id}', [MembersController::class, 'markAsRead'])->name('markAsRead');
     Route::post('member/{member}/approve', [MembersController::class, 'approve'])->name('member.approve');
     Route::resource('team', TeamsController::class);
     Route::resource('news', NewsController::class);
@@ -108,7 +119,9 @@ Route::middleware([
     Route::post('course/approve/{course}', [MemberCourseController::class, 'approve'])->name('course.approve');
     Route::resource('memberCourse', MemberCourseController::class);
     Route::get('startCourse/{id}', [MemberCourseController::class, 'start'])->name('startCourse');
-    Route::get('finishCourse/{id}', [MemberCourseController::class, 'finish'])->name('finishCourse');
+    Route::post('finishCourse', [MemberCourseController::class, 'finish'])->name('finishCourse');
+    Route::get('/certificate/{course}/{startDate}/{endDate}', [CertificateController::class, 'generate'])->name('certificate');
+
     // Route::get('/profile/change_password', [ProfileController::class, 'changePass'])->name('change.password');
     Route::post('/profile/update_password', [ProfileController::class, 'passwordUpdate'])->name('password.update');
     Route::get('myProfile', [MyProfileController::class, 'index'])->name('myProfile');

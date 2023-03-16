@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
 use App\Models\Members;
+use App\Models\User;
+use App\Notifications\UserRegistered;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
 
@@ -61,10 +63,35 @@ class MemberController extends Controller
             'photo' => $last_thumb ?? null,
         ]);
 
+        // $admins = User::role('Admin')->get();
+        // foreach ($admins as $admin) {
+        //     $admin->notify(new UserRegistered);
+        // }
 
 
-        return view('Front.memberSuccess');
+        $firstName = explode(' ', $validated['name'])[0];
+        $lastName = explode(' ', $validated['name'])[1] ?? null;
+        $email = $validated['email'];
+        $id = $members->id;
+
+        // dd($firstName, $lastName, $email);
+
+        return view('Front.memberPay', compact('firstName', 'lastName', 'email', 'id'));
+
+        // return view('Front.memberSuccess');
         // return redirect()->route('member.index')->with('success', 'Member Added Successfully');
 
+    }
+    public function isPaid($id)
+    {
+        $member = Members::findOrFail($id);
+        $member->isPaid = now();
+        $member->save();
+
+        $admins = User::role('Admin')->get();
+        foreach ($admins as $admin) {
+            $admin->notify(new UserRegistered);
+        }
+        return view('Front.memberSuccess');
     }
 }

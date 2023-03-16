@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Members;
 use App\Models\User;
+use App\Notifications\UserApproved;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
 use Spatie\Permission\Models\Role;
@@ -163,6 +164,18 @@ class MembersController
             'is_active' => 1,
         ]);
 
+        $user->notify(new UserApproved);
+
         return redirect()->route('member.index')->with('approve', 'Member Approved Successfully');
+    }
+
+    public function markAsRead($id)
+    {
+        $notification = auth()->user()->notifications()->where('id', $id)->first();
+        if ($notification) {
+            $notification->markAsRead();
+
+            return redirect($notification->data['link']);
+        }
     }
 }

@@ -16,6 +16,17 @@
             <input type="text" class="form-control" id="title" name="title" placeholder="Enter Title" value="{{ $guideline->title }}" required>
         </div>
     </div>
+    <div class="form-group">
+        <strong>Group</strong>
+        <select class="form-control" id="group" name="group">
+            <option value="0">Select Group</option>
+            <option value="1" {{ $guideline->group == 1 ? 'selected' : '' }}>Group 1</option>
+            <option value="2" {{ $guideline->group == 2 ? 'selected' : '' }}>Group 2</option>
+            <option value="3" {{ $guideline->group == 3 ? 'selected' : '' }}>Group 3</option>
+            <option value="4" {{ $guideline->group == 4 ? 'selected' : '' }}>Group 4</option>
+        </select>
+    </div>
+
 
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">

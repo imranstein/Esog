@@ -17,6 +17,7 @@ class Guidelines extends Model
 
     protected $fillable = [
         'title',
+        'group',
         'description',
         'author',
         'document',

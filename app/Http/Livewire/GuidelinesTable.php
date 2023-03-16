@@ -93,6 +93,7 @@ final class GuidelinesTable extends PowerGridComponent
             ->addColumn('title_lower', function (Guidelines $model) {
                 return strtolower(e($model->title));
             })
+            ->addColumn('group')
 
             ->addColumn('author')
             //return document link to be opened in a new tab
@@ -127,6 +128,9 @@ final class GuidelinesTable extends PowerGridComponent
                 ->sortable()
                 ->searchable(),
 
+            Column::make('GROUP', 'group')
+                ->sortable()
+                ->searchable(),
 
             Column::make('AUTHOR', 'author')
                 ->sortable()

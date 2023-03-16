@@ -113,6 +113,39 @@
                         </p>
                     </a>
                 </li>
+                <li class="nav-item dropdown">
+                    @php
+                    $notifications = auth()->user()->unreadNotifications;
+                    @endphp
+                    <a class="nav-link" href="#pablo" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        @if($notifications->count() > 0)
+                        <i class="material-icons">notifications</i>
+                        <span class="notification">{{ $notifications->count() }}</span>
+                        <p class="d-lg-none d-md-block">
+                            Account
+                        </p>
+                        @else
+                        <i class="material-icons">notifications</i>
+                        <p class="d-lg-none d-md-block">
+                            Account
+                        </p>
+                        @endif
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
+
+                        @if ($notifications->count() > 0)
+                        @foreach ($notifications as $notification)
+                        <a class="dropdown-item" href="{{ route('markAsRead', $notification->id) }}">
+                            {{ $notification->data['data'] }}
+                        </a>
+                        @endforeach
+                        @else
+                        <a class="dropdown-item" href="#">
+                            No new notifications
+                        </a>
+                        @endif
+                    </div>
+                </li>
 
                 <li class="nav-item dropdown">
                     <a class="nav-link" href="#pablo" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

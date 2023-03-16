@@ -7,6 +7,7 @@ use Spatie\Activitylog\LogOptions;
 use Spatie\Activitylog\Traits\LogsActivity;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -14,6 +15,7 @@ class Members extends Model
 {
     use HasFactory;
     use LogsActivity;
+    use Notifiable;
 
     protected $fillable = [
         'user_id',
@@ -25,6 +27,7 @@ class Members extends Model
         'workplace',
         'photo',
         'is_active',
+        'is_paid',
     ];
 
     protected static $logAttributes = ['*'];
