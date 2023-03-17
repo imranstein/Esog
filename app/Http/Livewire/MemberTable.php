@@ -140,13 +140,6 @@ final class MemberTable extends PowerGridComponent
                 ->sortable()
                 ->searchable(),
 
-            Column::make('DEPARTMENT', 'department')
-                ->sortable()
-                ->searchable(),
-
-            Column::make('DESIGNATION', 'designation')
-                ->sortable()
-                ->searchable(),
 
             Column::make('WORKPLACE', 'workplace')
                 ->sortable()
