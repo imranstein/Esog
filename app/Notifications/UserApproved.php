@@ -38,11 +38,18 @@ class UserApproved extends Notification
      * @param  mixed  $notifiable
      * @return \Illuminate\Notifications\Messages\MailMessage
      */
+    public function subject($notifiable)
+    {
+        return 'Esog User Approval';
+    }
+
     public function toMail($notifiable)
     {
         return (new MailMessage)
+            ->subject('Esog User Approval')
+            ->greeting('Hello!')
             ->line('You Have Been Approved.For now your Password is your Phone Number,Please Change Your Password On Your First Login For Security.')
-            ->action('Notification Action', url('/home'))
+            ->action('Login', url('/home'))
             ->line('Thank you for using our application!');
     }
 
