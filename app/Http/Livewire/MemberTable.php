@@ -223,9 +223,9 @@ final class MemberTable extends PowerGridComponent
     {
         return [
 
-            //Hide button approve if is_active is not null
+            //Hide button approve if is_active is true or isPaid is null
             Rule::button('approve')
-                ->when(fn (Members $model) => $model->is_active != 0 || $model->isPaid == null)
+                ->when(fn (Members $model) => $model->is_active == true)
                 ->hide(),
 
             //    Rule::button('approve')
