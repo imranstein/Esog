@@ -41,6 +41,7 @@ Version: - v1.0.0
 :: 24.0 Accordion CSS
 :: 25.0 Partners Card CSS
 :: 26.0 Custom Slider CSS
+:: 27.0 Cards Css
 */
 /* :: 1.0 Import Fonts */
 @import url("https://fonts.googleapis.com/css?family=Barlow:300,400,500,600,700|Work+Sans:300,400,500,600,700");
@@ -585,7 +586,7 @@ img {
     position: relative;
     z-index: 1;
     width: 100%;
-    height: 300px;
+    /* height: 300px; */
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
@@ -3136,6 +3137,52 @@ div.section p {
 
 a {
     color: #86b7e2;
+}
+
+/* Cards Css */
+.card-custom {
+    overflow: hidden;
+    min-height: 450px;
+    box-shadow: 0 0 15px rgba(10, 10, 10, 0.3);
+}
+
+.card-custom-img {
+    height: 200px;
+    min-height: 200px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-color: inherit;
+}
+
+/* First border-left-width setting is a fallback */
+.card-custom-img::after {
+    position: absolute;
+    content: '';
+    top: 161px;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-top-width: 40px;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 545px;
+    border-left-width: calc(575px - 5vw);
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: inherit;
+}
+
+.card-custom-avatar img {
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(10, 10, 10, 0.3);
+    position: absolute;
+    top: 100px;
+    left: 1.25rem;
+    width: 100px;
+    height: 100px;
 }
 
 /* Custom Slider */

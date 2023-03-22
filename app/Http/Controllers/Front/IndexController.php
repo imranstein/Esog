@@ -14,7 +14,7 @@ class IndexController
 {
     public function __invoke(Request $request)
     {
-        $latests = Advocacy::latest()->take(6)->get();
+        $latests = Advocacy::latest()->take(4)->get();
         $publications = Publication::latest()->take(4)->get();
         $sliders = Slider::take(3)->get();
         $today = date('Y-m-d');
