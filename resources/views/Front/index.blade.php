@@ -67,7 +67,7 @@
     <div class="ws_images">
         <ul>
             @forelse($news as $item)
-            <li><img src="{{ $item->image }}" alt="{{ $item->title }}" title="{{ $item->title }}" id="wows1_0" />{!! Str::limit($item->description, 100, '...') !!}</li>
+            <li><img src="{{ $item->image }}" alt="{{ $item->title }}" title="{{ $item->title }}" id="wows1_0" /><a href="/front-detail/{{ $item->id }}/News">{!! Str::limit($item->description, 100, '...') !!}</a></li>
             @empty
             @endforelse
 
@@ -147,7 +147,9 @@
                 <div class="card card-custom bg-white border-white border-0" style="height: 350px">
                     <div class="card-custom-img" style="background-image: url({{ $latest->thumbnail }});"></div>
                     <div class="card-custom-avatar">
-                        <img class="img-fluid" src="{{ asset('Front/assets/img/play-button.png') }}" alt="Avatar" />
+                        <a href="{{ route('dashboard') }}">
+                            <img class="img-fluid" src="{{ asset('Front/assets/img/play-button.png') }}" alt="Avatar" />
+                        </a>
                     </div>
                     <div class="card-body" style="overflow-y: auto">
                         <h4 class="card-title">{{ $latest->title }}</h4>
