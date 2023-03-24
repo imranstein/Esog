@@ -57,6 +57,14 @@
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div>
+            <strong>Thumbnail</strong>
+            <input type="file" name="thumbnail" class="form-control">
+        </div>
+        <img src="{{ $course->thumbnail }}" alt="thumbnail" width="80px" height="80px">
+    </div>
+
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <div>
             <strong>Video</strong>
             <input type="file" name="video" class="form-control">
         </div>

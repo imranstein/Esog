@@ -30,6 +30,15 @@
                                     <li><a href="/myProfile">My Profile</a></li>
                                     <li><a href="{{ route('front.course') }}">Course</a></li>
                                     <li><a href="/memberCourse">Enrolled Course</a></li>
+                                    <li>
+                                        <a href="#">Payment</a>
+                                        <ul class="dropdown">
+                                            <li><a href="{{ route('memberYearly') }}" class="nav-link text-left">Subscription</a></li>
+                                            <li><a href="{{ route('memberPay') }}" class="nav-link text-left">Payment</a></li>
+                                            <li><a href="{{ route('coursePay') }}" class="nav-link text-left">Course</a></li>
+                                        </ul>
+                                    </li>
+
                                     <a class="btn btn-primary" style="background-color: #86b7e2;" href="{{ route('logout') }}">
                                         <span>{{ __('Logout') }}</span>
                                     </a>

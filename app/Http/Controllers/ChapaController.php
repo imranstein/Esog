@@ -27,6 +27,14 @@ class ChapaController extends Controller
         //This generates a payment reference
         $reference = $this->reference;
         $id = $request->id;
+        $type = $request->type;
+        if ($type == "course") {
+            $message = "Payment for course";
+        } elseif ($type == "yearly") {
+            $message = "Payment for Membership subscription";
+        } elseif ($type == "life") {
+            $message = "Payment for Membership";
+        }
 
         // dd($firstName, $lastName, $email, $reference, $amount);
 
@@ -38,12 +46,12 @@ class ChapaController extends Controller
             'tx_ref' => $reference,
             'currency' => "ETB",
             'callback_url' => route('callback', [$reference]),
-            'return_url' => route('memberSuccess', [$id]),
+            'return_url' => route('memberSuccess', [$id, $type]),
             'first_name' => $firstName,
-            'last_name' => $lastName,
+            'last_name' => $lastName ?? null,
             "customization" => [
                 "title" => 'Esog Payment',
-                "description" => "Payment for 2023 membership"
+                "description" => $message,
             ]
         ];
 

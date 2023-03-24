@@ -66,18 +66,25 @@
 <div id="wowslider-container1">
     <div class="ws_images">
         <ul>
-            <li><img src="{{ asset('Front/data1/images/gallery1.jpg') }}" alt="Title" title="Title" id="wows1_0" />Description is gonna be here</li>
-            <li><img src="{{ asset('Front/data1/images/gallery2.jpg') }}" alt="gallery-2" title="gallery-2" id="wows1_1" />Description is gonna be here</li>
+            @forelse($news as $item)
+            <li><img src="{{ $item->image }}" alt="{{ $item->title }}" title="{{ $item->title }}" id="wows1_0" />{!! Str::limit($item->description, 100, '...') !!}</li>
+            @empty
+            @endforelse
+
+            {{-- <li><img src="{{ asset('Front/data1/images/gallery2.jpg') }}" alt="gallery-2" title="gallery-2" id="wows1_1" />Description is gonna be here</li>
             <li><img src="{{ asset('Front/data1/images/gallery3.jpg') }}" alt="css slideshow" title="gallery-3" id="wows1_2" />Description is gonna be here</li>
-            <li><img src="{{ asset('Front/data1/images/gallery4.jpg') }}" alt="gallery-4" title="gallery-4" id="wows1_3" />Description is gonna be here</li>
+            <li><img src="{{ asset('Front/data1/images/gallery4.jpg') }}" alt="gallery-4" title="gallery-4" id="wows1_3" />Description is gonna be here</li> --}}
         </ul>
     </div>
     <div class="ws_bullets">
         <div>
-            <a href="#" title="Title"><span><img src="{{ asset('Front/data1/tooltips/gallery1.jpg') }}" alt="Title" />1</span></a>
-            <a href="#" title="gallery-2"><span><img src="{{ asset('Front/data1/tooltips/gallery2.jpg') }}" alt="gallery-2" />2</span></a>
+            @forelse($news as $item)
+            <a href="#" title="{{ $item->title }}"><span><img src="{{ $item->image }}" alt="{{ $item->title }}" />1</span></a>
+            @empty
+            @endforelse
+            {{-- <a href="#" title="gallery-2"><span><img src="{{ asset('Front/data1/tooltips/gallery2.jpg') }}" alt="gallery-2" />2</span></a>
             <a href="#" title="gallery-3"><span><img src="{{ asset('Front/data1/tooltips/gallery3.jpg') }}" alt="gallery-3" />3</span></a>
-            <a href="#" title="gallery-4"><span><img src="{{ asset('Front/data1/tooltips/gallery4.jpg') }}" alt="gallery-4" />4</span></a>
+            <a href="#" title="gallery-4"><span><img src="{{ asset('Front/data1/tooltips/gallery4.jpg') }}" alt="gallery-4" />4</span></a> --}}
         </div>
     </div>
 </div>
@@ -138,15 +145,15 @@
 
                 <!-- Add a style="height: XYZpx" to div.card to limit the card height and display scrollbar instead -->
                 <div class="card card-custom bg-white border-white border-0" style="height: 350px">
-                    <div class="card-custom-img" style="background-image: url(http://res.cloudinary.com/d3/image/upload/c_scale,q_auto:good,w_1110/trianglify-v1-cs85g_cc5d2i.jpg);"></div>
+                    <div class="card-custom-img" style="background-image: url({{ $latest->thumbnail }});"></div>
                     <div class="card-custom-avatar">
                         <img class="img-fluid" src="{{ asset('Front/assets/img/play-button.png') }}" alt="Avatar" />
                     </div>
                     <div class="card-body" style="overflow-y: auto">
-                        <h4 class="card-title">Card title</h4>
-                        <h6 class="card-title">Author</h6>
-                        <p class="card-text">You can also set maximum height on and the card will not expand, instead a scrollbar in the card body will appear.</p>
-                        <p class="card-text">Some example text to show the scrollbar.</p>
+                        <h4 class="card-title">{{ $latest->title }}</h4>
+                        <h6 class="card-title">{{ $latest->author }}</h6>
+                        <p class="card-text">{!! Str::limit($latest->description, 100, '...') !!}</p>
+                        {{-- <p class="card-text">Some example text to show the scrollbar.</p> --}}
                     </div>
                     {{-- <div class="card-footer" style="background: inherit; border-color: inherit;">
                         <a href="#" class="btn btn-primary">Enroll</a>
@@ -190,9 +197,15 @@
                         @csrf
 
                         <div class="form-group" style="margin-top: 10px;">
-                            <input type="text" class="form-control" name="name" placeholder="Name" value="{{ old('name') }}" required>
-                            @if ($errors->has('name'))
-                            <span class="text-danger">{{ $errors->first('name') }}</span>
+                            <input type="text" class="form-control" name="firstName" placeholder="First Name" value="{{ old('firstName') }}" required>
+                            @if ($errors->has('firstName'))
+                            <span class="text-danger">{{ $errors->first('firstName') }}</span>
+                            @endif
+                        </div>
+                        <div class="form-group" style="margin-top: 10px;">
+                            <input type="text" class="form-control" name="lastName" placeholder="Last Name" value="{{ old('lastName') }}" required>
+                            @if ($errors->has('lastName'))
+                            <span class="text-danger">{{ $errors->first('lastName') }}</span>
                             @endif
                         </div>
 

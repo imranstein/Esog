@@ -28,6 +28,8 @@ class Members extends Model
         'photo',
         'is_active',
         'is_paid',
+        'coursePurchased',
+        'payment_type',
     ];
 
     protected static $logAttributes = ['*'];

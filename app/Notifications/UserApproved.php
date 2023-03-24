@@ -16,9 +16,9 @@ class UserApproved extends Notification
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($pass)
     {
-        //
+        $this->pass = $pass;
     }
 
     /**
@@ -48,7 +48,7 @@ class UserApproved extends Notification
         return (new MailMessage)
             ->subject('Esog User Approval')
             ->greeting('Hello!')
-            ->line('You Have Been Approved.For now your Password is your Phone Number,Please Change Your Password On Your First Login For Security.')
+            ->line('You Have Been Approved.For now your Password is ' . $this->pass . ' . ,Please Change Your Password On Your First Login For Security.')
             ->action('Login', url('/home'))
             ->line('Thank you for using our application!');
     }

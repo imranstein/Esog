@@ -121,6 +121,15 @@ Route::middleware([
     Route::get('startCourse/{id}', [MemberCourseController::class, 'start'])->name('startCourse');
     Route::post('finishCourse', [MemberCourseController::class, 'finish'])->name('finishCourse');
     Route::get('/certificate/{course}/{startDate}/{endDate}', [CertificateController::class, 'generate'])->name('certificate');
+    Route::get('memberYearly', function () {
+        return view('Front.memberLife');
+    })->name('memberYearly');
+    Route::get('memberPay', function () {
+        return view('Front.memberPay');
+    })->name('memberPay');
+    Route::get('coursePay', function () {
+        return view('Front.CoursePay');
+    })->name('coursePay');
 
     // Route::get('/profile/change_password', [ProfileController::class, 'changePass'])->name('change.password');
     Route::post('/profile/update_password', [ProfileController::class, 'passwordUpdate'])->name('password.update');

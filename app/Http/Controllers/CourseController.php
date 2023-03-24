@@ -49,6 +49,13 @@ class CourseController
             $last_vid = 'default.mp4';
         }
 
+        if ($request->hasFile('thumbnail')) {
+            $thumbnail = $request->file('thumbnail');
+            $name_gen = hexdec(uniqid()) . '.' . $thumbnail->getClientOriginalExtension();
+            Image::make($thumbnail)->save('Photo/' . $name_gen);
+
+            $last_thumb = 'Photo/' . $name_gen;
+        }
         if ($request->hasFile('document')) {
             $document = $request->file('document');
             $name_gen = hexdec(uniqid()) . '.' . $document->getClientOriginalExtension();
@@ -68,6 +75,7 @@ class CourseController
             'video' => $last_vid,
             'is_paid' => $validated['is_paid'] ?? 0,
             'length' => $validated['length'],
+            'thumbnail' => $last_thumb ?? null,
         ]);
 
         return redirect()->route('course.index')->with('success', 'Course Created successfully');
@@ -118,6 +126,15 @@ class CourseController
         } else {
             $documentname = $course->document;
         }
+        if ($request->hasFile('thumbnail')) {
+            $thumbnail = $request->file('thumbnail');
+            $name_gen = hexdec(uniqid()) . '.' . $thumbnail->getClientOriginalExtension();
+            Image::make($thumbnail)->save('Photo/' . $name_gen);
+
+            $last_thumb = 'Photo/' . $name_gen;
+        } else {
+            $last_thumb = $course->thumbnail;
+        }
         $validated = $request->validate([
             'title' => 'required',
             'tags' => 'nullable',
@@ -129,9 +146,6 @@ class CourseController
             'length' => 'required|numeric',
         ]);
 
-
-
-
         $course->update([
             'title' => $validated['title'] ?? $course->title,
             'tags' => $validated['tags'] ?? $course->tags,
@@ -141,6 +155,7 @@ class CourseController
             'video' => $last_vid,
             'is_paid' => $validated['is_paid'] ?? $course->is_paid,
             'length' => $validated['length'] ?? $course->length,
+            'thumbnail' => $last_thumb,
         ]);
 
         return redirect()->route('course.index')->with('update', 'Course Updated successfully');

@@ -7,6 +7,7 @@ use App\Models\Team;
 use App\Models\Slider;
 use App\Models\Project;
 use App\Models\Advocacy;
+use App\Models\Course;
 use App\Models\Publication;
 use Illuminate\Http\Request;
 
@@ -14,14 +15,15 @@ class IndexController
 {
     public function __invoke(Request $request)
     {
-        $latests = Advocacy::latest()->take(4)->get();
+        $latests = Course::where('is_paid', false)->latest()->take(4)->get();
         $publications = Publication::latest()->take(4)->get();
         $sliders = Slider::take(3)->get();
         $today = date('Y-m-d');
+        $news = News::latest()->take(4)->get();
         $projects = Project::where('end_date', '>=', $today)->latest()->take(5)->get();
 
         // $sliders = Slider::where('id', '!=', Slider::latest()->first()->id)->take(3)->get();
         // $firstSlider = Slider::orderBy('id', 'ASC')->first();
-        return view('Front.index', compact('latests', 'publications', 'sliders', 'projects'));
+        return view('Front.index', compact('latests', 'publications', 'sliders', 'projects', 'news'));
     }
 }

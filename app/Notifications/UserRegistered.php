@@ -41,7 +41,7 @@ class UserRegistered extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-            ->line('New User Have Registered, Please Approve.')
+            ->line('New User Have Registered')
             ->action('Notification Action', url('member'))
             ->line('Thank you for using our application!');
     }
@@ -55,7 +55,7 @@ class UserRegistered extends Notification
     public function toArray($notifiable)
     {
         return [
-            'data' => 'New User Have Registered, Please Approve.',
+            'data' => 'New User Have Registered',
             'link' => 'member'
 
         ];

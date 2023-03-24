@@ -101,6 +101,9 @@ final class CourseTable extends PowerGridComponent
             ->addColumn('description', function (Course $model) {
                 return substr(e($model->description), 0, 100);
             })
+            ->addColumn('thumbnail', function (Course $model) {
+                return '<img src="' . $model->thumbnail . '" width="50" height="50" />';
+            })
             ->addColumn('author')
             ->addColumn('length');
     }
@@ -138,6 +141,7 @@ final class CourseTable extends PowerGridComponent
                 ->sortable()
                 ->searchable(),
 
+            Column::make('THUMBNAIL', 'thumbnail'),
             Column::make('AUTHOR', 'author')
                 ->sortable()
                 ->searchable(),
@@ -209,8 +213,7 @@ final class CourseTable extends PowerGridComponent
         if (Auth::user()->roles[0]->name == 'Member') {
             $member_id = Members::where('user_id', Auth::user()->id)->first()->id;
             $userCourse = MemberCourse::where('member_id', $member_id)->pluck('course_id')->toArray();
-        }
-        else {
+        } else {
             $userCourse = [];
         }
 

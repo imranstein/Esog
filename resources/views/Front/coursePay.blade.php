@@ -7,7 +7,7 @@
                 <div class="single-widget-area mb-30">
                     <!-- Title -->
                     <div class="widget-title">
-                        <h6>MemberShip Subscription</h6>
+                        <h6>Course Payment</h6>
                     </div>
                     <!-- Thumbnail -->
                     {{-- <div class="about-thumbnail">
@@ -34,10 +34,13 @@
                                 <input type="text" name="email" value="{{ Auth::user()->email; }}" readonly class="form-control"> {{-- required --}}
                             </div>
                             <div class="form-group" style="margin-top: 10px;">
-                                <input type="number" name="amount" value="1200" readonly class="form-control"> {{-- required in kobo --}}
+                                <input type="number" name="amount" value="500" readonly class="form-control"> {{-- required in kobo --}}
                             </div>
-                            <input type="hidden" name="type" value="life">
+                            <input type="hidden" name="type" value="course">
+
+
                             {{-- <input type="submit" value="Buy" lass="btn nikki-btn mt-15" /> --}}
+
 
                             <button type="submit" class="btn nikki-btn mt-15">Pay</button>
 

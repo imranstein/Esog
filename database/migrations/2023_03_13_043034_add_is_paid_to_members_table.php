@@ -10,12 +10,16 @@ return new class extends Migration
     {
         Schema::table('members', function (Blueprint $table) {
             $table->timestamp('isPaid')->nullable();
+            $table->timestamp('coursePurchased')->nullable();
+            $table->string('payment_type')->nullable();
         });
     }
     public function down()
     {
         Schema::table('members', function (Blueprint $table) {
             $table->dropColumn('isPaid');
+            $table->dropColumn('coursePurchased');
+            $table->dropColumn('payment_type');
         });
     }
 };

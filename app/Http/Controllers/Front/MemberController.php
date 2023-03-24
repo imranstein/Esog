@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Front;
 
-use App\Http\Controllers\Controller;
-use App\Models\Members;
 use App\Models\User;
-use App\Notifications\UserRegistered;
+use App\Models\Members;
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Role;
+use App\Notifications\UserApproved;
+use App\Http\Controllers\Controller;
+use App\Notifications\UserRegistered;
 use Intervention\Image\Facades\Image;
 
 class MemberController extends Controller
@@ -33,7 +35,9 @@ class MemberController extends Controller
         }
         $validated = $request->validate(
             [
-                'name' => 'required',
+                // name have to be first name and last name
+                'firstName' => 'required|max:255',
+                'lastName' => 'required|max:255',
                 'email' => 'nullable|unique:members|',
                 'phone' => 'nullable|unique:members|digits_between:9,14|numeric',
                 'department' => 'nullable',
@@ -43,7 +47,8 @@ class MemberController extends Controller
 
             ],
             [
-                'name.required' => 'Please Input Name',
+                'firstName.required' => 'First Name Is Required',
+                'lastName.required' => 'Last Name Is Required',
                 'email.unique' => 'This Email Already Exists',
                 'phone.unique' => 'This Phone Number Already Exists',
                 'phone.digits_between' => 'Phone Number Must Be Between 9 To 14 Digits',
@@ -52,9 +57,10 @@ class MemberController extends Controller
                 'image.max' => 'Image Must Be Less Than 20MB',
             ]
         );
+        $name = $validated['firstName'] . ' ' . $validated['lastName'];
 
         $members = Members::create([
-            'name' => $validated['name'],
+            'name' => $name,
             'email' => $validated['email'],
             'phone' => $validated['phone'],
             'department' => $validated['department'] ?? null,
@@ -69,18 +75,38 @@ class MemberController extends Controller
         // }
 
 
-        $firstName = explode(' ', $validated['name'])[0];
-        $lastName = explode(' ', $validated['name'])[1] ?? null;
+        $firstName = $validated['firstName'];
+        $lastName = $validated['lastName'];
         $email = $validated['email'];
         $id = $members->id;
+        $admins = User::role('Admin')->get();
+        foreach ($admins as $admin) {
+            $admin->notify(new UserRegistered);
+        }
+
+        $pass = rand(100000, 999999);
+        $user = User::create([
+            'name' => $validated['name'],
+            'email' => $validated['email'],
+            'password' => bcrypt($pass),
+
+        ]);
+        $memberId = Role::where('name', 'Member')->first();
+        $user->assignRole($memberId);
+
+        $members->update([
+            'user_id' => $user->id,
+            'is_active' => 1,
+        ]);
+
+        $user->notify(new UserApproved($pass));
 
         // dd($firstName, $lastName, $email);
 
-        return view('Front.memberPay', compact('firstName', 'lastName', 'email', 'id'));
+        // return view('Front.memberPay', compact('firstName', 'lastName', 'email', 'id'));
 
-        // return view('Front.memberSuccess');
+        return view('Front.memberSuccess');
         // return redirect()->route('member.index')->with('success', 'Member Added Successfully');
-
     }
     public function isPaid($id)
     {

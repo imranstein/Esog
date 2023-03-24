@@ -12,4 +12,11 @@ return new class extends Migration
             $table->string('group')->nullable()->after('title');
         });
     }
+
+    public function down()
+    {
+        Schema::table('guidelines', function (Blueprint $table) {
+            $table->dropColumn('group');
+        });
+    }
 };

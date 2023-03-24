@@ -38,9 +38,15 @@
                             @csrf
 
                             <div class="form-group" style="margin-top: 10px;">
-                                <input type="text" class="form-control" name="name" placeholder="Name" value="{{ old('name') }}" required>
-                                @if ($errors->has('name'))
-                                <span class="text-danger">{{ $errors->first('name') }}</span>
+                                <input type="text" class="form-control" name="firstName" placeholder="First Name" value="{{ old('firstName') }}" required>
+                                @if ($errors->has('firstName'))
+                                <span class="text-danger">{{ $errors->first('firstName') }}</span>
+                                @endif
+                            </div>
+                            <div class="form-group" style="margin-top: 10px;">
+                                <input type="text" class="form-control" name="lastName" placeholder="Last Name" value="{{ old('lastName') }}" required>
+                                @if ($errors->has('lastName'))
+                                <span class="text-danger">{{ $errors->first('lastName') }}</span>
                                 @endif
                             </div>
 

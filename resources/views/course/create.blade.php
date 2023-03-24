@@ -32,6 +32,7 @@
     </div>
 
 
+
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
             <strong>Description</strong>
@@ -52,6 +53,12 @@
         <div>
             <strong>Document</strong>
             <input type="file" name="document" class="form-control">
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group">
+            <strong>Thumbnail</strong>
+            <input type="file" name="thumbnail" class="form-control">
         </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
