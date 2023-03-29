@@ -22,13 +22,23 @@
                         <!-- Post Thumbnail -->
                         <div class="post-thumbnail mb-50">
                             {{-- video --}}
-                            <video width="100%" height="100%" controls>
-                                <source src="{{ asset($course->video) }}" type="video/mp4">
-                                <source src="movie.ogg" type="video/ogg">
-                                Your browser does not support the video tag.
-                            </video>
-                        </div>
+                            <video id="myVideo" width="100%" height="100%" controls="true" poster="{{ $course->thumbnail }}">
+                                <source src="/{{ $course->video }}" type="video/mp4">
+                                <source src="/{{ $course->video }}" type="video/mkv">
 
+                                Your browser does not support the video tag.
+
+                            </video>
+                            <script>
+                                var video = document.getElementById("myVideo");
+                                video.addEventListener("loadedmetadata", function() {
+                                    console.log('here');
+                                    this.currentTime = 20;
+                                });
+
+                            </script>
+
+                        </div>
                         <!-- Post Text -->
                         <div class="post-text">
                             <!-- Share -->
@@ -146,4 +156,27 @@
 </section>
 
 
+@endsection
+@section('script')
+<script>
+    var video = document.getElementById('myVideo');
+    var courseId = "{{ $course->id }}";
+    var csrfToken = "{{ csrf_token() }}";
+    setInterval(function() {
+        var currentTime = video.currentTime;
+        // Send currentTime and courseId to server
+        $.ajax({
+            url: '/video-watched'
+            , type: 'POST'
+            , data: {
+                time: currentTime
+                , courseId: courseId
+            }
+            , headers: {
+                'X-CSRF-TOKEN': csrfToken
+            }
+        });
+    }, 10000);
+
+</script>
 @endsection

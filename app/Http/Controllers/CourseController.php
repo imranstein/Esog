@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use getID3;
 use App\Models\Course;
 use App\Models\Members;
 use App\Models\MemberCourse;
@@ -37,7 +38,14 @@ class CourseController
         ]);
         if ($request->hasFile('video')) {
 
+
             $gallery = $request->file('video');
+            $getID3 = new getID3;
+            $file = $getID3->analyze($gallery);
+            $duration_in_seconds = $file['playtime_seconds'];
+            $duration = $duration_in_seconds / 60;
+            // round it up to the nearest minute
+            $duration = ceil($duration);
 
             $name_gen = hexdec(uniqid());
             $doc_ext = strtolower($gallery->getClientOriginalExtension());
@@ -49,6 +57,13 @@ class CourseController
             $last_vid = 'default.mp4';
         }
 
+        // if duration is 60 mins then credit_hour is 1,if it is 30 mins then credit_hour is 0.5,if it is 15 mins then credit_hour is 0.25 and credit hour can't be less than 0.25
+        if ($duration != null) {
+            $credit_hour = $duration / 60;
+            if ($credit_hour < 0.25) {
+                $credit_hour = 0.25;
+            }
+        }
         if ($request->hasFile('thumbnail')) {
             $thumbnail = $request->file('thumbnail');
             $name_gen = hexdec(uniqid()) . '.' . $thumbnail->getClientOriginalExtension();
@@ -76,6 +91,8 @@ class CourseController
             'is_paid' => $validated['is_paid'] ?? 0,
             'length' => $validated['length'],
             'thumbnail' => $last_thumb ?? null,
+            'video_length' => $duration ?? null,
+            'credit_hour' => $credit_hour ?? null,
         ]);
 
         return redirect()->route('course.index')->with('success', 'Course Created successfully');

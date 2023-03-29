@@ -83,7 +83,8 @@ Route::post('pay', [ChapaController::class, 'initialize'])->name('pay');
 
 // The callback url after a payment
 Route::get('callback/{reference}', [ChapaController::class, 'callback'])->name('callback');
-
+Route::post('/video-watched', [MemberCourseController::class, 'watchedTime'])->name('video-watched');
+Route::get('last-watched-position', [MemberCourseController::class, 'lastWatchedPosition'])->name('last-watched-position');
 // Route::get('/', function () {
 //     return view('welcome');
 // });
@@ -120,7 +121,8 @@ Route::middleware([
     Route::resource('memberCourse', MemberCourseController::class);
     Route::get('startCourse/{id}', [MemberCourseController::class, 'start'])->name('startCourse');
     Route::post('finishCourse', [MemberCourseController::class, 'finish'])->name('finishCourse');
-    Route::get('/certificate/{course}/{startDate}/{endDate}', [CertificateController::class, 'generate'])->name('certificate');
+    Route::get('certificateGenerate', [CertificateController::class, 'generate'])->name('certificate');
+    Route::get('/certificateHistory', [CertificateController::class, 'history'])->name('certificateHistory');
     Route::get('memberYearly', function () {
         return view('Front.memberLife');
     })->name('memberYearly');

@@ -21,6 +21,10 @@ class MemberCourse extends Model
         'is_approved',
         'started_at',
         'finished_at',
+        'credit_hour',
+        'video_length',
+        'certified'
+
     ];
 
     protected static $logAttributes = ['*'];

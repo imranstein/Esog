@@ -25,6 +25,8 @@ class Course extends Model
         'is_paid',
         'length',
         'thumbnail',
+        'credit_hour',
+        'video_length'
     ];
 
     protected static $logAttributes = ['*'];

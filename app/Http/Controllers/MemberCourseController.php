@@ -17,7 +17,7 @@ class MemberCourseController
     {
         if (Auth::user()->roles[0]->name == 'Member') {
             $member_id = Members::where('user_id', Auth::user()->id)->first()->id;
-            $memberCourses = MemberCourse::with('course', 'member')->where('member_id', $member_id)->paginate(5);
+            $memberCourses = MemberCourse::with('course', 'member')->where('member_id', $member_id)->paginate(6);
             $count = $memberCourses->count();
             return view('Front.member.memberCourse', compact('memberCourses', 'count'));
         } else {
@@ -65,7 +65,7 @@ class MemberCourseController
         $memberCourses = MemberCourse::where('member_id', $memberId)->where('finished_at', null)->whereNotIn('id', [$memberCourse->id])->take(2)->pluck('course_id')->toArray();
 
         $courses = Course::whereIn('id', $memberCourses)->get();
-        return view('Front.member.detailAlt', compact('course', 'courses'));
+        return view('Front.member.detailAlt', compact('course', 'courses', 'memberCourse'));
     }
 
     public function edit($id)
@@ -130,7 +130,7 @@ class MemberCourseController
         $memberCourses = MemberCourse::where('member_id', $memberId)->where('finished_at', null)->whereNotIn('id', [$memberCourse->id])->take(2)->pluck('course_id')->toArray();
 
         $courses = Course::whereIn('id', $memberCourses)->get();
-        return view('Front.member.detailAlt', compact('course', 'courses'));
+        return view('Front.member.detailAlt', compact('course', 'courses', 'memberCourse'));
         // return redirect()->route('memberCourse.index')->with('success', 'MemberCourse Started successfully');
     }
 
@@ -164,4 +164,61 @@ class MemberCourseController
             return redirect()->route('memberCourse.index')->with('success', 'Course been Finished successfully');
         }
     }
+
+    public function watchedTime(Request $request)
+    {
+
+        $time = $request->time;
+        $courseId = $request->courseId;
+        // change the time from seconds to minute and round it up to the nearest biggest integer
+        $time = ceil($time / 60);
+
+        //  if time is 60 then credit hour is 1 ,if time is 30 then credit hour is 0.5 if time is 15 then credit hour is 0.25, if time is less than 8 then credit hour is 0 and credit hour cant be less than 0.25
+        if ($time) {
+            $creditHour = $time / 60;
+            // always  round up to the nearest 0.25 value
+            $creditHour = ceil($creditHour * 4) / 4;
+            if ($time < 8) {
+                $creditHour = 0;
+            }
+
+
+        }
+        // dd($time);
+        // dd($courseId);
+        $mId = Members::where('user_id', Auth::user()->id)->first()->id;
+
+        $courseLength = Course::findOrFail($courseId)->video_length;
+
+        $memberCourse = MemberCourse::where('course_id', $courseId)->where('member_id', $mId)->first();
+
+
+        if ($memberCourse->video_length < $time) {
+            $memberCourse->update([
+                'credit_hour' => $creditHour,
+                'video_length' => $time,
+            ]);
+        }
+
+
+        $finalLength = $time / $courseLength * 100;
+
+
+        if ($finalLength > 80) {
+            $memberCourse->update([
+                'finished_at' => now(),
+            ]);
+        }
+    }
+    public function lastWatchedPosition(Request $request)
+    {
+        $courseId = $request->courseId;
+        $mId = Members::where('user_id', Auth::user()->id)->first()->id;
+
+
+        $memberCourse = MemberCourse::where('course_id', $courseId)->where('member_id', $mId)->first();
+
+        return $memberCourse->video_length;
+    }
+    
 }

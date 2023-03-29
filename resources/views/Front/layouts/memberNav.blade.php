@@ -27,7 +27,7 @@
                                 <ul style="padding-top: 1em;">
                                     <li><a href="{{ route('front.index') }}">Home</a></li>
                                     <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
-                                    <li><a href="/myProfile">My Profile</a></li>
+                                    {{-- <li><a href="/myProfile">My Profile</a></li> --}}
                                     <li><a href="{{ route('front.course') }}">Course</a></li>
                                     <li><a href="/memberCourse">Enrolled Course</a></li>
                                     <li>
@@ -36,6 +36,13 @@
                                             <li><a href="{{ route('memberYearly') }}" class="nav-link text-left">Subscription</a></li>
                                             <li><a href="{{ route('memberPay') }}" class="nav-link text-left">Payment</a></li>
                                             <li><a href="{{ route('coursePay') }}" class="nav-link text-left">Course</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#">Certificate</a>
+                                        <ul class="dropdown">
+                                            <li><a href="certificateGenerate" class="nav-link text-left">Generate</a></li>
+                                            <li><a href="/certificateHistory" class="nav-link text-left">History</a></li>
                                         </ul>
                                     </li>
 
@@ -58,7 +65,8 @@
                                     $member = App\Models\Members::where('user_id', Auth::user()->id)->first();
                                     $image = $member->photo;
                                     @endphp
-                                    <a style="margin-left: 2em;align-self: right;">
+                                    <a href="/myProfile" style="margin-left: 2em;align-self: right;">
+
                                         <img class="rounded-circle" src="{{ $image }}" style="height: 30px;width:auto;" alt="">
                                         {{ $member->name  }}
                                     </a>

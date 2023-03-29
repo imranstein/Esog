@@ -110,166 +110,132 @@
                             </div>
                         </div>
                         @forelse($latests as $latest)
-                        <!-- Single Blog Post -->
-                        {{-- <div class="col-lg-6 mb-3">
-                            <div class="card card-margin" id="cards">
-                                <div class="card-header no-border">
-                                    <h5 class="card-title">{{ Str::limit($latest->title, 20, '...') }}</h5>
-                    </div>
-                    <div class="card-body pt-0">
-                        <div class="widget-49">
-                            <div class="widget-49-title-wrapper">
-                                <div class="widget-49-date-primary">
-                                    <span class="widget-49-date-day">{{ $latest->created_at->format('d') }}</span>
-                                    <span class="widget-49-date-month">{{ $latest->created_at->format('M') }}</span>
+
+                        <div class="col-md-6 col-lg-6 pb-3">
+
+                            <div class="card card-custom bg-white border-white border-0" style="height: 350px">
+                                <div class="card-custom-img" style="background-image: url({{ $latest->thumbnail }});"></div>
+                                <div class="card-custom-avatar">
+                                    <a href="{{ route('dashboard') }}">
+                                        <img class="img-fluid" src="{{ asset('Front/assets/img/play-button.png') }}" alt="Avatar" />
+                                    </a>
                                 </div>
-                                <div class="widget-49-meeting-info">
-                                    <span class="widget-49-pro-title">{{ $latest->author }}</span>
+                                <div class="card-body" style="overflow-y: auto">
+                                    <h4 class="card-title">{{ $latest->title }}</h4>
+                                    <h6 class="card-title">{{ $latest->author }}</h6>
+                                    <p class="card-text">{!! Str::limit($latest->description, 100, '...') !!}</p>
                                 </div>
 
                             </div>
 
-                            <ul class="widget-49-meeting-points">
-                                <li class="widget-49-meeting-item">{!! Str::limit($latest->content, 130) !!}</li>
-                            </ul>
-                            <div class="widget-49-meeting-action">
-                                <a href="/front-detail/{{ $latest->id }}/Advocacy" class="btn btn-sm btn-flash-border-primary">View All</a>
-                            </div>
                         </div>
 
+                        @empty
+
+                        @endforelse
+
                     </div>
                 </div>
-            </div> --}}
-
-            <div class="col-md-6 col-lg-6 pb-3">
-
-                <!-- Add a style="height: XYZpx" to div.card to limit the card height and display scrollbar instead -->
-                <div class="card card-custom bg-white border-white border-0" style="height: 350px">
-                    <div class="card-custom-img" style="background-image: url({{ $latest->thumbnail }});"></div>
-                    <div class="card-custom-avatar">
-                        <a href="{{ route('dashboard') }}">
-                            <img class="img-fluid" src="{{ asset('Front/assets/img/play-button.png') }}" alt="Avatar" />
-                        </a>
-                    </div>
-                    <div class="card-body" style="overflow-y: auto">
-                        <h4 class="card-title">{{ $latest->title }}</h4>
-                        <h6 class="card-title">{{ $latest->author }}</h6>
-                        <p class="card-text">{!! Str::limit($latest->description, 100, '...') !!}</p>
-                        {{-- <p class="card-text">Some example text to show the scrollbar.</p> --}}
-                    </div>
-                    {{-- <div class="card-footer" style="background: inherit; border-color: inherit;">
-                        <a href="#" class="btn btn-primary">Enroll</a>
-                    </div> --}}
-                </div>
-
             </div>
 
-            @empty
+            <!-- Blog Sidebar Area -->
+            <div class="col-12 col-sm-9 col-md-6 col-lg-4">
+                <div class="post-sidebar-area">
 
-            @endforelse
-
-        </div>
-    </div>
-    </div>
-
-    <!-- Blog Sidebar Area -->
-    <div class="col-12 col-sm-9 col-md-6 col-lg-4">
-        <div class="post-sidebar-area">
-
-            <!-- ##### Single Widget Area ##### -->
-            <div class="single-widget-area mb-30">
-                <!-- Title -->
-                {{-- <div class="widget-title">
+                    <!-- ##### Single Widget Area ##### -->
+                    <div class="single-widget-area mb-30">
+                        <!-- Title -->
+                        {{-- <div class="widget-title">
                                                     <h6>Member Registration</h6>
                                                 </div> --}}
-                <div class="col-12">
-                    <div class="widget-title">
-                        <h6>Member Registration</h6>
-                    </div>
-                </div>
+                        <div class="col-12">
+                            <div class="widget-title">
+                                <h6>Member Registration</h6>
+                            </div>
+                        </div>
 
-                <!-- Thumbnail -->
-                {{-- <div class="about-thumbnail">
+                        <!-- Thumbnail -->
+                        {{-- <div class="about-thumbnail">
                             <img src="img/blog-img/about-me.jpg" alt="">
                         </div> --}}
-                <!-- Content -->
-                <div class="widget-content text-center">
-                    <form method="POST" action="{{ route('front.memberRegister') }}" enctype="multipart/form-data">
+                        <!-- Content -->
+                        <div class="widget-content text-center">
+                            <form method="POST" action="{{ route('front.memberRegister') }}" enctype="multipart/form-data">
 
-                        @csrf
+                                @csrf
 
-                        <div class="form-group" style="margin-top: 10px;">
-                            <input type="text" class="form-control" name="firstName" placeholder="First Name" value="{{ old('firstName') }}" required>
-                            @if ($errors->has('firstName'))
-                            <span class="text-danger">{{ $errors->first('firstName') }}</span>
-                            @endif
+                                <div class="form-group" style="margin-top: 10px;">
+                                    <input type="text" class="form-control" name="firstName" placeholder="First Name" value="{{ old('firstName') }}" required>
+                                    @if ($errors->has('firstName'))
+                                    <span class="text-danger">{{ $errors->first('firstName') }}</span>
+                                    @endif
+                                </div>
+                                <div class="form-group" style="margin-top: 10px;">
+                                    <input type="text" class="form-control" name="lastName" placeholder="Last Name" value="{{ old('lastName') }}" required>
+                                    @if ($errors->has('lastName'))
+                                    <span class="text-danger">{{ $errors->first('lastName') }}</span>
+                                    @endif
+                                </div>
+
+                                <div class="form-group" style="margin-top: 10px;">
+                                    <input type="email" class="form-control" name="email" placeholder="Email" value="{{ old('email') }}" required>
+                                    @if ($errors->has('email'))
+                                    <span class="text-danger">{{ $errors->first('email') }}</span>
+                                    @endif
+                                </div>
+
+                                <div class="form-group" style="margin-top: 10px;">
+                                    <input type="number" class="form-control" name="phone" placeholder="Phone (This Is your Password Initially)" value="{{ old('phone') }}" required>
+                                    @if ($errors->has('phone'))
+                                    <span class="text-danger">{{ $errors->first('phone') }}</span>
+                                    @endif
+                                </div>
+
+                                <div class="form-group" style="margin-top: 10px;">
+                                    <input type="text" class="form-control" name="workplace" placeholder="Workplace" value="{{ old('workplace') }}" required>
+                                    @if ($errors->has('workplace'))
+                                    <span class="text-danger">{{ $errors->first('workplace') }}</span>
+                                    @endif
+                                </div>
+                                <div style="margin-top: 10px;">
+                                    <input type="file" name="image" class="form-control" required>
+                                    @if ($errors->has('image'))
+                                    <span class="text-danger">{{ $errors->first('image') }}</span>
+                                    @endif
+                                </div>
+                                <button type="submit" class="btn nikki-btn mt-15">Register</button>
+
+
+                            </form>
                         </div>
-                        <div class="form-group" style="margin-top: 10px;">
-                            <input type="text" class="form-control" name="lastName" placeholder="Last Name" value="{{ old('lastName') }}" required>
-                            @if ($errors->has('lastName'))
-                            <span class="text-danger">{{ $errors->first('lastName') }}</span>
-                            @endif
+                    </div>
+
+                    <!-- ##### Single Widget Area ##### -->
+                    <div class="single-widget-area mb-30">
+                        <!-- Title -->
+                        <div class="widget-title">
+                            <h6>Subscribe &amp; Follow</h6>
                         </div>
-
-                        <div class="form-group" style="margin-top: 10px;">
-                            <input type="email" class="form-control" name="email" placeholder="Email" value="{{ old('email') }}" required>
-                            @if ($errors->has('email'))
-                            <span class="text-danger">{{ $errors->first('email') }}</span>
-                            @endif
+                        <!-- Widget Social Info -->
+                        <div class="widget-social-info text-center">
+                            <a href="#"><i class="fab fa-facebook"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-google-plus"></i></a>
+                            <a href="#"><i class="fab fa-pinterest"></i></a>
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-rss"></i></a>
                         </div>
+                    </div>
 
-                        <div class="form-group" style="margin-top: 10px;">
-                            <input type="number" class="form-control" name="phone" placeholder="Phone (This Is your Password Initially)" value="{{ old('phone') }}" required>
-                            @if ($errors->has('phone'))
-                            <span class="text-danger">{{ $errors->first('phone') }}</span>
-                            @endif
-                        </div>
-
-                        <div class="form-group" style="margin-top: 10px;">
-                            <input type="text" class="form-control" name="workplace" placeholder="Workplace" value="{{ old('workplace') }}" required>
-                            @if ($errors->has('workplace'))
-                            <span class="text-danger">{{ $errors->first('workplace') }}</span>
-                            @endif
-                        </div>
-                        <div style="margin-top: 10px;">
-                            <input type="file" name="image" class="form-control" required>
-                            @if ($errors->has('image'))
-                            <span class="text-danger">{{ $errors->first('image') }}</span>
-                            @endif
-                        </div>
-                        <button type="submit" class="btn nikki-btn mt-15">Register</button>
-
-
-                    </form>
-                </div>
-            </div>
-
-            <!-- ##### Single Widget Area ##### -->
-            <div class="single-widget-area mb-30">
-                <!-- Title -->
-                <div class="widget-title">
-                    <h6>Subscribe &amp; Follow</h6>
-                </div>
-                <!-- Widget Social Info -->
-                <div class="widget-social-info text-center">
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-google-plus"></i></a>
-                    <a href="#"><i class="fab fa-pinterest"></i></a>
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
-                    <a href="#"><i class="fab fa-rss"></i></a>
-                </div>
-            </div>
-
-            <!-- ##### Single Widget Area ##### -->
-            {{-- <div class="single-widget-area mb-30">
+                    <!-- ##### Single Widget Area ##### -->
+                    {{-- <div class="single-widget-area mb-30">
 
                 <!-- Title -->
                  <div class="widget-title">
                                                     <h6>Current Projects</h6>
                                                 </div> --}}
-            {{-- <div class="col-12">
+                    {{-- <div class="col-12">
                     <div class="section-heading">
                         <h3>Current Projects</h3>
                     </div>
@@ -282,18 +248,18 @@
                         <div class="card">
                             <div class="card-header">
                                 <a href="/front-detail/{{ $project->id }}/Project" class="post-title">
-            <h6>{{ Str::limit($project->title,60, '...') }}</h6>
-            </a </div>
-            <div class="card-body">
-                <p class="post-desc">{!! Str::limit($project->objective, 100, '...') !!}</p>
-                <a class="post-author"><span>funded by</span> {{ $project->funded_by }}</a>
+                    <h6>{{ Str::limit($project->title,60, '...') }}</h6>
+                    </a </div>
+                    <div class="card-body">
+                        <p class="post-desc">{!! Str::limit($project->objective, 100, '...') !!}</p>
+                        <a class="post-author"><span>funded by</span> {{ $project->funded_by }}</a>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    </div>
-    @empty
+        @empty
 
-    @endforelse
+        @endforelse
 
 
     </div> --}}

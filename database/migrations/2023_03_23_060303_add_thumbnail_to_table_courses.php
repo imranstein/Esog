@@ -10,6 +10,17 @@ return new class extends Migration
     {
         Schema::table('courses', function (Blueprint $table) {
             $table->string('thumbnail')->nullable();
+            $table->integer('credit_hour')->nullable();
+            $table->integer('video_length')->nullable();
+        });
+    }
+
+    public function down()
+    {
+        Schema::table('courses', function (Blueprint $table) {
+            $table->dropColumn('thumbnail');
+            $table->dropColumn('credit_hour');
+            $table->dropColumn('video_length');
         });
     }
 };
