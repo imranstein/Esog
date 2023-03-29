@@ -55,9 +55,20 @@
     <div class="card card-custom bg-white border-white border-0" style="height: 350px">
         <div class="card-custom-img" style="background-image: url({{ $course->course->thumbnail }});"></div>
         <div class="card-custom-avatar">
-            <a href="{{ route('dashboard') }}">
+            @if($course->started_at == null)
+            <a href="{{ route('startCourse',$course->id) }}">
                 <img class="img-fluid" src="{{ asset('Front/assets/img/play-button.png') }}" alt="Avatar" />
             </a>
+            @elseif($course->started_at != null && $course->finished_at == null)
+            <a href="{{ route('memberCourse.show',$course->id) }}">
+                <img class="img-fluid" src="{{ asset('Front/assets/img/yellow play.png') }}" alt="Avatar" />
+            </a>
+            @elseif($course->finished_at != null)
+            <a href="{{ route('memberCourse.show',$course->id) }}">
+                <img class="img-fluid" src="{{ asset('Front/assets/img/restart.png') }}" alt="Avatar" />
+            </a>
+            @endif
+
         </div>
         <div class="card-body" style="overflow-y: auto">
             <h4 class="card-title">{{ $course->course->title }}</h4>

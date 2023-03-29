@@ -53,9 +53,28 @@
     <div class="card card-custom bg-white border-white border-0" style="height: 350px">
         <div class="card-custom-img" style="background-image: url({{ $course->thumbnail }});"></div>
         <div class="card-custom-avatar">
-            <a href="{{ route('dashboard') }}">
+            @php
+            $memberId = App\Models\Members::where('user_id',Auth::user()->id)->first()->id;
+            $enrolled = App\Models\MemberCourse::where('course_id',$course->id)->where('member_id',$memberId)->first();
+            @endphp
+            @if ($enrolled == null)
+            <a href="{{ route('course.enroll',$course->id) }}">
+                <img class="img-fluid" src="{{ asset('Front/assets/img/enroll.png') }}" alt="Avatar" />
+            </a>
+            @elseif($enrolled != null && $enrolled->started_at == null)
+            <a href="{{ route('startCourse',$enrolled->id) }}">
                 <img class="img-fluid" src="{{ asset('Front/assets/img/play-button.png') }}" alt="Avatar" />
             </a>
+            @elseif($enrolled != null && $enrolled->started_at != null && $enrolled->finished_at == null)
+            <a href="{{ route('memberCourse.show',$enrolled->id) }}">
+                <img class="img-fluid" src="{{ asset('Front/assets/img/yellow play.png') }}" alt="Avatar" />
+            </a>
+            @elseif($enrolled != null && $enrolled->finished_at != null)
+            <a href="{{ route('memberCourse.show',$enrolled->id) }}">
+                <img class="img-fluid" src="{{ asset('Front/assets/img/restart.png') }}" alt="Avatar" />
+            </a>
+            @endif
+
         </div>
         <div class="card-body" style="overflow-y: auto">
             <h4 class="card-title">{{ $course->title }}</h4>
