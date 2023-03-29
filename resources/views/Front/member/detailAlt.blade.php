@@ -29,16 +29,15 @@
                                 Your browser does not support the video tag.
 
                             </video>
+                            @php
+                            $video_length = ($course->video_length) * 60;
+                            @endphp
                             <script>
                                 var video = document.getElementById("myVideo");
                                 video.addEventListener("loadedmetadata", function() {
-                                    console.log('here');
+                                    console.log($video_length);
                                     // change the video_length to seconds
-                                    this.currentTime = {
-                                        {
-                                            ($course - > video_length) * 60
-                                        }
-                                    };
+                                    this.currentTime = "{{ $video_length }}";
                                 });
 
                             </script>
@@ -125,16 +124,6 @@
 @section('script')
 <script>
     var video = document.getElementById('myVideo');
-    video.addEventListener('loadedmetadata', function() {
-        var seekable = video.seekable;
-        console.log(seekable);
-        if (seekable.length === 0) {
-            console.log("The video is not seekable");
-        } else {
-            console.log("The video is seekable");
-        }
-    });
-
     var courseId = "{{ $course->id }}";
     var csrfToken = "{{ csrf_token() }}";
     setInterval(function() {
