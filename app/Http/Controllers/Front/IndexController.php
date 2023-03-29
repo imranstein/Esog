@@ -15,7 +15,7 @@ class IndexController
 {
     public function __invoke(Request $request)
     {
-        $latests = Course::where('is_paid', false)->latest()->take(4)->get();
+        $latests = Course::latest()->take(4)->get();
         $publications = Publication::latest()->take(4)->get();
         $sliders = Slider::take(3)->get();
         $today = date('Y-m-d');
