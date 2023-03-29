@@ -22,13 +22,13 @@
 
                     <div class="row">
                         <div class="col-12 col-md-4">
-                            <img src="img/blog-img/2.jpg" alt="">
+                            <img src="{{ asset('img/blog-img/2.jpg') }}" alt="">
                         </div>
                         <div class="col-12 col-md-4">
-                            <img src="img/blog-img/3.jpg" alt="">
+                            <img src="{{ asset('img/blog-img/3.jpg') }}" alt="">
                         </div>
                         <div class="col-12 col-md-4">
-                            <img src="img/blog-img/4.jpg" alt="">
+                            <img src="{{ asset('img/blog-img/4.jpg') }}" alt="">
                         </div>
                     </div>
 

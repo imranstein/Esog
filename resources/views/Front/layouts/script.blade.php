@@ -8,6 +8,4 @@
 <!-- Active js -->
 <script src="{{ asset('Front/new/js/active.js')}}"></script>
 
-<script type="text/javascript" src="{{ asset('Front/engine1/wowslider.js')}}"></script>
-<script type="text/javascript" src="{{ asset('Front/engine1/script.js')}}"></script>
 @yield('script')

@@ -220,5 +220,5 @@ class MemberCourseController
 
         return $memberCourse->video_length;
     }
-    
+
 }

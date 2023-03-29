@@ -67,7 +67,7 @@
                                     @endphp
                                     <a href="/myProfile" style="margin-left: 2em;align-self: right;">
 
-                                        <img class="rounded-circle" src="{{ $image }}" style="height: 30px;width:auto;" alt="">
+                                        <img class="rounded-circle" src="/{{ $image }}" style="height: 30px;width:auto;" alt="">
                                         {{ $member->name  }}
                                     </a>
 
