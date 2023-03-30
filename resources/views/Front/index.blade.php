@@ -1,7 +1,7 @@
 @extends('Front.layouts.app')
 @section('title','Home')
 @section('content')
-{{-- <section class="hero-area">
+<section class="hero-area">
     <!-- Preloader -->
     <div class="preloader d-flex align-items-center justify-content-center">
         <div class="circle-preloader">
@@ -18,19 +18,19 @@
     <div class="hero-post-slides owl-carousel">
 
         <!-- Single Hero Post -->
-        @forelse($sliders as $slider)
+        @forelse($news as $slider)
         <div class="single-hero-post d-flex flex-wrap">
             <!-- Post Thumbnail -->
-            <div class="slide-post-thumbnail h-100 bg-img" style="background-image: url({{ $slider->image }});"></div>
-<!-- Post Content -->
-<div class="slide-post-content h-100 d-flex align-items-center">
-    <div class="slide-post-text">
-        <p class="post-date" data-animation="fadeIn" data-delay="100ms">{{ Carbon\Carbon::parse($slider->created_at)->format('M d Y') }}</p>
-        <a href="#" class="post-title" data-animation="fadeIn" data-delay="300ms">
-            <h2>{{ $slider->title }}</h2>
-        </a>
-        <p class="post-excerpt" data-animation="fadeIn" data-delay="500ms">{!! Str::limit($slider->description, 100, '...') !!}</p>
-        {{-- <a href="#" class="btn nikki-btn" data-animation="fadeIn" data-delay="700ms">Read More</a> --}
+            <div class="slide-post-thumbnail h-100 bg-img" style="background-image: url({{ $slider->image }});height:570px !important;"></div>
+            <!-- Post Content -->
+            <div class="slide-post-content h-100 d-flex align-items-center">
+                <div class="slide-post-text mb-6" >
+                    <p class="post-date" data-animation="fadeIn" data-delay="100ms">{{ Carbon\Carbon::parse($slider->created_at)->format('M d Y') }}</p>
+                    <a href="#" class="post-title" data-animation="fadeIn" data-delay="300ms">
+                        <h2>{{ $slider->title }}</h2>
+                    </a>
+                    <p class="post-excerpt" data-animation="fadeIn" data-delay="500ms">{!! Str::limit($slider->description, 100, '...') !!}</p>
+                    <a href="/front-detail/{{ $slider->id }}/News" class="btn nikki-btn" data-animation="fadeIn" data-delay="700ms">Read More</a>
                 </div>
                 <!-- Page Count -->
                 <div class="page-count"></div>
@@ -40,41 +40,17 @@
         @endforelse
 
     </div>
-</section> --}}
-        <section class="hero-area mt-2">
-            {{-- <div id="wowslider-container1">
-                <div class="ws_images">
-                    <ul>
-                        @forelse($sliders as $slider)
-                        <a href="{{  route('front.news') }}">
-            <li><img src="{{ $slider->image }}" alt="Esog" title="{{ $slider->title }}" id="wows1_0" /></li>
-            </a>
-            @empty
-            @endforelse
-            </ul>
-    </div>
-    <div class="ws_bullets">
-        <div>
-            @forelse($sliders as $slider)
-            <a href="#" title="{{ $slider->title }}"><span><img src="{{ $slider->image}}" alt="{{ $slider->title }}" />1</span></a>
-            @empty
-            @endforelse
-        </div>
-    </div>
-</div> --}}
-<!-- Start WOWSlider.com BODY section -->
-<div id="wowslider-container1">
+</section>
+<section class="hero-area mt-2">
+
+    {{-- <div id="wowslider-container1">
     <div class="ws_images">
         <ul>
             @forelse($news as $item)
             <li><img src="{{ $item->image }}" alt="{{ $item->title }}" title="{{ $item->title }}" id="wows1_0" /><a href="/front-detail/{{ $item->id }}/News">{!! Str::limit($item->description, 100, '...') !!}</a></li>
-            @empty
-            @endforelse
-
-            {{-- <li><img src="{{ asset('Front/data1/images/gallery2.jpg') }}" alt="gallery-2" title="gallery-2" id="wows1_1" />Description is gonna be here</li>
-            <li><img src="{{ asset('Front/data1/images/gallery3.jpg') }}" alt="css slideshow" title="gallery-3" id="wows1_2" />Description is gonna be here</li>
-            <li><img src="{{ asset('Front/data1/images/gallery4.jpg') }}" alt="gallery-4" title="gallery-4" id="wows1_3" />Description is gonna be here</li> --}}
-        </ul>
+    @empty
+    @endforelse
+    </ul>
     </div>
     <div class="ws_bullets">
         <div>
@@ -82,12 +58,9 @@
             <a href="#" title="{{ $item->title }}"><span><img src="{{ $item->image }}" alt="{{ $item->title }}" />1</span></a>
             @empty
             @endforelse
-            {{-- <a href="#" title="gallery-2"><span><img src="{{ asset('Front/data1/tooltips/gallery2.jpg') }}" alt="gallery-2" />2</span></a>
-            <a href="#" title="gallery-3"><span><img src="{{ asset('Front/data1/tooltips/gallery3.jpg') }}" alt="gallery-3" />3</span></a>
-            <a href="#" title="gallery-4"><span><img src="{{ asset('Front/data1/tooltips/gallery4.jpg') }}" alt="gallery-4" />4</span></a> --}}
         </div>
     </div>
-</div>
+    </div> --}}
 
 </section>
 <!-- ##### Hero Area End ##### -->
