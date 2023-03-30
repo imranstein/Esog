@@ -36,7 +36,7 @@
                                 video.addEventListener("loadedmetadata", function() {
                                     console.log(videoLength);
                                     // change the video_length to seconds
-                                    this.currentTime = videoLength;
+                                    this.currentTime = videoLength * 60;
 
                                 });
 
