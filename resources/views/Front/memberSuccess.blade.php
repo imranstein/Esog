@@ -23,7 +23,7 @@
         <div class="row justify-content-center position-relative">
             <div class="col-lg-8">
                 <div class="p-5 m-5 mb-0" style="background-color: rgb(223, 223, 223);">
-                    <h4>You Have Registered Successfully.Please Wait Patiently till your Account have been approved.</h4>
+                    <h4>You Have Registered Successfully.Please Check your Email for your temporary password.</h4>
                 </div>
             </div>
         </div>
