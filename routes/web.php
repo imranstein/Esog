@@ -130,7 +130,7 @@ Route::middleware([
         return view('Front.memberPay');
     })->name('memberPay');
     Route::get('coursePay', function () {
-        return view('Front.CoursePay');
+        return view('Front.coursePay');
     })->name('coursePay');
 
     // Route::get('/profile/change_password', [ProfileController::class, 'changePass'])->name('change.password');
