@@ -29,15 +29,15 @@
                                 Your browser does not support the video tag.
 
                             </video>
-                            @php
-                            $video_length = ($course->video_length) * 60;
-                            @endphp
+
                             <script>
                                 var video = document.getElementById("myVideo");
+                                var videoLength = "{{ $memberCourse->video_length  }}";
                                 video.addEventListener("loadedmetadata", function() {
-                                    console.log($video_length);
+                                    console.log(videoLength);
                                     // change the video_length to seconds
-                                    this.currentTime = "{{ $video_length }}";
+                                    this.currentTime = videoLength;
+
                                 });
 
                             </script>
