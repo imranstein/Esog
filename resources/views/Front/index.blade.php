@@ -98,7 +98,7 @@
                                 <div class="card-body" style="overflow-y: auto">
                                     <h4 class="card-title">{{ $latest->title }}</h4>
                                     <h6 class="card-title">{{ $latest->author }}</h6>
-                                    <p class="card-text">{!! Str::limit($latest->description, 100, '...') !!}</p>
+                                    {{-- <p class="card-text">{!! Str::limit($latest->description, 100, '...') !!}</p> --}}
                                 </div>
 
                             </div>
