@@ -24,7 +24,7 @@
             <div class="slide-post-thumbnail h-100 bg-img" style="background-image: url({{ $slider->image }});height:570px !important;"></div>
             <!-- Post Content -->
             <div class="slide-post-content h-100 d-flex align-items-center">
-                <div class="slide-post-text mb-6" >
+                <div class="slide-post-text mb-6">
                     <p class="post-date" data-animation="fadeIn" data-delay="100ms">{{ Carbon\Carbon::parse($slider->created_at)->format('M d Y') }}</p>
                     <a href="#" class="post-title" data-animation="fadeIn" data-delay="300ms">
                         <h2>{{ $slider->title }}</h2>
@@ -41,28 +41,30 @@
 
     </div>
 </section>
-<section class="hero-area mt-2">
+{{-- <section class="hero-area mt-2">
 
-    {{-- <div id="wowslider-container1">
+
+  <div id="wowslider-container1">
     <div class="ws_images">
         <ul>
             @forelse($news as $item)
             <li><img src="{{ $item->image }}" alt="{{ $item->title }}" title="{{ $item->title }}" id="wows1_0" /><a href="/front-detail/{{ $item->id }}/News">{!! Str::limit($item->description, 100, '...') !!}</a></li>
-    @empty
-    @endforelse
-    </ul>
+@empty
+@endforelse
+</ul>
+</div>
+<div class="ws_bullets">
+    <div>
+        @forelse($news as $item)
+        <a href="#" title="{{ $item->title }}"><span><img src="{{ $item->image }}" alt="{{ $item->title }}" />1</span></a>
+        @empty
+        @endforelse
     </div>
-    <div class="ws_bullets">
-        <div>
-            @forelse($news as $item)
-            <a href="#" title="{{ $item->title }}"><span><img src="{{ $item->image }}" alt="{{ $item->title }}" />1</span></a>
-            @empty
-            @endforelse
-        </div>
-    </div>
-    </div> --}}
+</div>
+</div>
 
-</section>
+</section> --}}
+
 <!-- ##### Hero Area End ##### -->
 
 <!-- ##### Blog Content Area Start ##### -->
@@ -344,7 +346,7 @@
 
 @endsection
 
-<script src="{{ asset('Front/new/js/jquery/jquery-2.2.4.min.js') }}"></script>
+{{-- <script src="{{ asset('Front/new/js/jquery/jquery-2.2.4.min.js') }}"></script>
 <script>
     jQuery(document).ready(function() {
 
@@ -407,4 +409,4 @@
 
 </script>
 <script type="text/javascript" src="{{ asset('Front/engine1/wowslider.js')}}"></script>
-<script type="text/javascript" src="{{ asset('Front/engine1/script.js')}}"></script>
+<script type="text/javascript" src="{{ asset('Front/engine1/script.js')}}"></script> --}}
