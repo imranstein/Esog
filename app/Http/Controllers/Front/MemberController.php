@@ -86,7 +86,7 @@ class MemberController extends Controller
 
         $pass = rand(100000, 999999);
         $user = User::create([
-            'name' => $validated['name'],
+            'name' => $name,
             'email' => $validated['email'],
             'password' => bcrypt($pass),
 
