@@ -94,7 +94,7 @@
                                     @if(Auth::check() && Auth::user()->roles[0]->name == 'Member')
                                     @php
                                     $memberId = App\Models\Members::where('user_id',Auth::user()->id)->first()->id;
-                                    $enrolled = App\Models\MemberCourse::where('course_id',$course->id)->where('member_id',$memberId)->first();
+                                    $enrolled = App\Models\MemberCourse::where('course_id',$latest->id)->where('member_id',$memberId)->first();
                                     @endphp
                                     @if ($enrolled == null)
                                     <a href="{{ route('course.enroll',$latest->id) }}">
