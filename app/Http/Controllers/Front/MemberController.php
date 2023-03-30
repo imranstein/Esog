@@ -77,7 +77,7 @@ class MemberController extends Controller
 
         $firstName = $validated['firstName'];
         $lastName = $validated['lastName'];
-        $email = $validated['email'];
+    $email = $validated['email'];
         $id = $members->id;
         $admins = User::role('Admin')->get();
         foreach ($admins as $admin) {
