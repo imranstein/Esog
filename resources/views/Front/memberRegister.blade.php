@@ -58,7 +58,7 @@
                             </div>
 
                             <div class="form-group" style="margin-top: 10px;">
-                                <input type="number" class="form-control" name="phone" placeholder="Phone (This Is your Password Initially)" value="{{ old('phone') }}" required>
+                                <input type="number" class="form-control" name="phone" placeholder="Phone " value="{{ old('phone') }}" required>
                                 @if ($errors->has('phone'))
                                 <span class="text-danger">{{ $errors->first('phone') }}</span>
                                 @endif

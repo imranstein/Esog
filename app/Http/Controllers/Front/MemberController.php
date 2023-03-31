@@ -123,6 +123,7 @@ class MemberController extends Controller
 
     public function paymentSuccess($id, $type)
     {
+
         if ($type == 'course') {
             $member = Members::findOrFail($id);
             $member->coursePurchased = now();

@@ -34,7 +34,7 @@
                                         <a href="#">Payment</a>
                                         <ul class="dropdown">
                                             <li><a href="{{ route('memberYearly') }}" class="nav-link text-left">Subscription</a></li>
-                                            <li><a href="{{ route('memberPay') }}" class="nav-link text-left">Payment</a></li>
+                                            <li><a href="{{ route('memberPay') }}" class="nav-link text-left">LifeTime Payment</a></li>
                                             <li><a href="{{ route('coursePay') }}" class="nav-link text-left">Course</a></li>
                                         </ul>
                                     </li>
