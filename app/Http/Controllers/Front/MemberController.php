@@ -123,7 +123,6 @@ class MemberController extends Controller
 
     public function paymentSuccess($id, $type)
     {
-dd($id, $type);
         if ($type == 'course') {
             $member = Members::findOrFail($id);
             $member->coursePurchased = now();
@@ -143,7 +142,7 @@ dd($id, $type);
             $member->save();
             $message = "You have successfully paid the life time membership fee.";
         }
-
+        dd($message);
         return view('Front.member.paymentSuccess', compact('message'));
     }
 }
