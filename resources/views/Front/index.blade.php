@@ -21,12 +21,15 @@
         @forelse($news as $slider)
         <div class="single-hero-post d-flex flex-wrap">
             <!-- Post Thumbnail -->
-            <div class="slide-post-thumbnail h-100 bg-img" style="background-image: url({{ $slider->image }});height:570px !important;"></div>
+            <a class="slide-post-thumbnail h-100 bg-img" href="/front-detail/{{ $slider->id }}/News">
+                <div style="background-image: url({{ $slider->image }});height:570px !important;"></div>
+            </a>
+
             <!-- Post Content -->
             <div class="slide-post-content h-100 d-flex align-items-center">
-                <div class="slide-post-text mb-6">
+                <div class="slide-post-text mb-6" style="margin-top: -30%;">
                     <p class="post-date" data-animation="fadeIn" data-delay="100ms">{{ Carbon\Carbon::parse($slider->created_at)->format('M d Y') }}</p>
-                    <a href="#" class="post-title" data-animation="fadeIn" data-delay="300ms">
+                    <a href="/front-detail/{{ $slider->id }}/News" class="post-title" data-animation="fadeIn" data-delay="300ms">
                         <h2>{{ $slider->title }}</h2>
                     </a>
                     <p class="post-excerpt" data-animation="fadeIn" data-delay="500ms">{!! Str::limit($slider->description, 100, '...') !!}</p>
