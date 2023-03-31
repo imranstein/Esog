@@ -46,7 +46,7 @@ class ChapaController extends Controller
             'tx_ref' => $reference,
             'currency' => "ETB",
             'callback_url' => route('callback', [$reference]),
-            'return_url' => route('memberSuccess', [$id, $type]),
+            'return_url' => route('paymentSuccess', [$id, $type]),
             'first_name' => $firstName,
             'last_name' => $lastName ?? null,
             "customization" => [

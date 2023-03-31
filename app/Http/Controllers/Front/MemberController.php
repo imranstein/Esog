@@ -77,7 +77,7 @@ class MemberController extends Controller
 
         $firstName = $validated['firstName'];
         $lastName = $validated['lastName'];
-    $email = $validated['email'];
+        $email = $validated['email'];
         $id = $members->id;
         $admins = User::role('Admin')->get();
         foreach ($admins as $admin) {
@@ -119,5 +119,30 @@ class MemberController extends Controller
             $admin->notify(new UserRegistered);
         }
         return view('Front.memberSuccess');
+    }
+
+    public function paymentSuccess($id, $type)
+    {
+        if ($type == 'course') {
+            $member = Members::findOrFail($id);
+            $member->coursePurchased = now();
+            $member->payment_type = 'course';
+            $member->save();
+            $message = "You have successfully purchased the course.You Can Enjoy The Courses Now";
+        } elseif ($type == 'yearly') {
+            $member = Members::findOrFail($id);
+            $member->isPaid = now();
+            $member->payment_type = 'yearly';
+            $member->save();
+            $message = "You have successfully paid the yearly membership fee.";
+        } elseif ($type == 'life') {
+            $member = Members::findOrFail($id);
+            $member->isPaid = now();
+            $member->payment_type = 'life';
+            $member->save();
+            $message = "You have successfully paid the life time membership fee.";
+        }
+
+        return view('Front.member.paymentSuccess', compact('message'));
     }
 }

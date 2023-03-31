@@ -132,6 +132,7 @@ Route::middleware([
     Route::get('coursePay', function () {
         return view('Front.coursePay');
     })->name('coursePay');
+    Route::get('paymentSuccess/{id}/{type}', [MemberController::class, 'paymentSuccess'])->name('paymentSuccess');
 
     // Route::get('/profile/change_password', [ProfileController::class, 'changePass'])->name('change.password');
     Route::post('/profile/update_password', [ProfileController::class, 'passwordUpdate'])->name('password.update');
