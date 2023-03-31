@@ -124,25 +124,24 @@ class MemberController extends Controller
     public function paymentSuccess($id, $type)
     {
         if ($type == 'course') {
-            $member = Members::findOrFail($id);
+            $member = Members::where('user_id', $id)->first();
             $member->coursePurchased = now();
             $member->payment_type = 'course';
             $member->save();
             $message = "You have successfully purchased the course.You Can Enjoy The Courses Now";
         } elseif ($type == 'yearly') {
-            $member = Members::findOrFail($id);
+            $member = Members::where('user_id', $id)->first();
             $member->isPaid = now();
             $member->payment_type = 'yearly';
             $member->save();
             $message = "You have successfully paid the yearly membership fee.";
         } elseif ($type == 'life') {
-            $member = Members::findOrFail($id);
+            $member = Members::where('user_id', $id)->first();
             $member->isPaid = now();
             $member->payment_type = 'life';
             $member->save();
             $message = "You have successfully paid the life time membership fee.";
         }
-        dd($message);
         return view('Front.member.paymentSuccess', compact('message'));
     }
 }
