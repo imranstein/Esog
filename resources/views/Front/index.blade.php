@@ -3,7 +3,7 @@
 @section('content')
 <section class="hero-area">
     <!-- Preloader -->
-    <div class="preloader d-flex align-items-center justify-content-center">
+    {{-- <div class="preloader d-flex align-items-center justify-content-center">
         <div class="circle-preloader">
             <div class="a" style="--n: 5;">
                 <div class="dot" style="--i: 0;"></div>
@@ -13,7 +13,7 @@
                 <div class="dot" style="--i: 4;"></div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
     <div class="hero-post-slides owl-carousel">
 
