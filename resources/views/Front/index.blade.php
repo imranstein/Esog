@@ -22,7 +22,7 @@
         <div class="single-hero-post d-flex flex-wrap">
             <!-- Post Thumbnail -->
             <a class="slide-post-thumbnail h-100 bg-img" href="/front-detail/{{ $slider->id }}/News">
-                <div style="background-image: url({{ $slider->image }});height:570px !important;"></div>
+                <div style="background-image: url({{ $slider->image }});background-repeat:no-repeat;background-size:cover;background-position:center;height:570px !important;width:auto;"></div>
             </a>
 
             <!-- Post Content -->
