@@ -3,9 +3,10 @@
 namespace App\Notifications;
 
 use Illuminate\Bus\Queueable;
+use Illuminate\Support\HtmlString;
+use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
-use Illuminate\Notifications\Notification;
 
 class UserApproved extends Notification
 {
@@ -48,7 +49,7 @@ class UserApproved extends Notification
         return (new MailMessage)
             ->subject('Esog User Approval')
             ->greeting('Hello!')
-            ->line('You have been approved. For now your password is <strong style="font-size: 20px;">' . $this->pass . '</strong>. Please change your password on your first login for security.')
+            ->line(new HtmlString('You Have Been Approved.For now your Password is <strong style="font-size: 20px;">' . $this->pass . '</strong> ,Please Change Your Password On Your First Login For Security.'))
             ->action('Login', url('/home'))
             ->line('Thank you for using our application!');
     }
