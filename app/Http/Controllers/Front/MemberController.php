@@ -84,7 +84,7 @@ class MemberController extends Controller
             $admin->notify(new UserRegistered);
         }
 
-        $pass = rand(100000, 999999);
+        $pass = rand(10000000, 99999999);
         $user = User::create([
             'name' => $name,
             'email' => $validated['email'],

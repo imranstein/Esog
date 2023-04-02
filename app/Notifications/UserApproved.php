@@ -48,7 +48,7 @@ class UserApproved extends Notification
         return (new MailMessage)
             ->subject('Esog User Approval')
             ->greeting('Hello!')
-            ->line('You Have Been Approved.For now your Password is ' . $this->pass . ' . ,Please Change Your Password On Your First Login For Security.')
+            ->line('You have been approved. For now your password is <strong style="font-size: 20px;">' . $this->pass . '</strong>. Please change your password on your first login for security.')
             ->action('Login', url('/home'))
             ->line('Thank you for using our application!');
     }
