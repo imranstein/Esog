@@ -53,7 +53,7 @@ class CertificateController
         $certificate->certificate = $pdfName;
         $certificate->save();
 
-        foreach ($courses as $course) {
+        foreach ($courseId as $course) {
             $course = MemberCourse::find($course);
             $course->update(['certified' => now()]);
         }
