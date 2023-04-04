@@ -41,7 +41,7 @@
                                     <li>
                                         <a href="#">Certificate</a>
                                         <ul class="dropdown">
-                                            <li><a href="certificateGenerate" class="nav-link text-left">Generate</a></li>
+                                            <li><a href="/certificateGenerate" class="nav-link text-left">Generate</a></li>
                                             <li><a href="/certificateHistory" class="nav-link text-left">History</a></li>
                                         </ul>
                                     </li>
