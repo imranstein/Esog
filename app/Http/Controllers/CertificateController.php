@@ -55,8 +55,7 @@ class CertificateController
 
         foreach ($courses as $course) {
             $course = MemberCourse::find($course);
-            $course->certified = now();
-            $course->save();
+            $course->update(['certified' => now()]);
         }
 
 
