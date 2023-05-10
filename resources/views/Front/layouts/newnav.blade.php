@@ -3,10 +3,10 @@
         <div class="row align-items-center">
             <div class="col-12 col-lg-5 d-flex">
                 <a href="index.html" class="site-logo">
-                    <img src="{{ asset('Front/img/logo.png')}}" style="height: 80px;width:auto;" alt="">
+                    <img src="{{ asset('Front/img/Logo.png')}}" style="height: 80px;width:auto;" alt="">
                 </a>
                 <a href="index.html" class="site-logo-mob">
-                    <img src="{{ asset('Front/img/logo1.png')}}" style="height: 80px;width:auto;" alt="">
+                    <img src="{{ asset('Front/img/Logo.png')}}" style="height: 80px;width:auto;" alt="">
                 </a>
 
 

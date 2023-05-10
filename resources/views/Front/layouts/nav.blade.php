@@ -7,7 +7,7 @@
                     <nav class="classy-navbar justify-content-between" id="nikkiNav">
 
                         <!-- Nav brand -->
-                        <a href="{{ route('front.index') }}" class="nav-brand"><img src="{{ asset('Front/img/logo1.png')}}" alt=""></a>
+                        <a href="{{ route('front.index') }}" class="nav-brand"><img src="{{ asset('Front/assets/img/Logo.png')}}" alt="" width="55px" height="auto"></a>
 
                         <!-- Navbar Toggler -->
                         <div class="classy-navbar-toggler">

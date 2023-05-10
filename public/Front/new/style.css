@@ -729,8 +729,8 @@ img {
     max-width: 60%;
     width: 60%;
     height: 700px;
-    -webkit-animation: slide 20s linear infinite;
-    animation: slide 20s linear infinite;
+    /* -webkit-animation: slide 20s linear infinite;
+    animation: slide 20s linear infinite; */
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
