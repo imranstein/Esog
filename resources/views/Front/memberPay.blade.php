@@ -1,5 +1,23 @@
 @extends('Front.layouts.memberApp')
 @section('content')
+<div class="mosh-breadcumb-area" style="background-image: url({{ asset('Front/img/core-img/breadcumb.png') }});">
+    <div class="container h-100">
+        <div class="row h-100 align-items-center">
+            <div class="col-12">
+                <div class="bradcumbContent">
+                    <h2>Membership Payment</h2>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Membership Payment</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="container-fluid py-5">
     <div class="container py-5">
         <div class="row justify-content-center position-relative">

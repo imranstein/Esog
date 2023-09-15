@@ -1,162 +1,102 @@
 @extends('Front.layouts.app')
 @section('title','Contact Us')
 @section('content')
-{{-- <div class="container-fluid bg-primary py-5 bg-hero" style="margin-bottom: 90px;">
-    <div class="container py-5">
-        <div class="row justify-content-start">
-            <div class="col-lg-4 text-center text-lg-start">
-                <h1 class="display-1 text-dark">Contact Us</h1>
-                {{-- <div class="pt-2">
-                    <a href="" class="btn btn-secondary rounded-pill py-2 px-4 mx-2">Home</a>
-                    <a href="" class="btn btn-secondary rounded-pill py-2 px-4 mx-2">Contact Us</a>
-                </div> --}
+<div class="mosh-breadcumb-area" style="background-image: url({{ asset('Front/img/core-img/breadcumb.png') }});">
+    <div class="container h-100">
+        <div class="row h-100 align-items-center">
+            <div class="col-12">
+                <div class="bradcumbContent">
+                    <h2>Contact</h2>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Say Hello</li>
+                        </ol>
+                    </nav>
+                </div>
             </div>
         </div>
     </div>
-</div> --}}
-<!-- Hero End -->
-
-
-<!-- Contact Start -->
+</div>
 <div class="map-area">
     {{-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d22236.40558254599!2d-118.25292394686001!3d34.057682914027104!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2c75ddc27da13%3A0xe22fdf6f254608f4!2z4Kay4Ka4IOCmj-CmnuCnjeCmnOCnh-CmsuCnh-CmuCwg4KaV4KeN4Kav4Ka-4Kay4Ka_4Kar4KeL4Kaw4KeN4Kao4Ka_4Kav4Ka84Ka-LCDgpq7gpr7gprDgp43gppXgpr_gpqgg4Kav4KeB4KaV4KeN4Kak4Kaw4Ka-4Ka34KeN4Kaf4KeN4Kaw!5e0!3m2!1sbn!2sbd!4v1532328708137" allowfullscreen></iframe> --}}
     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.5476579315255!2d38.75573901459058!3d9.01370239353145!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b856ccc941901%3A0x5053eb99e57c4eb0!2sESOG!5e0!3m2!1sen!2set!4v1672906357801!5m2!1sen!2set" allowfullscreen></iframe>
 
 </div>
-<!-- ##### Google Maps End ##### -->
 
-<!-- ##### Contact Area Start ##### -->
-<section class="contact-area section-padding-100-0">
+<!-- ***** Breadcumb Area End ***** -->
+
+<!-- ***** Contact Area Start ***** -->
+<section class="contact-area section_padding_100">
     <div class="container">
         <div class="row">
-
-            <div class="col-12 col-lg-6">
-                <div class="contact-content mb-100">
-                    <h4>Get In Touch</h4>
-                    {{-- <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia dese mollit anim id est laborum, consectetur adipisicing elit.</p> --}}
-                    <!-- Single Contact Info -->
-                    <div class="single-contact-info">
-                        <h6>Location:</h6>
-                        <h6>Tsehafi Tízaz Teferawork Keda Building, Ras Desta Damtew Avenue</h6>
-                    </div>
-
-                    <!-- Single Contact Info -->
-                    <div class="single-contact-info">
-                        <h6>Email:</h6>
-                        {{-- prompt to email --}}
-                        <h4><a style="color: black" href="mailto: info@esog-eth.org"> info@esog-eth.org</a></h4>
-                        <h4><a style="color: black" href="mailto: esogeth@gmail.com"> esogeth@gmail.com</a></h4>
-
-
-                    </div>
-
-                    <!-- Single Contact Info -->
-                    <div class="single-contact-info">
-                        <h6>Phone:</h6>
-                        {{-- prompt to call --}}
-                        <h4><a style="color: black" href="tel:+251115506068">+251115506068</a></h4>
-                        <h4><a style="color: black" href="tel:+251115506069">+251115506069</a></h4>
-
-                        <h4></h4>
-                    </div>
+            <!-- Contact Form Area -->
+            <div class="col-12 col-md-8">
+                <div class="contact-form-area">
+                    <h2>Get in touch</h2>
+                    <form method="POST" action="{{ route('front.contact.send') }}>
+                        <div class=" row">
+                        <div class="col-12 col-md-6">
+                            <input type="text" class="form-control" id="name" placeholder="Name" name="name" value="{{ old('name') }}">
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <input type="email" class="form-control" id="email" placeholder="E-mail" name="email" value="{{ old('email') }}">
+                        </div>
+                        <div class="col-12">
+                            <input type="text" class="form-control" id="subject" placeholder="Subject" name="subject" value="{{ old('subject') }}">
+                        </div>
+                        <div class="col-12">
+                            <textarea name="message" class="form-control" id="message" cols="30" rows="10" placeholder="Message" name="message">{{ old('message') }}>
+                            </textarea>
+                        </div>
+                        <button class="btn mosh-btn mt-50" type="submit">Send Message</button>
                 </div>
+                </form>
             </div>
-
-            <div class="col-12 col-lg-6">
-                <div class="contact-content mb-100">
-                    <h4>Contact Form</h4>
-
-                    <!-- Contact Form Area -->
-                    <div class="contact-form-area">
-                        <form method="POST" action="{{ route('front.contact.send') }}">
-                            <div class="form-group">
-                                <input type="text" class="form-control" name="name" id="contact-name" placeholder="Name">
-                            </div>
-                            <div class="form-group">
-                                <input type="email" class="form-control" name="email" id="contact-email" placeholder="Email">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" name="subject" id="contact-subject" placeholder="Subject">
-                            </div>
-                            <div class="form-group">
-                                <textarea class="form-control" name="message" id="message" cols="30" rows="10" placeholder="Message"></textarea>
-                            </div>
-                            <button type="submit" class="btn nikki-btn mt-15">Submit</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-
         </div>
+        <!-- Contact Information -->
+        <div class="col-12 col-md-4">
+            <div class="contact-information">
+                <h2>Contact</h2>
+                <div class="single-contact-info d-flex">
+                    <div class="contact-icon mr-15">
+                        <img src="{{ asset('Front/img/core-img/map.png')}}" alt="">
+                    </div>
+                    <p>Tsehafi Tízaz Teferawork Keda Building, <br> Ras Desta Damtew Avenue</p>
+
+                </div>
+                <div class="single-contact-info d-flex">
+                    <div class="contact-icon mr-15">
+                        <img src="{{ asset('Front/img/core-img/call.png')}}" alt="">
+                    </div>
+                    <p>Main: <a href="tel:+251115506068">+251115506068</a> <br> Office: <a href="tel:+251115506069">+251115506069</a></p>
+                </div>
+                <div class="single-contact-info d-flex">
+                    <div class="contact-icon mr-15">
+                        <img src="{{ asset('Front/img/core-img/message.png')}}" alt="">
+                    </div>
+                    <p><a href="mailto: info@esog-eth.org"> info@esog-eth.org</a> <br> <a href="mailto: esogeth@gmail.com"> esogeth@gmail.com</a></p>
+                </div>
+                <div class="contact-social-info mt-50">
+                    <a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
+                    <a href="https://www.facebook.com/esogethiopia"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                    <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                    <a href="https://www.youtube.com/channel/UCSkpjufHp_Nsnh_WGf3PM5w?view_as=subscriber"><i class="fa fa-youtube" aria-hidden="true"></i></a>
+                    <a href="#"><i class="fa fa-behance" aria-hidden="true"></i></a>
+                    <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
     </div>
 </section>
 
-{{-- <div class="container-fluid py-5">
-    <div class="container py-5">
-        <div class="text-center mx-auto mb-5" style="max-width: 500px;">
-            <h4 class="display-6">Please Feel Free To Contact Us</h1>
-                <hr class="w-25 mx-auto text-primary" style="opacity: 1;">
-        </div>
-        <div class="row g-3 mb-5">
-            <div class="col-lg-4 col-md-6 pt-5">
-                <div class="contact-item d-flex flex-column align-items-center justify-content-center text-center pb-5">
-                    <div class="contact-icon p-3">
-                        <div><i class="fa fa-2x fa-map-marker-alt"></i></div>
-                    </div>
-                    <h4 class="mt-5">Ghion Street, Addis Ababa, Ethiopia</h4>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 pt-5">
-                <div class="contact-item d-flex flex-column align-items-center justify-content-center text-center pb-5">
-                    <div class="contact-icon p-3">
-                        <div><i class="fa fa-2x fa-phone"></i></div>
-                    </div>
-                    <h4 class="mt-5">+251 920 345 6789</h4>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 pt-5">
-                <div class="contact-item d-flex flex-column align-items-center justify-content-center text-center pb-5">
-                    <div class="contact-icon p-3">
-                        <div><i class="fa fa-2x fa-envelope-open"></i></div>
-                    </div>
-                    <h4 class="mt-5">info@esog.com</h4>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12" style="height: 500px;">
-                <div class="position-relative h-100">
-                    <iframe class="position-relative w-100 h-100" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3001156.4288297426!2d-78.01371936852176!3d42.72876761954724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4ccc4bf0f123a5a9%3A0xddcfc6c1de189567!2sNew%20York%2C%20USA!5e0!3m2!1sen!2sbd!4v1603794290143!5m2!1sen!2sbd" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-                </div>
-            </div>
-        </div>
-        <div class="row justify-content-center position-relative" style="margin-top: -200px; z-index: 1;">
-            <div class="col-lg-8">
-                <div class="bg-primary p-5 m-5 mb-0">
-                    <form method="POST" action="{{ route('front.contact.send') }}">
-@csrf
-<div class="row g-3">
-    <div class="col-12 col-sm-6">
-        <input type="text" class="form-control bg-light border-0" placeholder="Your Name" style="height: 55px;" name="name">
-    </div>
-    <div class="col-12 col-sm-6">
-        <input type="email" class="form-control bg-light border-0" placeholder="Your Email" style="height: 55px;" name="email">
-    </div>
-    <div class="col-12">
-        <input type="text" class="form-control bg-light border-0" placeholder="Subject" style="height: 55px;" name="subject">
-    </div>
-    <div class="col-12">
-        <textarea class="form-control bg-light border-0" rows="5" placeholder="Message" name="message"></textarea>
-    </div>
-    <div class="col-12">
-        <button class="btn btn-secondary w-100 py-3" type="submit">Send Message</button>
-    </div>
-</div>
-</form>
-</div>
-</div>
-</div>
-</div>
-</div> --}}
+
+
+<!-- Contact Start -->
+
+<!-- ##### Google Maps End ##### -->
+
+<!-- ##### Contact Area Start ##### -->
 
 @endsection

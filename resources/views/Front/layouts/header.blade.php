@@ -6,18 +6,18 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title -->
-    <title>Esog</title>
+    <title>Esog - @yield('title')</title>
 
     <!-- Favicon -->
-    <link rel="icon" href="{{ asset('Front/img/logo1.png') }}">
+    <link rel="icon" href="{{ asset('Front/img/core-img/favicon.ico')}}">
+
 
     <!-- Core Stylesheet -->
-    <link rel="stylesheet" href="{{ asset('Front/new/style.css') }}">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
-    <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
+    <link href="{{ asset('Front/style.css')}}" rel="stylesheet">
 
-    <link rel="stylesheet" type="text/css" href="{{ asset('Front/engine1/style.css')}}" />
-    <script type="text/javascript" src="{{ asset('Front/engine1/jquery.js')}}"></script>
+
+    <!-- Responsive CSS -->
+    <link href="{{ asset('Front/css/responsive.css')}}" rel="stylesheet">
+
+
 </head>

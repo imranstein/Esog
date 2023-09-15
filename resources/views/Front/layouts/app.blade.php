@@ -4,19 +4,24 @@
 @include('Front.layouts.header')
 
 <body>
-    <!-- ##### Header Area Start ##### -->
+    <!-- ***** Preloader Start ***** -->
+    <div id="preloader">
+        <div class="mosh-preloader"></div>
+    </div>
+
+    <!-- ***** Header Area Start ***** -->
     @include('Front.layouts.nav')
-    <!-- ##### Header Area End ##### -->
+    <!-- ***** Header Area End ***** -->
 
-    <!-- ##### Hero Area Start ##### -->
+    <!-- ***** Welcome Area Start ***** -->
     @yield('content')
-    <!-- ##### Instagram Area End ##### -->
 
-    <!-- ##### Footer Area Start ##### -->
+    <!-- ***** CTA Area End ***** -->
+
+    <!-- ***** Footer Area Start ***** -->
     @include('Front.layouts.footer')
-    <!-- ##### Footer Area Start ##### -->
+    <!-- ***** Footer Area End ***** -->
 
-    <!-- ##### All Javascript Script ##### -->
     <!-- jQuery-2.2.4 js -->
     @include('Front.layouts.script')
 </body>

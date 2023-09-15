@@ -1,20 +1,24 @@
 @extends('Front.layouts.app')
 @section('title','Members')
 @section('content')
-{{-- <div class="container-fluid bg-primary py-5 bg-hero" style="margin-bottom: 90px">
-    <div class="container py-5">
-        <div class="row justify-content-start">
-            <div class="col-lg-8 text-center text-lg-start">
-                <h1 class="display-1 text-dark">The Team</h1>
-                {{-- <div class="pt-2">
-                    <a href="" class="btn btn-forth rounded-pill py-2 px-4 mx-2">Home</a>
-                    <a href="" class="btn btn-forth rounded-pill py-2 px-4 mx-2">About Us</a>
-                </div> --}
+<div class="mosh-breadcumb-area" style="background-image: url({{ asset('Front/img/core-img/breadcumb.png') }});">
+    <div class="container h-100">
+        <div class="row h-100 align-items-center">
+            <div class="col-12">
+                <div class="bradcumbContent">
+                    <h2>Members</h2>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Members</li>
+                        </ol>
+                    </nav>
+                </div>
             </div>
         </div>
     </div>
-</div> --}}
-<!-- Hero End -->
+</div>
+
 
 
 <!-- Team Start -->
@@ -33,23 +37,23 @@
                     <div class="team-text">
                         {{-- <div class="team-social">
                             <a class="btn btn-lg btn-secondary btn-lg-square rounded-circle me-2" href="/{{ $member->twitter }}"><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-lg btn-secondary btn-lg-square rounded-circle me-2" href="/{{ $member->facebook }}"><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-lg btn-secondary btn-lg-square rounded-circle me-2" href="/{{ $member->linkedin }}"><i class="fab fa-linkedin-in"></i></a>
-                        </div> --}}
-                        <div class="mt-auto mb-2">
-                            <h4 class="mb-1">{{ $member->name }}</h4>
-                            <span class="text-uppercase">{{ $member->designation }}</span>
-                            <span class="text-uppercase">{{ $member->email }}</span>
+                        <a class="btn btn-lg btn-secondary btn-lg-square rounded-circle me-2" href="/{{ $member->facebook }}"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-lg btn-secondary btn-lg-square rounded-circle me-2" href="/{{ $member->linkedin }}"><i class="fab fa-linkedin-in"></i></a>
+                    </div> --}}
+                    <div class="mt-auto mb-2">
+                        <h4 class="mb-1">{{ $member->name }}</h4>
+                        <span class="text-uppercase">{{ $member->designation }}</span>
+                        <span class="text-uppercase">{{ $member->email }}</span>
 
-                        </div>
                     </div>
                 </div>
             </div>
-            @endforeach
+        </div>
+        @endforeach
         {{ $members->links() }}
 
-        </div>
     </div>
+</div>
 </div>
 {{-- Service Section --}}
 

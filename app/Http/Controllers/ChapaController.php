@@ -56,6 +56,7 @@ class ChapaController extends Controller
         ];
 
         $payment = Chapa::initializePayment($data);
+        dd($payment);
 
 
         if ($payment['status'] !== 'success') {

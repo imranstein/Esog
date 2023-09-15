@@ -1,27 +1,30 @@
-<!-- @format -->
-
 <!DOCTYPE html>
 <html lang="en">
+
 @include('Front.layouts.header')
 
 <body>
-    <!-- Topbar Start -->
-    {{-- @include('Front.layouts.top') --}}
-    <!-- Topbar End -->
+    <!-- ***** Preloader Start ***** -->
+    <div id="preloader">
+        <div class="mosh-preloader"></div>
+    </div>
 
-    <!-- Navbar Start -->
+    <!-- ***** Header Area Start ***** -->
     @include('Front.layouts.memberNav')
-    <!-- Navbar End -->
 
+    <!-- ***** Header Area End ***** -->
+
+    <!-- ***** Welcome Area Start ***** -->
     @yield('content')
 
+    <!-- ***** CTA Area End ***** -->
 
-
-    <!-- Footer Start -->
+    <!-- ***** Footer Area Start ***** -->
     @include('Front.layouts.footer')
-    <!-- Footer End -->
+    <!-- ***** Footer Area End ***** -->
 
-    <!-- Back to Top -->
+    <!-- jQuery-2.2.4 js -->
     @include('Front.layouts.script')
 </body>
+
 </html>

@@ -1,33 +1,42 @@
 @extends('Front.layouts.app')
-@section('title','Contact Us')
+@section('title','Success')
 @section('content')
-{{-- <div class="container-fluid bg-primary py-5 bg-hero" style="margin-bottom: 90px;">
-    <div class="container py-5">
-        <div class="row justify-content-start">
-            <div class="col-lg-4 text-center text-lg-start">
-                <h1 class="display-1 text-dark">Member</h1>
-                {{-- <div class="pt-2">
-                    <a href="" class="btn btn-secondary rounded-pill py-2 px-4 mx-2">Home</a>
-                    <a href="" class="btn btn-secondary rounded-pill py-2 px-4 mx-2">Contact Us</a>
-                </div> --}
-            </div>
-        </div>
-    </div>
-</div> --}}
-<!-- Hero End -->
-
-
-<!-- Contact Start -->
-<div class="container-fluid py-5">
-    <div class="container py-5">
-        <div class="row justify-content-center position-relative">
-            <div class="col-lg-8">
-                <div class="p-5 m-5 mb-0" style="background-color: rgb(223, 223, 223);">
-                    <h4>You Have Registered Successfully.Please Check your Email for your temporary password.</h4>
+<div class="mosh-breadcumb-area" style="background-image: url({{ asset('Front/img/core-img/breadcumb.png') }});">
+    <div class="container h-100">
+        <div class="row h-100 align-items-center">
+            <div class="col-12">
+                <div class="bradcumbContent">
+                    <h2>Member Registration</h2>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Member Registration Successful</li>
+                        </ol>
+                    </nav>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<!-- ***** Breadcumb Area End ***** -->
 
+<!-- ***** Contact Area Start ***** -->
+<section class="contact-area section_padding_100">
+    <div class="container">
+        <div class="row">
+            <!-- Contact Form Area -->
+            <div class="col-12">
+                <div class="contact-form-area">
+                    <div class="col-lg-8">
+                        <div class="p-5 m-5 mb-0" style="background-color: rgb(223, 223, 223);">
+                            <h4>You Have Registered Successfully.Please Check your Email for your temporary password.</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Contact Information -->
+
+        </div>
+    </div>
+</section>
 @endsection
