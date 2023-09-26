@@ -11,7 +11,7 @@
                     <h2>{{ $slider->title }}</h2>
                 </a>
                 <h4>{!! Str::limit($slider->description, 80, '...') !!}</h4>
-                <img class="slide-img" src="{{ $slider->image }}" alt="">
+                <img class="slide-img" src="{{ $slider->image }}" alt="" style="height:709px;width:1150px;">
             </div>
         </div>
         @empty
