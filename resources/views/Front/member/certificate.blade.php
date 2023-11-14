@@ -5,19 +5,6 @@
     <title>{{ $name }} -Certificate</title>
     <link href="{{  asset('Front/css/bootstrap.min.css') }}" rel="stylesheet">
     @php
-    // Load images and convert to Base64
-    // $logoPath = public_path('Front/img/logo.png');
-    // $logoData = base64_encode(file_get_contents($logoPath));
-    // $logoSrc = 'data:image/png;base64,'.$logoData;
-
-    // $signaturePath = public_path('Front/img/signature.png');
-    // $signatureData = base64_encode(file_get_contents($signaturePath));
-    // $signatureSrc = 'data:image/png;base64,'.$signatureData;
-
-    // $stampPath = public_path('Front/img/stamp.png');
-    // $stampData = base64_encode(file_get_contents($stampPath));
-    // $stampSrc = 'data:image/png;base64,'.$stampData;
-    // background
     $backgroundPath = public_path('Front/assets/img/certificate.png');
     $backgroundData = base64_encode(file_get_contents($backgroundPath));
     $backgroundSrc = 'data:image/png;base64,'.$backgroundData;
